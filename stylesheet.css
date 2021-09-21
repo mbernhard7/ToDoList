@@ -29,16 +29,27 @@ button {
     width: 80%;
 }
 
-/* The actual popup (appears on top) */
-.popup .popuptext {
-    background-color: #555;
-    color: #fff;
-    text-align: center;
-    /*border-radius: 6px;*/
-    padding: 8px 0;
-    position: absolute;
-    z-index: 1;
-    bottom: 125%;
-    left: 50%;
-    /*margin-left: -80px;*/
+.body{
+    display: flex;
+    border: solid;
 }
+
+#popup {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    /*border: solid;*/
+}
+/*!* The actual popup (appears on top) *!*/
+/*.popup .popuptext {*/
+/*    background-color: #555;*/
+/*    color: #fff;*/
+/*    text-align: center;*/
+/*    !*border-radius: 6px;*!*/
+/*    padding: 8px 0;*/
+/*    position: absolute;*/
+/*    z-index: 1;*/
+/*    bottom: 125%;*/
+/*    left: 50%;*/
+/*    !*margin-left: -80px;*!*/
+/*}*/
