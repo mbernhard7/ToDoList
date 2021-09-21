@@ -1,28 +1,111 @@
-h1 {
-    text-align: center;
+body{
+    width: 360px;
+    height: 640px;
+    border: solid black;
 }
 
-#background {
-    justify-content: space-evenly;
-    border: solid;
-    align-content: center;
-}
-
-#settings {
-    overflow: hidden;
-    position: fixed;
+#header {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    height: 70px;
+    border-bottom: solid thin black;
+    align-items: center;
 }
 
+#header > h1 {
+    font-size: 50px;
+}
+
+#header > button {
+    height: 40px;
+    width: 80px;
+    font-size: 25px;
+    margin: 10px;
+    border-radius: 15px;
+}
+
+#saveEdits {
+    background: #aaf683;
+    border: #aaf683;
+}
+
+#addItem {
+    background: #aaf683;
+}
+
+#addItem:disabled {
+    background: lightgray !important;
+    border: lightgray;
+}
+
+#itemList {
+    height: 500px;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+.listItem {
+    height: 30px;
+    padding: 20px 10px;
+    list-style-type: none;
+    border-bottom: dashed thin gray;
+    display: flex;
+    justify-content: space-between;
+}
+
+.editInput {
+    width: 70%;
+}
+
+.deleteButton {
+    background: #ff9b85;
+    border: #ff9b85;
+    width: 80px
+}
+
+#footer {
+    display: flex;
+    justify-content: space-evenly;
+    height: 70px;
+    border-top: solid thin black;
+    align-items: center;
+}
+
+#footer > button {
+    height: 40px;
+}
+
+#deleteCompleted {
+    background: #ff9b85;
+    border: #ff9b85;
+}
+
+#deleteAll {
+    background: #ee6055;
+    border: #ee6055
+}
 button {
     width: 30%;
 }
 
-#popup {
-    margin-left: 30px;
+/* Popup container */
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    width: 80%;
 }
 
-#Add\ Task\ Button {
-    align-content: center;
+
+
+#popup {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    /*border: solid;*/
+}
+
+.editItem {
+    width: 60%
 }
