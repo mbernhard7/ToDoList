@@ -35,52 +35,84 @@ One of the things we're most proud of is the ability for users to add tasks, del
 
 We also were proud of how critical we were with design iteration. We went through many versions of our to-do list. 
 
-####In an empty list, create an item named "Buy new John Grisham book"
+###In an empty list, create an item named "Buy new John Grisham book"
 Screen at the beginning of task:
+
 ![Screenshot](./images/screenshots/screen1.jpg)
 
 Screen during task:
+
 ![Screenshot](./images/screenshots/screen2.jpg)
 
 Screen after task:
+
 ![Screenshot](./images/screenshots/screen3.jpg)
 
-####In a non-empty list, create an item named "Eat Lunch"
+###In a non-empty list, create an item named "Eat Lunch"
 Screen at the beginning of task:
+
 ![Screenshot](./images/screenshots/screen4.jpg)
+
 Screen during task:
+
 ![Screenshot](./images/screenshots/screen5.jpg)
+
 Screen after task:
+
 ![Screenshot](./images/screenshots/screen6.jpg)
-####Mark the item named "Call Mom" completed (assumes there exists an item named "Call Mom").
+
+###Mark the item named "Call Mom" completed (assumes there exists an item named "Call Mom").
 Screen at the beginning of task:
+
 ![Screenshot](./images/screenshots/screen7.jpg)
+
 Screen during task: N/A
 
 Screen after task:
+
 ![Screenshot](./images/screenshots/screen8.jpg)
-####Rename the item "Text John" to "Text John about bank statements" (assumes there exists an item named "Text John").
+
+###Rename the item "Text John" to "Text John about bank statements" (assumes there exists an item named "Text John").
 Screen at the beginning of task:
+
 ![Screenshot](./images/screenshots/screen9.jpg)
+
 Screen before renaming:
+
 ![Screenshot](./images/screenshots/screen10.jpg)
+
 Screen after renaming:
+
 ![Screenshot](./images/screenshots/screen11.jpg)
+
 Screen after task:
+
 ![Screenshot](./images/screenshots/screen12.jpg)
-####Show only uncompleted items.
+
+###Show only uncompleted items.
 Screen at the beginning of task:
+
 ![Screenshot](./images/screenshots/screen13.jpg)
+
 Screen during task: N/A
 
 Screen after task:
+
 ![Screenshot](./images/screenshots/screen14.jpg)
-####Delete all completed items.
+
+###Delete all completed items.
 Screen at the beginning of task:
+
 ![Screenshot](./images/screenshots/screen15.jpg)
+
 Screen during task:
+
 ![Screenshot](./images/screenshots/screen16.jpg)
+
 Screen during task:
+
 ![Screenshot](./images/screenshots/screen17.jpg)
+
 Screen after task:
+
 ![Screenshot](./images/screenshots/screen18.jpg)
