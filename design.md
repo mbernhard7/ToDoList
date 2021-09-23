@@ -35,6 +35,8 @@ One of the most difficult parts of this project for us was finding the best UI f
 ### What we're most proud of:
 One of the things we're most proud of is the ability for users to add tasks, delete tasks, view all uncompleted tasks, and view all tasks (uncompleted or not) all within 3 keypresses. 
 
+We also were proud of how critical we were with design iteration. We went through many versions of our to-do list. 
+
 ####In an empty list, create an item named "Buy new John Grisham book"
 Screen at the beginning of task:
 
@@ -52,21 +54,23 @@ Screen after task:
 ####Mark the item named "Call Mom" completed (assumes there exists an item named "Call Mom").
 Screen at the beginning of task:
 
-Screen during task:
+Screen during task: N/A
 
 Screen after task:
 
 ####Rename the item "Text John" to "Text John about bank statements" (assumes there exists an item named "Text John").
 Screen at the beginning of task:
 
-Screen during task:
+Screen before renaming:
+
+Screen after renaming:
 
 Screen after task:
 
 ####Show only uncompleted items.
 Screen at the beginning of task:
 
-Screen during task:
+Screen during task: N/A
 
 Screen after task:
 
