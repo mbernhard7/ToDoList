@@ -8,6 +8,7 @@ body{
 button {
     border-radius: 15px;
 }
+
 #header {
     display: flex;
     height: 12.5%;
@@ -77,6 +78,7 @@ input.checkbox {
     justify-content: space-between;
 }
 
+/* Text input area for renaming item */
 .editInput {
     width: 60%;
     height: 70%;
@@ -128,6 +130,10 @@ input.checkbox {
     margin: 0 auto;
 }
 
+/* Set visibility of all buttons in createHeader to hidden, then override in the closeCreate button.
+This is because we created a dummy button that is the same size as the close button in order to allow us
+to center the title and put the close button on the left */
+
 #createHeader > button {
     border-radius: 50px;
     height:40px;
@@ -138,15 +144,11 @@ input.checkbox {
     visibility: hidden;
     pointer-events: none;
 }
+
 #closeCreate {
     visibility: visible !important;
     pointer-events: auto !important;
     font-size: 20px;
-}
-#dummy {
-    border-radius: 50px;
-    height:40px;
-    width: 40px;
 }
 
 #createForm {
@@ -169,9 +171,6 @@ input.checkbox {
     font-size: 20px;
     background: #aaf683;
 }
-
-
-
 
 #footer {
     display: flex;
