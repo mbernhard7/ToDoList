@@ -1,15 +1,19 @@
 body{
-    width: 360px;
     height: 640px;
+    width: 360px;
     border: solid black;
+    margin: 0;
 }
 
+button {
+    border-radius: 15px;
+}
 #header {
     display: flex;
-    justify-content: space-between;
-    height: 70px;
-    border-bottom: solid thin black;
+    height: 12.5%;
+    justify-content: space-around;
     align-items: center;
+    border-bottom: solid thin black;
 }
 
 #header > h1 {
@@ -17,95 +21,204 @@ body{
 }
 
 #header > button {
-    height: 40px;
-    width: 80px;
+    height: 55%;
+    width: 20%;
     font-size: 25px;
-    margin: 10px;
-    border-radius: 15px;
 }
 
 #saveEdits {
     background: #aaf683;
-    border: #aaf683;
 }
 
 #addItem {
     background: #aaf683;
+    font-size: 30px !important;
 }
 
 #addItem:disabled {
     background: lightgray !important;
-    border: lightgray;
 }
 
 #itemList {
-    height: 500px;
+    height: 75%;
     width: 100%;
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
+}
+
+#noItems {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    text-align: center;
+}
+
+#noItems > h3 {
+    width: 60%;
+    margin: auto;
 }
 
 .listItem {
-    height: 30px;
-    padding: 20px 10px;
+    height: 10%;
+    padding: 10px;
     list-style-type: none;
     border-bottom: dashed thin gray;
     display: flex;
+    align-items: center;
+    font-size: 20px;
+}
+
+input.checkbox {
+    transform: scale(2);
+    margin: 10px 10px 10px 15px;
+}
+
+.listItem.editInProgress {
     justify-content: space-between;
 }
 
 .editInput {
-    width: 70%;
+    width: 60%;
+    height: 70%;
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
 }
 
 .deleteButton {
+    height: 70%;
+    width: 20%;
     background: #ff9b85;
-    border: #ff9b85;
-    width: 80px
+    margin: 0;
+    padding: 0;
 }
+
+#createPopupBackground {
+    background-color: rgba(211,211,211,.9);
+    height: 640px;
+    width: 360px;
+    z-index: 9;
+    position: fixed;
+    top: 6px;
+    left: 6px;
+    display: flex;
+    align-items: center;
+}
+
+#createPopup {
+    margin: auto;
+    width: 75%;
+    height: 25%;
+    background: white;
+    opacity: 100%;
+    border: solid thin black;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+}
+#createHeader {
+    display: flex;
+    width: 100%;
+    border-bottom: thin solid black;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#createHeader > h2 {
+    margin: 0 auto;
+}
+
+#createHeader > button {
+    border-radius: 50px;
+    height:40px;
+    width: 40px;
+    background: black;
+    color: white;
+    margin: 5px;
+    visibility: hidden;
+    pointer-events: none;
+}
+#closeCreate {
+    visibility: visible !important;
+    pointer-events: auto !important;
+    font-size: 20px;
+}
+#dummy {
+    border-radius: 50px;
+    height:40px;
+    width: 40px;
+}
+
+#createForm {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#taskName {
+    width: 90%;
+    height: 30%;
+    font-size: 18px;
+}
+#addTask {
+    width:60%;
+    height:30%;
+    font-size: 20px;
+    background: #aaf683;
+}
+
+
+
 
 #footer {
     display: flex;
     justify-content: space-evenly;
-    height: 70px;
+    height: 12.5%;
     border-top: solid thin black;
     align-items: center;
 }
 
-#footer > button {
-    height: 40px;
-}
-
 #deleteCompleted {
+    width: 40%;
+    height: 60%;
+    font-size: 15px;
     background: #ff9b85;
-    border: #ff9b85;
 }
 
 #deleteAll {
+    width: 40%;
+    height: 60%;
+    font-size: 15px;
     background: #ee6055;
-    border: #ee6055
-}
-button {
-    width: 30%;
 }
 
-/* Popup container */
-.popup {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-    width: 80%;
-}
-
-
-
-#popup {
+#switcherContainer {
+    width: 75%;
+    height: 60%;
+    border: solid thin black;
+    border-radius: 15px;
+    background: white;
+    padding: 0;
     display: flex;
     justify-content: space-between;
-    width: 100%;
-    /*border: solid;*/
 }
 
-.editItem {
-    width: 60%
+#switcherContainer > button {
+    height: 100%;
+    width: 49%;
+    background: none;
+    border: none;
+    font-size: 20px;
+}
+
+#switcherContainer > button:disabled {
+    background: cornflowerblue;
+    color: black;
+}
+
+#switcherContainer > button:active {
+    color: darkgrey;
 }
