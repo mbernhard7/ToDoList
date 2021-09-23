@@ -1,6 +1,7 @@
 ## Design Overview
 
 We began our project with sketches of our to-do list application on paper. This draft included only two buttons: one to add an item, and one to remove an item. We also toyed with the idea of adding an edit button. We wanted to start as simple as possible, run some user testing, and update our to-do list layout accordingly.
+
 ![First Draft](./images/mockups/FirstDraft.jpg)
 
 After making the initial paper draft, we then made mockups on Balsamiq to use for our user tests. We handed the Balsamiq slides to our test users (roommates), told them what the required tasks our UI should support, and observed how they navigated the different screens.
@@ -21,14 +22,18 @@ We then used the notes app to make some UI mockups of our HTML files. Looking sp
 ![First Draft](./images/mockups/EditFlowInitial.jpg)
 
 
-We ended up deciding against this design, since we found this layout to be cumbersome for users who wanted to edit multiple tasks. While it did allow for more security (users could not accidentally delete multiple tasks) we found out via more roommate user testing that the inability to edit multiple tasks at once without more key-presses was a bigger concern than that of accidental task deletes. 
+We ended up deciding against this design, since we found this layout to be cumbersome for users who wanted to edit multiple tasks at once. While it did allow for more security (users could not accidentally delete multiple tasks) we found out via more roommate user testing that the inability to edit multiple tasks at once without more key-presses was a bigger concern than that of accidental task deletes. 
 
 The new design also allowed the UI to be more simple, since one edit button would cover the function of editing all tasks. Here is the wireframe for the design we ultimately went with, except that we moved the tab switcher to the bottom since it was hard to click at the top:
 
 ![Second Draft](./images/mockups/EditFlowFinal.jpg)
 
+Finally, after submitting our first pull request, we received some feedback from Professor Rhodes that the "save" button may not have been the most clear for users. By changing this button to say "done" we attempted to mitigate confusion about how to return to the home screen and exit the editing mode.
+
 ### Challenges we faced:
 One of the most difficult parts of this project for us was finding the best UI for the to-do list. There were many options that seemed to function just fine, but weighing the pros and cons of different UI's was one challenging component. 
+
+We also found that small changes to the CSS could potentially affect many components of our to-do list if we weren't careful, so we made sure to be purposeful about the labeling of our id's and classes.
 
 ### What we're most proud of:
 One of the things we're most proud of is the ability for users to add tasks, delete tasks, view all uncompleted tasks, and view all tasks (uncompleted or not) all within 3 key presses. 
@@ -101,7 +106,7 @@ User sees "Text John" task has become a text box that is editable, and clicks on
 
 Screen after renaming:
 
-User has changed "Text John" to "Text John about bank statements", and clicks save to move to next screen.
+User has changed "Text John" to "Text John about bank statements", and clicks done to move to next screen.
 
 ![Screenshot](./images/screenshots/screen11.jpg)
 
@@ -139,7 +144,7 @@ User presses on "delete all completed" button to move to next screen.
 
 Screen during task:
 
-Completed tasks have been deleted, user presses "save" button to move to the next screen.
+Completed tasks have been deleted, user presses "done" button to move to the next screen.
 
 ![Screenshot](./images/screenshots/screen17.jpg)
 
