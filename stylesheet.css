@@ -74,6 +74,13 @@ input.checkbox {
     margin: 10px 10px 10px 15px;
 }
 
+.listItem input {
+    vertical-align: middle;
+}
+.listItem label span {
+    vertical-align: middle;
+}
+
 .listItem.editInProgress {
     justify-content: space-between;
 }
