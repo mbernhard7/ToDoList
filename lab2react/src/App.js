@@ -1,23 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
+import TopTab from "./toptab";
+import TaskList from "./tasklist";
+import BottomTab from "./bottomtab";
+import PopUp from "./popup";
 
-function App() {
+function App(props) {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <PopUp addMode={false}/>
+      <TopTab editMode={false} existsTasks={props.data.length > 0} />
+      <TaskList data={props.data}/>
+      <BottomTab/>
     </div>
   );
 }

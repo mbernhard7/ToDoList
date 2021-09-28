@@ -1,0 +1,49 @@
+#footer {
+    display: flex;
+    justify-content: space-evenly;
+    height: 12.5%;
+    border-top: solid thin black;
+    align-items: center;
+}
+
+#deleteCompleted {
+    width: 40%;
+    height: 60%;
+    font-size: 15px;
+    background: #ff9b85;
+}
+
+#deleteAll {
+    width: 40%;
+    height: 60%;
+    font-size: 15px;
+    background: #ee6055;
+}
+
+#switcherContainer {
+    width: 75%;
+    height: 60%;
+    border: solid thin black;
+    border-radius: 15px;
+    background: white;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+#switcherContainer > button {
+    height: 100%;
+    width: 49%;
+    background: none;
+    border: none;
+    font-size: 20px;
+}
+
+#switcherContainer > button:disabled {
+    background: cornflowerblue;
+    color: black;
+}
+
+#switcherContainer > button:active {
+    color: darkgrey;
+}
