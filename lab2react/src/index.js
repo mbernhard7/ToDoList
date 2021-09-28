@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import InMemoryApp from "./InMemoryApp";
 
-let initialData = []
+let initialData = [{taskName: 'Call Mom', isChecked: true, id: 1}]
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <InMemoryApp initialData={initialData}/>
   </React.StrictMode>,
   document.getElementById('root')
 );
