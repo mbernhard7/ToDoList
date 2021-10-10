@@ -1,4 +1,4 @@
-import './toptab.css'
+import './Toptab.css'
 
 function TopTab(props) {
     return <div id="topTab">

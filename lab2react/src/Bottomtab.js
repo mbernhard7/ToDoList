@@ -1,4 +1,4 @@
-import './bottomtab.css'
+import './Bottomtab.css'
 
 function BottomTab(props) {
     return <div id = "footer">

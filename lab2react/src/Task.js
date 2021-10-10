@@ -1,4 +1,4 @@
-import './task.css'
+import './Task.css'
 
 function Task(props) {
     return <li className="listItem">
