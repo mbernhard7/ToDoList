@@ -1,7 +1,7 @@
-import './tasklist.css'
-import Task from "./task";
+import './Tasklist.css'
+import Task from "./Task";
 
-function TaskList(props) {
+function Tasklist(props) {
     console.log(props.data)
     return <ul id="itemList">
         {props.data?.length > 0 ?
@@ -13,4 +13,4 @@ function TaskList(props) {
             </li>}
     </ul>
 }
-export default TaskList;
+export default Tasklist;

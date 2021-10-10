@@ -1,6 +1,6 @@
-import './popup.css'
+import './Popup.css'
 
-function PopUp(props) {
+function Popup(props) {
     console.log(props);
     return <div id="createPopupBackground" className={props.addMode ? "" : "hidden"}>
         <div id="createPopup">
@@ -16,4 +16,4 @@ function PopUp(props) {
         </div>
     </div>
 }
-export default PopUp;
+export default Popup;
