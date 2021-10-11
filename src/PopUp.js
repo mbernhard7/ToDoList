@@ -26,6 +26,7 @@ function PopUp(props) {
                             onClick={(e) => {
                                 e.preventDefault();
                                 props.onItemAdded(value);
+                                setValue('');
                                 props.setAppMode(AppModes.DEFAULT_MODE)
                             }}
                     >Add Task</button>
