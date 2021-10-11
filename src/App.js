@@ -2,14 +2,14 @@ import './App.css';
 import TopTab from "./TopTab";
 import TaskList from "./TaskList";
 import BottomTab from "./BottomTab";
-import PopUp from "./PopUp";
+import AddPopUp from "./AddPopUp";
 import {useState} from "react";
 import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
 
 /* Effectively an enum to store the three possible modes of the app */
 export const AppModes = {
-    DEFAULT_MODE: "default_mode",
     ADD_MODE: "add_mode",
+    DEFAULT_MODE: "default_mode",
     EDIT_MODE: "edit_mode",
 }
 
@@ -40,7 +40,7 @@ function App(props) {
 
     return (
         <div className="App">
-          <PopUp
+          <AddPopUp
               appMode={appMode}
               setAppMode={setAppMode}
               onItemAdded={onTaskAdded}
@@ -52,11 +52,13 @@ function App(props) {
           />
           <TaskList
               data={props.data}
+              appMode={appMode}
               tasksShowing={tasksShowing}
               onTaskChanged={onTaskChanged}
               onTasksDeleted={onTasksDeleted}
           />
           <BottomTab
+              data={props.data}
               appMode={appMode}
               tasksShowing={tasksShowing}
               setTasksShowing={setTasksShowing}

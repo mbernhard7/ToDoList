@@ -1,23 +1,47 @@
 #footer {
     display: flex;
-    justify-content: space-evenly;
+
     height: 12.5%;
     border-top: solid thin black;
     align-items: center;
+    justify-content: space-evenly;
+}
+
+#deleteButtonContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#footer>div>button {
+    width: 140px;
+    height: 50px;
+    font-size: 15px;
 }
 
 #deleteCompleted {
-    width: 40%;
-    height: 60%;
-    font-size: 15px;
     background: #ff9b85;
 }
 
 #deleteAll {
-    width: 40%;
-    height: 60%;
-    font-size: 15px;
     background: #ee6055;
+}
+
+#cancel {
+    background: darkgrey;
+}
+
+#confirm {
+    background: #aaf683;
+}
+
+#deleteAll:disabled {
+    background: lightgrey !important;
+}
+
+#deleteCompleted:disabled {
+    background: lightgrey !important;
 }
 
 #switcherContainer {

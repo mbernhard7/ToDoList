@@ -1,8 +1,8 @@
-import './PopUp.css'
+import './AddPopUp.css'
 import {AppModes} from "./App";
 import {useState} from "react";
 
-function PopUp(props) {
+function AddPopUp(props) {
     const [value, setValue] = useState('');
 
     return (
@@ -11,7 +11,10 @@ function PopUp(props) {
                 <div id="createHeader">
                     <button
                         id="closeCreate"
-                        onClick={() => props.setAppMode(AppModes.DEFAULT_MODE)}
+                        onClick={() => {
+                            setValue('');
+                            props.setAppMode(AppModes.DEFAULT_MODE)
+                        }}
                     >X</button>
                     <h2> New Task </h2>
                     <button>X</button>
@@ -23,11 +26,12 @@ function PopUp(props) {
                         value = {value}
                         onChange = {(e) => setValue(e.target.value)}/>
                     <button id="addTask"
+                            disabled={value.length === 0}
                             onClick={(e) => {
                                 e.preventDefault();
                                 props.onItemAdded(value);
                                 setValue('');
-                                props.setAppMode(AppModes.DEFAULT_MODE)
+                                props.setAppMode(AppModes.DEFAULT_MODE);
                             }}
                     >Add Task</button>
                 </form>
@@ -35,4 +39,4 @@ function PopUp(props) {
         </div>
     )
 }
-export default PopUp;
+export default AddPopUp;

@@ -78,3 +78,7 @@ to center the title and put the close button on the left */
     font-size: 20px;
     background: #aaf683;
 }
+
+#addTask:disabled {
+    background: lightgrey;
+}
