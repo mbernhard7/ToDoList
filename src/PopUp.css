@@ -2,7 +2,7 @@
     background-color: rgba(211,211,211,.9);
     height: 640px;
     width: 360px;
-    z-index: 9;
+    zIndex: 9;
     position: fixed;
     top: 6px;
     left: 6px;
