@@ -1,6 +1,6 @@
 ## Design Overview
 
-To begin lab 2, we started by deciding on our component hierarchy. That is, what parts of the UI should be displayed by what components. We ended up going with an App parent component, with children:  Popup, TopTab, Tasklist, and Bottom Tab. From there, TopTab will have two modes (edit and default), and Tasklist with have children Tasks (who also will have an edit and default mode).
+To begin lab 2, we started by deciding on our component hierarchy. That is, what parts of the UI should be displayed by what components. We ended up going with an App parent component, with children:  PopUp, TopTab, TaskList, and Bottom Tab. From there, TopTab will have two modes (edit and default), and TaskList with have children Tasks (who also will have an edit and default mode).
 
 Our overall component hierarchy is displayed below:
 
