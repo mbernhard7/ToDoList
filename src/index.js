@@ -4,7 +4,7 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import InMemoryApp from "./InMemoryApp";
 
-let initialData = [{taskName: 'Call Mom', isChecked: true, id: 1}]
+let initialData = []
 
 ReactDOM.render(
   <React.StrictMode>
