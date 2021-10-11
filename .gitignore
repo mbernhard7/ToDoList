@@ -3,4 +3,4 @@
 /build
 .DS_Store
 node_modules.nosync
-packege-lock.json
+package-lock.json
