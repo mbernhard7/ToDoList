@@ -2,7 +2,7 @@
     background-color: rgba(211,211,211,.9);
     height: 640px;
     width: 360px;
-    zIndex: 9;
+    z-index: 9;
     position: fixed;
     top: 6px;
     left: 6px;
@@ -19,7 +19,7 @@
     width: 75%;
     height: 25%;
     background: white;
-    opacity: 100%;
+    opacity: 1;
     border: solid thin black;
     border-radius: 15px;
     display: flex;
