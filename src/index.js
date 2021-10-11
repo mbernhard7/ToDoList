@@ -4,7 +4,12 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import InMemoryApp from "./InMemoryApp";
 
-let initialData = []
+let initialData = [
+    {id:1,taskName:'Buy eggs',isChecked: false},
+    {id:2,taskName:'Buy milk',isChecked: true},
+    {id:3,taskName:'Walk dog',isChecked: false},
+    {id:4,taskName:'Get haircut',isChecked: true},
+]
 
 ReactDOM.render(
   <React.StrictMode>
