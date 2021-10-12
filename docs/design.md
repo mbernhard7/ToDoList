@@ -2,21 +2,23 @@
 
 To begin lab 2, we started by deciding on our component hierarchy.
 
-Our first iteration (pictured below) included having edit/default mode be the parents for toptab and tasklist, but we couldn't think of a way to do this without code duplication. Following "DRY" guidelines, we scrapped this idea.
+Our first iteration (pictured below) included having edit/default mode be the parents for toptab and tasklist, but we realized it didn't make sense to have empty components just to hold state, so we scrapped this idea.
 
-![React Design](./images/screenshots/FirstDraft.jpeg)
+![React Design](images/diagrams/FirstDraft.jpeg)
 
-We ended up going with an App parent component, with children:  AddPopUp, TopTab, TaskList, and Bottom Tab. From there, TopTab will have 3 modes (edit, add and default), and TaskList with have children Tasks (who also will have edit, add and default modes).
+We then redesigned with an App parent component with a state to hold edit mode vs default mode, with children:  AddPopUp, TopTab, TaskList, and Bottom Tab. From there, TopTab would take in whether there are any tasks and the app mode, and TaskList with have children Tasks (who also will take in edit vs default mode). Additionally, the BottomTab would take in edit mode vs default mode.
 
-The component hierarchy we decided on is displayed below:
+The component hierarchy we created is displayed below:
 
-![React Design](./images/screenshots/ReactDesign.jpeg)
+![React Design](images/diagrams/SecondDraft.jpeg)
 
 The idea was, since our design breaks up the screen into a top tab, center area containing the list of tasks, and a bottom tab, these components would be a good way to break up the UI. In addition, certain modes correspond to visual indicators (e.g, graying out the "add task" button when actively editing another task), so we decided that this component scheme would be the best to use.
 
-Our final application utilizes the hierarchy above, except the App component contains two state variables: appMode and tasksShowing. appMode can be toggled between add mode, default mode, and edit mode, while tasksShowing is either set to all or uncompleted. This addition helped avoid code duplication down the road, when we implemented our delete all/delete all uncompleted buttons. 
+During implementation, we realized we were missing a few details and had overlooked some important information. Below is a revised design hierarchy:
 
-Note: addMode should have been included in the original image, but we didn't realize until the implementation stage, hence why it didn't make it on our mock-up.
+![React Design](images/diagrams/ReactDesign.jpeg)
+
+Our final application utilizes the hierarchy above. The index component just bolds the initial data and passes that as a prop to the InMemoryApp component. The InMemoryApp component has the state data, initialized from initialData. It passes this data into the main App. The main app then maintains an appMode state (default, addMode, editMode) and a tasksShowing state (all, uncompleted) and has functions to create, modify, and delete tasks. It passes combinations of these functions, states, and the overall app data to each of the child components, as detailed in the diagram.
 
 ### User Testing + Design Iteration:
 Once again, we shamelessly utilized our roommates for user testing. First, after implementing our static implementation, we showed consecutive screens to the sample users. Then, after implementing the entire applicaiton, we did a final user test. Here was the feedback we received from our users (roommates):
@@ -50,13 +52,13 @@ The add task button is disabled and greyed out, so users are unable to add blank
 
 ### Challenges We Faced:
 
-We ran into a couple issues when dealing with boolean return types. It seems as though most returns required each case to be nested in a div, which altered the CSS.
+We ran into a couple issues when dealing with ternary operators in components. We realized ternary operators needed to be within and HTML tag, and each of the possible outcomes must be one HTML tag (with children as necessary). This required us to add some divs and redesign our HTML for a few components.
 
-We also found that React handles percentages slightly differently than HTML, so we had to convert a lot of the CSS.
+We also found that React seemed to handle percentages slightly differently than pure HTML. We had to convert some CSS to absolute values. For example, we needed to make the popUp have opacity 1, because otherwise it was becoming grayed out by the background that previously had not covered it.
 
 ### What We're Proud Of:
 
-We encountered a lot of design flaws that were tiny, but we chose to fix anyway. For instance, disabling the delete buttons when there were no tasks, or graying out the add task button when no text was input.
+We encountered a lot of design flaws that were tiny, but we chose to fix anyway. For instance, disabling the delete buttons when there were no tasks, or graying out the add task button when no text was input. Additionally, when confirming that they really want to delete all tasks, the button displays the amount of tasks and will say 'task' if there is one and 'tasks' if there are multiple. We really feel like we've developed a quite robust application that is very clear and simple to use.
 
 I think our biggest achievement for this lab has to be our attention to detail.
 

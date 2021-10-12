@@ -12,7 +12,7 @@ function BottomTab(props) {
                             <button
                                 type="button"
                                 id="deleteCompleted"
-                                disabled={props.data.length === 0}
+                                disabled={props.data.filter(task=>task.isChecked).length === 0}
                                 onClick={() => {
                                     setIDsToBeDeleted(props.data.filter(task => task.isChecked).map(task => task.id));
                                 }
@@ -50,7 +50,7 @@ function BottomTab(props) {
                                     setIDsToBeDeleted(null);
                                 }
                                 }
-                            > Confirm
+                            > Permanently delete {idsToBeDeleted.length} task{idsToBeDeleted.length>1?'s':''}
                             </button>
                         }
                     </div>
