@@ -14,9 +14,9 @@ The component hierarchy we decided on is displayed below:
 
 The idea was, since our design breaks up the screen into a top tab, center area containing the list of tasks, and a bottom tab, these components would be a good way to break up the UI. In addition, certain modes correspond to visual indicators (e.g, graying out the "add task" button when actively editing another task), so we decided that this component scheme would be the best to use.
 
-Our final application utilizes the hierarchy above, except the App component contains two state variables: appMode and tasksShowing. appMode can be toggled between add mode, default mode, and edit mode, while tasks showing is either set to all or uncompleted. This addition helped avoid code duplication down the road, when we implemented our "delete all" and "delete all uncompleted" buttons. 
+Our final application utilizes the hierarchy above, except the App component contains two state variables: appMode and tasksShowing. appMode can be toggled between add mode, default mode, and edit mode, while tasksShowing is either set to all or uncompleted. This addition helped avoid code duplication down the road, when we implemented our delete all/delete all uncompleted buttons. 
 
-Note: add mode should have been included in the original draft, but we didn't realize until the implementation stage, hence why it didn't make it on our mock-up.
+Note: addMode should have been included in the original image, but we didn't realize until the implementation stage, hence why it didn't make it on our mock-up.
 
 ### User Testing + Design Iteration:
 Once again, we shamelessly utilized our roommates for user testing. First, after implementing our static implementation, we showed consecutive screens to the sample users. Then, after implementing the entire applicaiton, we did a final user test. Here was the feedback we received from our users (roommates):
@@ -90,7 +90,7 @@ User clicking on plus icon leads to next screen.
 
 Screen during task:
 
-User typing in "Each Lunch" and tapping "Add Task" leads to next screen.
+User typing in "Eat Lunch" and tapping "Add Task" leads to next screen.
 
 ![Screenshot](./images/screenshots/screen5.jpg)
 
