@@ -23,8 +23,8 @@ function AddPopUp(props) {
                     <input
                         id="taskName"
                         type="text"
-                        value = {value}
-                        onChange = {(e) => setValue(e.target.value)}/>
+                        value={value}
+                        onChange={(e) => setValue(e.target.value)}/>
                     <button id="addTask"
                             disabled={value.length === 0}
                             onClick={(e) => {
