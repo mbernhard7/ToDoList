@@ -50,11 +50,15 @@ Here is what the screen looks like for users who have yet to add text for the ta
 
 The add task button is disabled and greyed out, so users are unable to add blank tasks anymore.
 
+One final note: After a suggestion from Prof. Rhodes, we moved the add, change, and delete functions from App.js (where they were previously stored) to the inMemoryApp.js component. 
+
 ### Challenges We Faced:
 
 We ran into a couple issues when dealing with ternary operators in components. We realized ternary operators needed to be within and HTML tag, and each of the possible outcomes must be one HTML tag (with children as necessary). This required us to add some divs and redesign our HTML for a few components.
 
 We also found that React seemed to handle percentages slightly differently than pure HTML. We had to convert some CSS to absolute values. For example, we needed to make the popUp have opacity 1, because otherwise it was becoming grayed out by the background that previously had not covered it.
+
+Prof. Rhodes showed us how to encapsulate multiple tags using <> ... </>, which we were able to implement on our second pass of changes. We ended up adding this in a few places, simplifying our CSS for the top and bottom tabs.
 
 ### What We're Proud Of:
 
