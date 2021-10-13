@@ -189,31 +189,31 @@ User's to-do list has been updated by deleting all completed tasks.
 
 We began our project with sketches of our to-do list application on paper. This draft included only two buttons: one to add an item, and one to remove an item. We also toyed with the idea of adding an edit button. We wanted to start as simple as possible, run some user testing, and update our to-do list layout accordingly.
 
-![First Draft](./images/mockups/FirstDraft1.jpg)
+![First Draft](./images/diagrams/FirstDraft1.jpg)
 
 After making the initial paper draft, we then made mockups on Balsamiq to use for our user tests. We handed the Balsamiq slides to our test users (roommates), told them what the required tasks our UI should support, and observed how they navigated the different screens.
 
-![First Draft1](./images/mockups/NoTasks.jpg)
-![First Draft2](./images/mockups/AddTask.jpg)
-![First Draft3](./images/mockups/OneTask.jpg)
-![First Draft4](./images/mockups/EditPage.jpg)
+![First Draft1](./images/diagrams/NoTasks.jpg)
+![First Draft2](./images/diagrams/AddTask.jpg)
+![First Draft3](./images/diagrams/OneTask.jpg)
+![First Draft4](./images/diagrams/EditPage.jpg)
 
 After doing a user test with both of our roommates, we found that the process of getting to only uncompleted tasks did not exist. We decided to tweak our design so that getting to uncompleted tasks could take less than 2 clicks, following the 80-20 rule. We also wanted to implement a way for users to switch between all tasks and uncompleted tasks to monitor daily progress and see what tasks have been accomplished throughout the day.
 
 As a result, we made a second version of our paper draft. Here, we made edit and add buttons across the top, with a toggling bar at the bottom where users can jump from uncompleted tasks to all tasks.
 
-![Second Draft](./images/mockups/SecondDraft.jpg)
+![Second Draft](./images/diagrams/SecondDraft.jpg)
 
 We then used the notes app to make some UI mockups of our HTML files. Looking specifically at the edit task, we had a first version where users could edit one task at a time. We thought this format could be useful for users who needed to edit tasks, without running the risk of accidentally deleting multiple tasks:
 
-![First Draft](./images/mockups/EditFlowInitial.jpg)
+![First Draft](./images/diagrams/EditFlowInitial.jpg)
 
 
 We ended up deciding against this design, since we found this layout to be cumbersome for users who wanted to edit multiple tasks at once. While it did allow for more security (users could not accidentally delete multiple tasks) we found out via more roommate user testing that the inability to edit multiple tasks at once without more key-presses was a bigger concern than that of accidental task deletes.
 
 The new design also allowed the UI to be more simple, since one edit button would cover the function of editing all tasks. Here is the wireframe for the design we ultimately went with, except that we moved the tab switcher to the bottom since it was hard to click at the top:
 
-![Second Draft](./images/mockups/EditFlowFinal.jpg)
+![Second Draft](./images/diagrams/EditFlowFinal.jpg)
 
 Finally, after submitting our first pull request, we received some feedback from Professor Rhodes that the "save" button may not have been the most clear for users. By changing this button to say "done" we attempted to mitigate confusion about how to return to the home screen and exit the editing mode.
 
