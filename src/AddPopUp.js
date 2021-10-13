@@ -3,19 +3,20 @@ import {AppModes} from "./App";
 import {useState} from "react";
 
 function AddPopUp(props) {
-    const [value, setValue] = useState('');
+    const [taskName, setTaskName] = useState('');
 
     return (
-        <div id="createPopupBackground" className={props.appMode===AppModes.ADD_MODE ? "" : "hidden"}>
+        <div id="createPopupBackground" className={props.appMode === AppModes.ADD_MODE ? "" : "hidden"}>
             <div id="createPopup">
                 <div id="createHeader">
                     <button
                         id="closeCreate"
                         onClick={() => {
-                            setValue('');
+                            setTaskName('');
                             props.setAppMode(AppModes.DEFAULT_MODE)
                         }}
-                    >X</button>
+                    >X
+                    </button>
                     <h2> New Task </h2>
                     <button>X</button>
                 </div>
@@ -23,20 +24,22 @@ function AddPopUp(props) {
                     <input
                         id="taskName"
                         type="text"
-                        value={value}
-                        onChange={(e) => setValue(e.target.value)}/>
+                        value={taskName}
+                        onChange={(e) => setTaskName(e.target.value)}/>
                     <button id="addTask"
-                            disabled={value.length === 0}
-                            onClick={(e) => {
-                                e.preventDefault();
-                                props.onItemAdded(value);
-                                setValue('');
+                            type="button"
+                            disabled={taskName.length === 0}
+                            onClick={() => {
+                                props.onItemAdded(taskName);
+                                setTaskName('');
                                 props.setAppMode(AppModes.DEFAULT_MODE);
                             }}
-                    >Add Task</button>
+                    >Add Task
+                    </button>
                 </form>
             </div>
         </div>
     )
 }
+
 export default AddPopUp;

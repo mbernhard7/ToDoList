@@ -1,5 +1,5 @@
 #createPopupBackground {
-    background-color: rgba(211,211,211,.9);
+    background-color: rgba(211, 211, 211, .9);
     height: 640px;
     width: 360px;
     z-index: 9;
@@ -25,6 +25,7 @@
     display: flex;
     flex-direction: column;
 }
+
 #createHeader {
     display: flex;
     width: 100%;
@@ -43,7 +44,7 @@ to center the title and put the close button on the left */
 
 #createHeader > button {
     border-radius: 50px;
-    height:40px;
+    height: 40px;
     width: 40px;
     background: black;
     color: white;
@@ -72,9 +73,10 @@ to center the title and put the close button on the left */
     height: 30%;
     font-size: 18px;
 }
+
 #addTask {
-    width:60%;
-    height:30%;
+    width: 60%;
+    height: 30%;
     font-size: 20px;
     background: #aaf683;
 }
