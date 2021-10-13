@@ -4,13 +4,19 @@ import {useState} from "react";
 
 function BottomTab(props) {
     const [deleteSelected, setDeleteSelected] = useState(null);
+
+    function getConfirmationText(numTasks) {
+        return numTasks > 1 ? numTasks + " tasks" : numTasks + " task"
+    }
+
     const deleteContainer = (
         <div id="deleteButtonContainer">
             {deleteSelected === null ?
                 <button
                     type="button"
                     id="deleteCompleted"
-                    disabled={props.data.filter(task => task.isChecked).length === 0}
+                    disabled={props.tasksShowing === TasksShowing.UNCOMPLETED
+                    || props.data.filter(task => task.isChecked).length === 0}
                     onClick={() => setDeleteSelected('completed')}
                 > Delete All Completed
                 </button>
@@ -45,7 +51,9 @@ function BottomTab(props) {
                         setDeleteSelected(null);
                     }
                     }
-                > Permanently delete {deleteSelected} tasks
+                > Permanently delete {deleteSelected === 'all' ?
+                    getConfirmationText(props.data.length)
+                    : getConfirmationText(props.data.filter(task => task.isChecked).length)}
                 </button>
             }
         </div>
