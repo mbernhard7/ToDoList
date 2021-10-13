@@ -21,7 +21,7 @@ During implementation, we realized we were missing a few details and had overloo
 Our final application utilizes the hierarchy above. The index component just bolds the initial data and passes that as a prop to the InMemoryApp component. The InMemoryApp component has the state data, initialized from initialData. It passes this data into the main App. The main app then maintains an appMode state (default, addMode, editMode) and a tasksShowing state (all, uncompleted) and has functions to create, modify, and delete tasks. It passes combinations of these functions, states, and the overall app data to each of the child components, as detailed in the diagram.
 
 ### User Testing + Design Iteration:
-Once again, we shamelessly utilized our roommates for user testing. First, after implementing our static implementation, we showed consecutive screens to the sample users. Then, after implementing the entire applicaiton, we did a final user test. Here was the feedback we received from our users (roommates):
+Once again, we shamelessly utilized our roommates for user testing. First, after implementing our static implementation, we showed consecutive screens to the sample users. Then, after implementing the entire application, we did a final user test. Here was the feedback we received from our users (roommates):
 
 * Delete buttons are useless/should be disabled when user has no tasks.
 * Glitch occurred when users wrote a task but then didn't hit save, the next time they opened the add task button their previous text remained.
