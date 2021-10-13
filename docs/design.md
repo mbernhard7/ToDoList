@@ -189,7 +189,7 @@ User's to-do list has been updated by deleting all completed tasks.
 
 We began our project with sketches of our to-do list application on paper. This draft included only two buttons: one to add an item, and one to remove an item. We also toyed with the idea of adding an edit button. We wanted to start as simple as possible, run some user testing, and update our to-do list layout accordingly.
 
-![First Draft](./images/mockups/FirstDraft.jpg)
+![First Draft](./images/mockups/FirstDraft1.jpg)
 
 After making the initial paper draft, we then made mockups on Balsamiq to use for our user tests. We handed the Balsamiq slides to our test users (roommates), told them what the required tasks our UI should support, and observed how they navigated the different screens.
 
