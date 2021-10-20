@@ -4,6 +4,20 @@ import TaskList from "./TaskList";
 import BottomTab from "./BottomTab";
 import AddPopUp from "./AddPopUp";
 import {useState} from "react";
+import firebase from "firebase/compat";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyCcQ6XCOvMIA7pHME4bWBgy_7OVy_7XErA",
+    authDomain: "cs124-fall2021.firebaseapp.com",
+    projectId: "cs124-fall2021",
+    storageBucket: "cs124-fall2021.appspot.com",
+    messagingSenderId: "264318304667",
+    appId: "1:264318304667:web:4be8d27a02811b1ccd613e"
+};
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+
+const collectionName = "people-2-42";
 
 /* Effectively an enum to store the three possible modes of the app */
 export const AppModes = {
