@@ -1,9 +1,10 @@
 import './AddPopUp.css'
-import {AppModes} from "./App";
+import {AppModes, TasksShowing} from "./App";
 import {useState} from "react";
 
 function AddPopUp(props) {
     const [taskName, setTaskName] = useState('');
+    const [priorityLevel, setPriorityLevel] = useState(1);
 
     return (
         <div id="createPopupBackground" className={props.appMode === AppModes.ADD_MODE ? "" : "hidden"}>
@@ -13,6 +14,7 @@ function AddPopUp(props) {
                         id="closeCreate"
                         onClick={() => {
                             setTaskName('');
+                            setPriorityLevel(1);
                             props.setAppMode(AppModes.DEFAULT_MODE)
                         }}
                     >X
@@ -26,12 +28,36 @@ function AddPopUp(props) {
                         type="text"
                         value={taskName}
                         onChange={(e) => setTaskName(e.target.value)}/>
+                    <div id="prioritySelector">
+                        <button
+                            className="priorityButton"
+                            type="button"
+                            id="low"
+                            disabled={priorityLevel === 1}
+                            onClick={() => setPriorityLevel(1)}
+                        >Low</button>
+                        <button
+                            className="priorityButton"
+                            type="button"
+                            id="medium"
+                            disabled={priorityLevel === 2}
+                            onClick={() => setPriorityLevel(2)}
+                        >Medium</button>
+                        <button
+                            className="priorityButton"
+                            type="button"
+                            id="high"
+                            disabled={priorityLevel === 3}
+                            onClick={() => setPriorityLevel(3)}
+                        >High</button>
+                    </div>
                     <button id="addTask"
                             type="button"
                             disabled={taskName.length === 0}
                             onClick={() => {
-                                props.onItemAdded(taskName);
+                                props.onItemAdded(taskName, priorityLevel);
                                 setTaskName('');
+                                setPriorityLevel(1);
                                 props.setAppMode(AppModes.DEFAULT_MODE);
                             }}
                     >Add Task

@@ -4,7 +4,7 @@ import {AppModes} from "./App";
 function Task(props) {
     return (
         <li className={props.appMode === AppModes.EDIT_MODE ? "listItem editInProgress" : "listItem"}>
-            <label>
+            <label className="taskLabel">
                 <input
                     className="checkbox"
                     type="checkbox"
@@ -12,7 +12,12 @@ function Task(props) {
                     disabled={props.appMode === AppModes.EDIT_MODE}
                     onChange={(e) => props.onTaskChanged(props.task.id, 'isChecked', e.target.checked)}
                 />
-                {props.appMode !== AppModes.EDIT_MODE && <span>{props.task.taskName}</span>}
+                {props.appMode !== AppModes.EDIT_MODE &&
+                    <div className="taskText">
+                        <span>{props.task.taskName}</span>
+                        <span className='priorityLevel'>{"!".repeat(props.task.priorityLevel)}</span>
+                    </div>
+                 }
             </label>
             {props.appMode === AppModes.EDIT_MODE &&
             <>

@@ -17,7 +17,7 @@
 #createPopup {
     margin: auto;
     width: 75%;
-    height: 25%;
+    height: 35%;
     background: white;
     opacity: 1;
     border: solid thin black;
@@ -69,14 +69,40 @@ to center the title and put the close button on the left */
 }
 
 #taskName {
+    margin-top: 10px;
     width: 90%;
-    height: 30%;
+    height: 35px;
     font-size: 18px;
+}
+
+#low {
+    background-color: yellow;
+}
+
+#medium {
+    background-color: orange;
+}
+
+#high {
+    background-color: red;
+}
+
+.priorityButton {
+    margin: 10px 4px;
+    height: 30px;
+    width: 80px;
+    font-size: 15px;
+}
+
+.priorityButton:disabled {
+    border: solid blue;
+    font-weight: bold;
+    color: black;
 }
 
 #addTask {
     width: 60%;
-    height: 30%;
+    height: 40px;
     font-size: 20px;
     background: #aaf683;
 }
