@@ -1,5 +1,7 @@
 import './TopTab.css'
 import {AppModes} from "./App";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faEdit} from '@fortawesome/free-solid-svg-icons'
 
 function TopTab(props) {
     return <div id="topTab">
@@ -13,7 +15,7 @@ function TopTab(props) {
                     id="editButton"
                     disabled={!props.existsTasks}
                     onClick={() => props.setAppMode(AppModes.EDIT_MODE)}
-                >Edit</button>
+                ><FontAwesomeIcon icon={faEdit} /></button>
         }
         <h1 id="title">To-Do</h1>
         <button id="addItem"
