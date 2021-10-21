@@ -1,7 +1,5 @@
 #topTab {
     display: flex;
-    height: 12.5%;
-    justify-content: space-around;
     align-items: center;
     border-bottom: solid thin black;
 }
@@ -10,10 +8,19 @@
     font-size: 50px;
 }
 
-#topTab > button {
-    height: 55%;
-    width: 20%;
+#topTabThird > button {
+    height: 40px;
+    width: 50px;
     font-size: 25px;
+    text-align: center;
+}
+
+#topTabThird {
+    display: flex;
+    width: 120px;
+    height: 60px;
+    align-items: center;
+    justify-content: space-around;
 }
 
 #saveEdits {
@@ -22,7 +29,6 @@
 
 #addItem {
     background: #aaf683;
-    font-size: 30px !important;
 }
 
 #addItem:disabled {
