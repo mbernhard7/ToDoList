@@ -1,3 +1,50 @@
+## Design Overview (Lab 3)
+
+To begin lab 3, we began by drafting some wireframes for our new UI with sorting functionality added. We wanted to maintain the simple design our previous iterations had, but also make the new functionality of sorting clear to use. We decided to do this by adding a sort button to the homepage next to the edit icon, as well as a priority level prompt when a user goes to add a task. Our wireframes for these two additions are below:
+
+
+UI for Sorting
+![NoTasks](./images/diagrams/SortUI.jpg)
+
+UI for Adding
+![NoTasksEdit](./images/diagrams/AddUI.jpg)
+
+We then decided to make our own Firebase project and Firestore application. We called it CS124Lab3, and began by verifying that after adding the import statements and parsing our code to use cloud storage, we saw the changes on the server on Firestore. 
+
+### User Testing + Design Iteration:
+For our design iteration, one of the first things we did after implementing our new sort button was try it out on a couple friends. One suggested changing the "edit" button to an icon, since both the sort and add buttons had icons but the edit button was text. 
+
+Another thing we noticed is that the priority indicators (for us, the exclamation points) didn't stand out enough, which resulted in some confusion during user testing. In the following iteration we changed the font of the exclamation points to red, which helped them stand out from the actual task name. 
+
+Now, our homepage changed to the following layout: 
+
+![NoTasksEdit](./images/screenshots/NewHomeScreenUI.jpg)
+
+Another thing we noticed in user testing is that users still had trouble connecting the priority levels (low, medium, high) to the exclamation points they see on the home screen next. To make this clearer, we added exclamation points to the button themselves, so that users made the connection easier. 
+
+After re-showing the changes to our friends/user test subjects, we verified that this helped clear up the confusion. 
+
+Below is this small change:
+
+Pre-Addition of Exclamations            |  Post-addition of Exclamations
+:-------------------------:|:-------------------------:
+![NoTasks](./images/screenshots/AddTaskNewUI.jpg) |  ![NoTasksEdit](./images/screenshots/HomeScreenEx.jpg)
+
+### Challenges We Faced:
+
+We had a lot of trouble deciding how we wanted to implement the sort functionality without cluttering up the minimalist feel of our lab2 UI. We considered another switcher type button similar to what we used for the all/uncompleted tasks, but felt that including all three sorting options would look to cluttered. We also though about shifting down the row of buttons (edit, sort, and add) below to-do, but decided against this because we felt it took up too much screen real-estate. 
+
+We also had a couple small issues with formatting when adding the new sort button, since adding in a new component influenced the other two buttons and our title in the TopTab.js file. 
+
+### What We're Proud Of:
+
+This lab we are most proud of our ability to design for simplicity and accessibility. For instance, by having both color and symbol indicators for the priority levels, someone with partial or complete color-blindness could still navigate priority levels in our application. 
+
+Similarly, while we do include color indicators for our button functions (green for add, etc.) we tried to choose self-explanatory icons that would also be useful for users navigating our app for the first time. 
+
+### Final Design Flow
+Identical to lab 2, but with the addition of a sorting drop-down and the priority level addition in the add task section. 
+
 ## Design Overview (Lab 2)
 
 To begin lab 2, we started by deciding on our component hierarchy.
