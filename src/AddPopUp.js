@@ -35,21 +35,21 @@ function AddPopUp(props) {
                             id="low"
                             disabled={priorityLevel === 1}
                             onClick={() => setPriorityLevel(1)}
-                        >Low</button>
+                        >Low!</button>
                         <button
                             className="priorityButton"
                             type="button"
                             id="medium"
                             disabled={priorityLevel === 2}
                             onClick={() => setPriorityLevel(2)}
-                        >Medium</button>
+                        >Medium!!</button>
                         <button
                             className="priorityButton"
                             type="button"
                             id="high"
                             disabled={priorityLevel === 3}
                             onClick={() => setPriorityLevel(3)}
-                        >High</button>
+                        >High!!!</button>
                     </div>
                     <button id="addTask"
                             type="button"
