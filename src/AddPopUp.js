@@ -1,5 +1,5 @@
 import './AddPopUp.css'
-import {AppModes, TasksShowing} from "./App";
+import {AppModes} from "./App";
 import {useState} from "react";
 
 function AddPopUp(props) {
