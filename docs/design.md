@@ -4,9 +4,11 @@ To begin lab 3, we began by drafting some wireframes for our new UI with sorting
 
 
 UI for Sorting
+
 ![NoTasks](./images/diagrams/SortUI.jpg)
 
 UI for Adding
+
 ![NoTasksEdit](./images/diagrams/AddUI.jpg)
 
 We then decided to make our own Firebase project and Firestore application. We called it CS124Lab3, and began by verifying that after adding the import statements and parsing our code to use cloud storage, we saw the changes on the server on Firestore. 
