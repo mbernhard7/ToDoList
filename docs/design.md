@@ -46,8 +46,18 @@ Finally, after one final pass of user testing, we found that users couldn't curr
 
 Here are those changes:
 
-UI for Sorting
-![NoTasks](./images/diagrams/SortUI.jpg)
+New Homepage UI:
+![NoTasks](./images/screenshots/NewHomepage.jpg)
+
+Priority Level Dropdown:
+![NoTasks](./images/screenshots/PriorityDropdown.jpg)
+
+New edit mode:
+![NoTasks](./images/screenshots/EditModeNew.jpg)
+
+Loading / Error mode:
+
+Finally, one small comment is that we realized sorting zero or 1 tasks isn't logical, so we disabled the sorting dropdown when there are less than 2 tasks. 
 
 ### Challenges We Faced:
 
@@ -60,6 +70,8 @@ We also had a couple small issues with formatting when adding the new sort butto
 We are most proud of our iterative process, which involved numerous redesigns of our previous lab. For instance, we found that adding a drop-down for priority levels made it so that the edit button had no room, so we rearranged our top toolbar so that the edit and add buttons are on the top right, while the priority level dropdown (as well as the dropdown for toggling between ascending and descending). 
 
 We also went through user testing for our new additions, which was useful for a couple of reasons. One, one of our friends pointed out that it was pointless to have the edit and add buttons greyed out but not able to be used, so they suggested removing them entirely. This allowed us to keep the priority level drop-down in-place, while moving the save button to the top left. 
+
+In addition, we have a loading and error mode. In the loading mode, and loading gif appears to indicate the page loading. If the page is unable to be loaded, users receive an error pop-up.
 
 Overall, we tried our best to design the application to be as simple as possible.
 
