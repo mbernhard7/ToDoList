@@ -2,8 +2,8 @@
     display: flex;
     height: 75px;
     box-sizing: border-box;
-    border-top: solid thin black;
     align-items: center;
+    border-top: solid thin black;
     justify-content: space-evenly;
 }
 
@@ -49,11 +49,11 @@
 #switcherContainer {
     width: 270px;
     height: 40px;
-    border: solid thin black;
-    border-radius: 15px;
-    background: white;
     padding: 0;
     display: flex;
+    background: white;
+    border-radius: 15px;
+    border: solid thin black;
     justify-content: space-between;
 }
 
