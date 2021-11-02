@@ -7,8 +7,8 @@ function AddPopUp(props) {
     const [priorityLevel, setPriorityLevel] = useState(1);
 
     return (
-        <div id="createPopupBackground" className={props.appMode === AppModes.ADD_MODE ? "" : "hidden"}>
-            <div id="createPopup">
+        <div id="createPopUpBackground" className={props.appMode === AppModes.ADD_MODE ? "" : "hidden"}>
+            <div id="createPopUp">
                 <div id="createHeader">
                     <button
                         id="closeCreate"
@@ -22,12 +22,20 @@ function AddPopUp(props) {
                     <h2> New Task </h2>
                     <button>X</button>
                 </div>
-                <form id="createForm">
+                <form id="createForm" onSubmit={(e) => {
+                    e.preventDefault();
+                    props.onItemAdded(taskName, priorityLevel);
+                    setTaskName('');
+                    setPriorityLevel(1);
+                    props.setAppMode(AppModes.DEFAULT_MODE);
+                }}>
                     <input
                         id="taskName"
                         type="text"
                         value={taskName}
-                        onChange={(e) => setTaskName(e.target.value)}/>
+                        onChange={(e) => setTaskName(e.target.value)}
+                        autoFocus
+                    />
                     <div id="prioritySelector">
                         <button
                             className="priorityButton"
@@ -35,31 +43,28 @@ function AddPopUp(props) {
                             id="low"
                             disabled={priorityLevel === 1}
                             onClick={() => setPriorityLevel(1)}
-                        >Low!</button>
+                        >Low!
+                        </button>
                         <button
                             className="priorityButton"
                             type="button"
                             id="medium"
                             disabled={priorityLevel === 2}
                             onClick={() => setPriorityLevel(2)}
-                        >Medium!!</button>
+                        >Medium!!
+                        </button>
                         <button
                             className="priorityButton"
                             type="button"
                             id="high"
                             disabled={priorityLevel === 3}
                             onClick={() => setPriorityLevel(3)}
-                        >High!!!</button>
+                        >High!!!
+                        </button>
                     </div>
                     <button id="addTask"
-                            type="button"
+                            type="submit"
                             disabled={taskName.length === 0}
-                            onClick={() => {
-                                props.onItemAdded(taskName, priorityLevel);
-                                setTaskName('');
-                                setPriorityLevel(1);
-                                props.setAppMode(AppModes.DEFAULT_MODE);
-                            }}
                     >Add Task
                     </button>
                 </form>

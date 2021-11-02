@@ -18,9 +18,9 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 const collectionName = "tasks";
 
-function InMemoryApp(props) {
+function InMemoryApp() {
     const [sortParameter, setSortParameter] = useState('priorityLevel desc');
-    const query = db.collection(collectionName).orderBy(sortParameter.split(' ')[0], sortParameter.split(' ')[1]);    // Fill in query here
+    const query = db.collection(collectionName).orderBy(sortParameter.split(' ')[0], sortParameter.split(' ')[1]);
     const [value, loading, error] = useCollection(query);
     const data = value?.docs.map(doc => doc.data()) || [];
 
@@ -37,7 +37,7 @@ function InMemoryApp(props) {
 
     function onTaskChanged(taskID, field, newValue) {
         db.collection(collectionName).doc(taskID).update(
-            {[field]:newValue}
+            {[field]: newValue}
         );
     }
 
@@ -47,10 +47,22 @@ function InMemoryApp(props) {
         }
     }
 
+    function onCancelEdits(tasks) {
+        if (tasks) {
+            onTasksDeleted(data.map(a => a.id));
+            for (let task of tasks) {
+                db.collection(collectionName).doc(task.id).set(task);
+            }
+        }
+    }
+
     return <App data={data}
+                loading={loading}
+                error={error}
                 onTaskAdded={onTaskAdded}
                 onTaskChanged={onTaskChanged}
                 onTasksDeleted={onTasksDeleted}
+                onCancelEdits={onCancelEdits}
                 sortParameter={sortParameter}
                 setSortParameter={setSortParameter}/>
 }

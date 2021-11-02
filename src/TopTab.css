@@ -8,19 +8,21 @@
     font-size: 50px;
 }
 
-#topTabThird > button {
-    height: 40px;
-    width: 50px;
-    font-size: 25px;
-    text-align: center;
-}
-
 #topTabThird {
     display: flex;
     width: 120px;
     height: 60px;
     align-items: center;
     justify-content: space-around;
+}
+
+#topTabThird > button {
+    height: 40px;
+    width: 50px;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #sortParameterSelector {

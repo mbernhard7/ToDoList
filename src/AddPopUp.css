@@ -1,4 +1,4 @@
-#createPopupBackground {
+#createPopUpBackground {
     background-color: rgba(211, 211, 211, .9);
     height: 640px;
     width: 360px;
@@ -10,11 +10,11 @@
     align-items: center;
 }
 
-#createPopupBackground.hidden {
+#createPopUpBackground.hidden {
     display: none;
 }
 
-#createPopup {
+#createPopUp {
     margin: auto;
     width: 75%;
     height: 35%;
