@@ -6,8 +6,9 @@ function AddPopUp(props) {
     const [taskName, setTaskName] = useState('');
     const [priorityLevel, setPriorityLevel] = useState(1);
 
-    return (
-        <div id="createPopUpBackground" className={props.appMode === AppModes.ADD_MODE ? "" : "hidden"}>
+    return <>
+        {props.appMode === AppModes.ADD_MODE &&
+        <div id="createPopUpBackground">
             <div id="createPopUp">
                 <div id="createHeader">
                     <button
@@ -70,7 +71,8 @@ function AddPopUp(props) {
                 </form>
             </div>
         </div>
-    )
+        }
+    </>
 }
 
 export default AddPopUp;
