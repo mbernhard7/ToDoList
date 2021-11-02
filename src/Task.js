@@ -1,5 +1,7 @@
 import './Task.css'
 import {AppModes} from "./App";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faTrash} from '@fortawesome/free-solid-svg-icons'
 
 function Task(props) {
 
@@ -49,7 +51,8 @@ function Task(props) {
                 <button
                     className="deleteButton"
                     onClick={() => props.onTasksDeleted([props.task.id])}
-                >&#x1f5d1;
+                >
+                    <FontAwesomeIcon icon={faTrash} size="xs"/>
                 </button>
             </>
             }
