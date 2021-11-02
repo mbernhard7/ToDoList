@@ -3,13 +3,14 @@ import TopTab from "./TopTab";
 import TaskList from "./TaskList";
 import BottomTab from "./BottomTab";
 import AddPopUp from "./AddPopUp";
-import {useState} from "react";
+import {useEffect, useState} from "react";
+import ErrorPopUp from "./ErrorPopUp";
 
-/* Effectively an enum to store the three possible modes of the app */
 export const AppModes = {
     ADD_MODE: "add_mode",
     DEFAULT_MODE: "default_mode",
     EDIT_MODE: "edit_mode",
+    LOADING_MODE: "loading_mode"
 }
 
 export const TasksShowing = {
@@ -18,11 +19,22 @@ export const TasksShowing = {
 }
 
 function App(props) {
-    const [appMode, setAppMode] = useState(AppModes.DEFAULT_MODE);
+    const [appMode, setAppMode] = useState(AppModes.LOADING_MODE);
     const [tasksShowing, setTasksShowing] = useState(TasksShowing.ALL);
+
+    useEffect(() => {
+        if (props.loading) {
+            setAppMode(AppModes.LOADING_MODE);
+        } else {
+            setAppMode(AppModes.DEFAULT_MODE);
+        }
+    }, [props.loading])
 
     return (
         <div className="App">
+            <ErrorPopUp
+                error={props.error}
+            />
             <AddPopUp
                 appMode={appMode}
                 setAppMode={setAppMode}
@@ -31,7 +43,8 @@ function App(props) {
             <TopTab
                 appMode={appMode}
                 setAppMode={setAppMode}
-                existsTasks={props.data.length > 0}
+                data={props.data}
+                onCancelEdits={props.onCancelEdits}
                 sortParameter={props.sortParameter}
                 setSortParameter={props.setSortParameter}
             />

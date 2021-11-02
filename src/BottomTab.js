@@ -51,7 +51,7 @@ function BottomTab(props) {
                         setDeleteSelected(null);
                     }
                     }
-                > Permanently delete {deleteSelected === 'all' ?
+                > Delete {deleteSelected === 'all' ?
                     getConfirmationText(props.data.length)
                     : getConfirmationText(props.data.filter(task => task.isChecked).length)}
                 </button>

@@ -11,16 +11,25 @@
 .taskLabel {
     display: flex;
     flex-direction: row;
+    align-items: center;
     width: 100%;
 }
 
-.taskText {
-    width: 100%;
-    flex:1;
+input.checkbox {
+    transform: scale(2);
+}
+
+.taskContent {
+    width: 316px;
+    margin-left: 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+}
+
+.taskName {
+    margin-left: 1px;
 }
 
 .priorityLevel {
@@ -28,11 +37,10 @@
     display: inline-flex;
     background: black;
     height: 30px;
-    width: 30px;
+    width: 40px;
     justify-content: center;
     align-items: center;
     border-radius: 15px;
-
 }
 
 .priorityLevel.low {
@@ -46,39 +54,21 @@
 .priorityLevel.high {
     color: red;
 }
-input.checkbox {
-    transform: scale(2);
-    margin: 10px 10px 10px 15px;
-}
 
-.listItem input {
-    vertical-align: middle;
-}
-
-.listItem label span {
-    vertical-align: middle;
-}
-
-.listItem.editInProgress {
-    justify-content: space-between;
-}
-
-/* Text input area for renaming item */
 .editInput {
-    width: 90%;
+    width: 200px;
     height: 70%;
-    margin: 0 5px;
     padding: 0;
     font-size: 100%;
 }
 
 .prioritySelector {
-    margin: 0 5px;
+    height: 30px;
 }
 
 .deleteButton {
     height: 30px;
-    width: 20%;
+    width: 40px;
     background: #ee6055;
     font-size: 20px;
     margin: 0;
