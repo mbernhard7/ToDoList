@@ -10,10 +10,6 @@
     align-items: center;
 }
 
-#errorPopUpBackground.hidden {
-    display: none;
-}
-
 #errorPopUp {
     margin: auto;
     width: 75%;
