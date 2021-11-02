@@ -2,6 +2,17 @@ import './Task.css'
 import {AppModes} from "./App";
 
 function Task(props) {
+
+    function getPriorityClass(num) {
+        if (num === 1) {
+            return 'priorityLevel low';
+        } else if (num === 2) {
+            return 'priorityLevel medium';
+        } else {
+            return 'priorityLevel high';
+        }
+    }
+
     return (
         <li className={props.appMode === AppModes.EDIT_MODE ? "listItem editInProgress" : "listItem"}>
             <label className="taskLabel">
@@ -15,7 +26,7 @@ function Task(props) {
                 {props.appMode !== AppModes.EDIT_MODE &&
                     <div className="taskText">
                         <span>{props.task.taskName}</span>
-                        <span className='priorityLevel'>{"!".repeat(props.task.priorityLevel)}</span>
+                        <span className={getPriorityClass(props.task.priorityLevel)}>{"!".repeat(props.task.priorityLevel)}</span>
                     </div>
                  }
             {props.appMode === AppModes.EDIT_MODE &&
@@ -38,7 +49,7 @@ function Task(props) {
                 <button
                     className="deleteButton"
                     onClick={() => props.onTasksDeleted([props.task.id])}
-                >Delete
+                >&#x1f5d1;
                 </button>
             </>
             }

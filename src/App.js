@@ -32,6 +32,8 @@ function App(props) {
                 appMode={appMode}
                 setAppMode={setAppMode}
                 existsTasks={props.data.length > 0}
+                sortParameter={props.sortParameter}
+                setSortParameter={props.setSortParameter}
             />
             <TaskList
                 data={props.data}
