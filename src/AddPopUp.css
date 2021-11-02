@@ -10,10 +10,6 @@
     align-items: center;
 }
 
-#createPopUpBackground.hidden {
-    display: none;
-}
-
 #createPopUp {
     margin: auto;
     width: 75%;

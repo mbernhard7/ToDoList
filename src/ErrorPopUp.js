@@ -1,8 +1,9 @@
 import './ErrorPopUp.css'
 
 function ErrorPopUp(props) {
-    return (
-        <div id="errorPopUpBackground" className={props.error ? "" : "hidden"}>
+    return <>
+        {props.error &&
+        <div id="errorPopUpBackground">
             <div id="errorPopUp">
                 <div id="errorHeader">
                     <button
@@ -16,7 +17,8 @@ function ErrorPopUp(props) {
                 <span id="errorMessage">{JSON.stringify(props.error)}</span>
             </div>
         </div>
-    )
+        }
+    </>
 }
 
 export default ErrorPopUp;
