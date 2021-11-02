@@ -1,9 +1,10 @@
 #itemList {
-    height: 75%;
+    height: 500px;
     width: 100%;
     margin: 0;
     padding: 0;
     overflow: scroll;
+    box-sizing: border-box;
 }
 
 #noItems {
