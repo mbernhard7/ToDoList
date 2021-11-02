@@ -24,10 +24,28 @@
 }
 
 .priorityLevel {
-    color: red;
     font-weight: bold;
+    display: inline-flex;
+    background: black;
+    height: 30px;
+    width: 30px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+
 }
 
+.priorityLevel.low {
+    color: yellow;
+}
+
+.priorityLevel.medium {
+    color: orange;
+}
+
+.priorityLevel.high {
+    color: red;
+}
 input.checkbox {
     transform: scale(2);
     margin: 10px 10px 10px 15px;
@@ -61,7 +79,7 @@ input.checkbox {
 .deleteButton {
     height: 30px;
     width: 20%;
-    background: #ff9b85;
+    background: #ee6055;
     margin: 0;
     padding: 0;
 }

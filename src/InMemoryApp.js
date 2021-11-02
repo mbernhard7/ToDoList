@@ -19,8 +19,8 @@ const db = firebase.firestore();
 const collectionName = "tasks";
 
 function InMemoryApp(props) {
-    const [sortField, setSortField] = useState('created');
-    const query = db.collection(collectionName).orderBy(sortField,'desc');    // Fill in query here
+    const [sortParameter, setSortParameter] = useState('priorityLevel desc');
+    const query = db.collection(collectionName).orderBy(sortParameter.split(' ')[0], sortParameter.split(' ')[1]);    // Fill in query here
     const [value, loading, error] = useCollection(query);
     const data = value?.docs.map(doc => doc.data()) || [];
 
@@ -47,7 +47,12 @@ function InMemoryApp(props) {
         }
     }
 
-    return <App data={data} onTaskAdded={onTaskAdded} onTaskChanged={onTaskChanged} onTasksDeleted={onTasksDeleted}/>
+    return <App data={data}
+                onTaskAdded={onTaskAdded}
+                onTaskChanged={onTaskChanged}
+                onTasksDeleted={onTasksDeleted}
+                sortParameter={sortParameter}
+                setSortParameter={setSortParameter}/>
 }
 
 export default InMemoryApp;
