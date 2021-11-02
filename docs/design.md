@@ -32,20 +32,41 @@ Pre-Addition of Exclamations            |  Post-addition of Exclamations
 :-------------------------:|:-------------------------:
 ![NoTasks](./images/screenshots/AddTaskNewUI.jpg) |  ![NoTasksEdit](./images/screenshots/HomeScreenEx.jpg)
 
+For changing the priority, we wanted to make the UI as easy as possible to use, so we decided on a drop-down that appears in edit mode (over where the priority would go in regular mode) which can be toggled only in edit mode. 
+
+This way, users wouldn't accidentally be able to change their priority level in the default list mode, but could do so with ease as soon as they enter the edit mode. 
+
+Below is a walk-through of how this looks, changing the priority of CS124 HW to the highest priority, and dropping the other two to second-level priority. 
+
+Pre-changing priority           |  During Changing Priority |  During Changing Priority  | Done changing priority
+:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
+![NoTasks](./images/screenshots/ScreenPreChange.jpg) |  ![NoTasksEdit](./images/screenshots/ScreenDurChange.jpg) |  ![NoTasksEdit](./images/screenshots/ScreenPostChange.jpg) |  ![NoTasksEdit](./images/screenshots/ScreenDurChange2.jpg)
+
+Finally, after one final pass of user testing, we found that users couldn't currently view what their tasks were being sorted by, so we rearranged the top tab to make the sorting button a drop-down. We also hid the edit and add buttons in edit mode. 
+
+Here are those changes:
+
+UI for Sorting
+![NoTasks](./images/diagrams/SortUI.jpg)
+
 ### Challenges We Faced:
 
-We had a lot of trouble deciding how we wanted to implement the sort functionality without cluttering up the minimalist feel of our lab2 UI. We considered another switcher type button similar to what we used for the all/uncompleted tasks, but felt that including all three sorting options would look to cluttered. We also though about shifting down the row of buttons (edit, sort, and add) below to-do, but decided against this because we felt it took up too much screen real-estate. 
+We had a lot of trouble deciding how we wanted to implement the sort functionality without cluttering up the minimalist feel of our lab2 UI. We considered another switcher type button similar to what we used for the all/uncompleted tasks, but felt that including all three sorting options would look to cluttered. We also thought about shifting down the row of buttons (edit, sort, and add) below "To-do", but decided against this because we felt it took up too much screen real-estate. 
 
 We also had a couple small issues with formatting when adding the new sort button, since adding in a new component influenced the other two buttons and our title in the TopTab.js file. 
 
 ### What We're Proud Of:
 
-This lab we are most proud of our ability to design for simplicity and accessibility. For instance, by having both color and symbol indicators for the priority levels, someone with partial or complete color-blindness could still navigate priority levels in our application. 
+We are most proud of our iterative process, which involved numerous redesigns of our previous lab. For instance, we found that adding a drop-down for priority levels made it so that the edit button had no room, so we rearranged our top toolbar so that the edit and add buttons are on the top right, while the priority level dropdown (as well as the dropdown for toggling between ascending and descending). 
 
-Similarly, while we do include color indicators for our button functions (green for add, etc.) we tried to choose self-explanatory icons that would also be useful for users navigating our app for the first time. 
+We also went through user testing for our new additions, which was useful for a couple of reasons. One, one of our friends pointed out that it was pointless to have the edit and add buttons greyed out but not able to be used, so they suggested removing them entirely. This allowed us to keep the priority level drop-down in-place, while moving the save button to the top left. 
+
+Overall, we tried our best to design the application to be as simple as possible.
 
 ### Final Design Flow
-Identical to lab 2, but with the addition of a sorting drop-down and the priority level addition in the add task section. 
+Very similar to lab 2, except we now rearranged the ordering of a few of the buttons (moving the priority level drop-down to the left, and the edit and add on the top-right, as well as the save button in edit mode). These changes have been documented above, but the overall functionality for adding / deleting tasks remains the same. We also made a small change to the delete button in edit mode to the right of each task, which now uses a unicode trash can.
+
+Any changes that we made are documented under the "User Testing + Design Iteration."
 
 ## Design Overview (Lab 2)
 
