@@ -60,8 +60,9 @@ function BottomTab(props) {
     )
 
     const switcherContainer = (
-        <div id="switcherContainer">
+        <div aria-label="Select Shown Tasks" id="switcherContainer">
             <button
+                aria-label="Show All Tasks"
                 type="button"
                 id="showAll"
                 disabled={props.tasksShowing === TasksShowing.ALL}
@@ -69,6 +70,7 @@ function BottomTab(props) {
             > All
             </button>
             <button
+                aria-label="Show Uncompleted Tasks"
                 type="button"
                 id="showUncompleted"
                 disabled={props.tasksShowing === TasksShowing.UNCOMPLETED}
