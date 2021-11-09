@@ -1,7 +1,30 @@
+## Design Overview (Lab 4)
+
+To begin lab 4, we ran the Developer tools "Lighthouse" accessibility checker on our lab 4. 
+
+We found that many of our elements needed aria labels, as well as an error with aria attributes not matching. Our original score report is shown here. 
+
+Our accessibility score originally:
+
+![NoTasks](./images/screenshots/OriginalAccessibilityScore.jpg)
+
+### User Testing + Design Iteration:
+
+
+
+### Challenges We Faced:
+
+
+
+### What We're Proud Of:
+
+
+### Final Design Flow
+
+
 ## Design Overview (Lab 3)
 
 To begin lab 3, we began by drafting some wireframes for our new UI with sorting functionality added. We wanted to maintain the simple design our previous iterations had, but also make the new functionality of sorting clear to use. We decided to do this by adding a sort button to the homepage next to the edit icon, as well as a priority level prompt when a user goes to add a task. Our wireframes for these two additions are below:
-
 
 UI for Sorting
 

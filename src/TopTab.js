@@ -30,7 +30,9 @@ function TopTab(props) {
             <div id='topTabThird'>
                 {props.appMode === AppModes.EDIT_MODE ?
                     <>
-                        <button id="cancelEdits"
+                        <button
+                            aria-label="Cancel Edits"
+                            id="cancelEdits"
                                 onClick={() => {
                                     props.onCancelEdits(previousState)
                                     props.setAppMode(AppModes.DEFAULT_MODE)
@@ -38,13 +40,17 @@ function TopTab(props) {
                         >
                             <FontAwesomeIcon icon={faUndo}/>
                         </button>
-                        <button id="saveEdits" onClick={() => props.setAppMode(AppModes.DEFAULT_MODE)}>
+                        <button
+                            aria-label="Save Edits"
+                            id="saveEdits" onClick={() => props.setAppMode(AppModes.DEFAULT_MODE)}>
                             <FontAwesomeIcon icon={faSave}/>
                         </button>
                     </>
                     :
                     <>
-                        <button id="editButton"
+                        <button
+                            aria-label="Edit Button"
+                            id="editButton"
                                 onClick={() => {
                                     props.setAppMode(AppModes.EDIT_MODE)
                                     setPreviousState(props.data)
@@ -53,7 +59,9 @@ function TopTab(props) {
                         >
                             <FontAwesomeIcon icon={faEdit}/>
                         </button>
-                        <button id="addItem"
+                        <button
+                            aria-label="Add Button"
+                            id="addItem"
                                 onClick={() => props.setAppMode(AppModes.ADD_MODE)}
                                 disabled={props.appMode !== AppModes.DEFAULT_MODE}
                         >
