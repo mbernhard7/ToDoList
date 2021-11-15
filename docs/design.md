@@ -8,6 +8,10 @@ Our accessibility score originally:
 
 ![NoTasks](./images/screenshots/OriginalAccessibilityScore.jpg)
 
+We then went through and fixed any of the Lighthouse-noticed accessibility issues, namely many buttons named "button" rather than more descriptive names.
+
+![NoTasks](./images/screenshots/Accessibility100.jpg)
+
 ### User Testing + Design Iteration:
 
 
