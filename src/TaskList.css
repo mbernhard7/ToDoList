@@ -1,5 +1,5 @@
 #itemList {
-    height: 500px;
+    height: 75%;
     width: 100%;
     margin: 0;
     padding: 0;
@@ -23,7 +23,7 @@
     border: 16px solid #f3f3f3; /* Light grey */
     border-top: 16px solid cornflowerblue; /* Blue */
     border-radius: 50%;
-    margin: 140px auto;
+    margin: 40% auto;
     width: 120px;
     height: 120px;
     animation: spin 2s linear infinite;
