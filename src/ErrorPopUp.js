@@ -11,10 +11,10 @@ function ErrorPopUp(props) {
                         onClick={() => window.location.reload(true)}
                     >X
                     </button>
-                    <h2> Error </h2>
+                    <h2>ERROR</h2>
                     <button>X</button>
                 </div>
-                <span id="errorMessage">{JSON.stringify(props.error)}</span>
+                <span id="errorMessage">Type: {JSON.stringify(props.error.name)}<br/>Message: {JSON.stringify(props.error.code)}</span>
             </div>
         </div>
         }

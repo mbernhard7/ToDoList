@@ -2,25 +2,26 @@
     display: flex;
     align-items: center;
     border-bottom: solid thin black;
-    height: 60px;
+    height: 12.5%;
+    width: 100%;
     box-sizing: border-box;
 }
 
-#topTab > h1 {
-    font-size: 50px;
+#topTabThird > h1 {
+    font-size: 6vh;
 }
 
 #topTabThird {
     display: flex;
-    width: 120px;
-    height: 60px;
+    width: 33%;
+    height: 100%;
     align-items: center;
     justify-content: space-around;
 }
 
 #topTabThird > button {
-    height: 40px;
-    width: 50px;
+    height: 50%;
+    width: 40%;
     font-size: 20px;
     display: flex;
     justify-content: center;
@@ -28,8 +29,9 @@
 }
 
 #sortParameterSelector {
-    height: 30px;
-    font-size: 15px;
+    height: 40%;
+    width: 70%;
+    font-size: calc(12px + .5vw + 1vh);
 }
 
 #saveEdits {
