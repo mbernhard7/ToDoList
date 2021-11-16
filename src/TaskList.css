@@ -1,5 +1,6 @@
 #itemList {
     height: 75%;
+    flex: 2;
     width: 100%;
     margin: 0;
     padding: 0;

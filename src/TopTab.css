@@ -2,13 +2,13 @@
     display: flex;
     align-items: center;
     border-bottom: solid thin black;
-    height: 12.5%;
+    height: 80px;
     width: 100%;
     box-sizing: border-box;
 }
 
 #topTabThird > h1 {
-    font-size: 6vh;
+    font-size: 30px;
 }
 
 #topTabThird {
@@ -22,6 +22,7 @@
 #topTabThird > button {
     height: 50%;
     width: 40%;
+    max-width: 100px;
     font-size: 20px;
     display: flex;
     justify-content: center;
@@ -29,9 +30,9 @@
 }
 
 #sortParameterSelector {
-    height: 40%;
-    width: 70%;
-    font-size: calc(12px + .5vw + 1vh);
+    height: 50%;
+    width: 85%;
+    font-size: 16px;
 }
 
 #saveEdits {
