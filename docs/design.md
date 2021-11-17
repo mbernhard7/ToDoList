@@ -12,8 +12,52 @@ We then went through and fixed any of the Lighthouse-noticed accessibility issue
 
 ![NoTasks](./images/screenshots/Accessibility100.jpg)
 
+After fixing our accessibility score, we began manipulating the screen sizes. 
+
+First, we went through and ensured that the title and bottom-bar elements remained centered as the screen grew. 
+In addition, we made sure that the text boxes would grow length-wise but not height-wise when using larger screens, to accommodate the desired outcome of being able to display more tasks on a larger screen.
+
+We also made sure that the app remained functional and user-friendly when used by users with low-vision. Here is a series of screenshots of our application, starting at 100% all the way up to 200%.
+
+100% Screen Size:
+![NoTasks](./images/screenshots/100.jpg)
+
+125% Screen Size:
+![NoTasks](./images/screenshots/125.jpg)
+
+150% Screen Size:
+![NoTasks](./images/screenshots/150.jpg)
+
+175% Screen Size:
+![NoTasks](./images/screenshots/175.jpg)
+
+200% Screen Size:
+![NoTasks](./images/screenshots/200.jpg)
+
+After this, we went ahead and tested the voiceover accessibility of our application by having one of us turn around while the other navigates around the screen. We added aria labels and changed class names as needed until both of us were able to tell exactly where in the application we were, entirely from voiceover.
+
+We also ensured that our application was easily used via the keyboard. Finally, we screen recorded our application being used purely from the keyboard, as well as using the voiceover commands, and uploaded the video to Youtube.
+
+This video can be accessed here:
+https://www.youtube.com/watch?v=fnH-Ian-2Is
+
 ### User Testing + Design Iteration:
 
+After showing our initial implementation of the screen re-design to one of our suitemates, we realized that we could also make the sorting filter grow in size, similarly to how the tasks grow in length (only horizontally).
+
+Below are a couple screenshots of our newly designed screen-resizing application:
+
+MotoG4
+![NoTasks](./images/screenshots/MotoG4.jpg)
+
+IphoneX
+![NoTasks](./images/screenshots/IphoneX.jpg)
+
+IPad Pro
+![NoTasks](./images/screenshots/IPadPro.jpg)
+
+Desktop
+![NoTasks](./images/screenshots/Desktop.jpg)
 
 
 ### Challenges We Faced:
@@ -23,7 +67,7 @@ We then went through and fixed any of the Lighthouse-noticed accessibility issue
 ### What We're Proud Of:
 
 
-### Final Design Flow
+### Final Design Flow:
 
 
 ## Design Overview (Lab 3)
