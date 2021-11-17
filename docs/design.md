@@ -61,11 +61,17 @@ Desktop
 
 
 ### Challenges We Faced:
+One of the main challenges we faced was deciding how to work through our tab implementation. 
 
+At first, it sounded like the simplest thing to do would be to use the react tab-components package, but as it turns out, creating new indices was not always the easiest.
 
+As a result we ended up writing our own tabbing implementation, which leads us to...
 
 ### What We're Proud Of:
 
+Our overall design for supporting multiple lists, as well as the attention to detail with accessibility.
+
+Overall, we found this to be one of the tougher labs, but are proud of our ability to work through challenges and complete an application we are both very proud of.
 
 ### Final Design Flow:
 
