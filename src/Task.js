@@ -39,11 +39,12 @@ function Task(props) {
                                 value={props.task.priorityLevel}
                                 onChange={(e) => props.onTaskChanged(props.task.id, 'priorityLevel', parseInt(e.target.value))}
                             >
-                                <option value='1'>!</option>
-                                <option value='2'>!!</option>
-                                <option value='3'>!!!</option>
+                                <option aria-label="Low priority" value='1'>!</option>
+                                <option aria-label="Medium priority" value='2'>!!</option>
+                                <option aria-label="High priority" value='3'>!!!</option>
                             </select>
                             <button
+                                aria-label="Delete task"
                                 className="deleteButton"
                                 onClick={() => props.onTasksDeleted([props.task.id])}
                             >

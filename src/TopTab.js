@@ -16,12 +16,12 @@ function TopTab(props) {
                     disabled={props.data.length <= 1 || props.appMode === AppModes.LOADING_MODE}
                     onChange={(e) => props.setSortParameter(e.target.value)}
                 >
-                    <option value="taskName asc">Name &#x2B06;</option>
-                    <option value="taskName desc">Name &#x2B07;</option>
-                    <option value="created asc">Date &#x2B06;</option>
-                    <option value="created desc">Date &#x2B07;</option>
-                    <option value="priorityLevel asc">Priority &#x2B06;</option>
-                    <option value="priorityLevel desc">Priority &#x2B07;</option>
+                    <option aria-label="Increasing by taskname" value="taskName asc">Name &#x2B06;</option>
+                    <option aria-label="Decreasing by taskname" value="taskName desc">Name &#x2B07;</option>
+                    <option aria-label="Increasing by date created" value="created asc">Date &#x2B06;</option>
+                    <option aria-label="Decreasing by date created" value="created desc">Date &#x2B07;</option>
+                    <option aria-label="Increasing by priority level" value="priorityLevel asc">Priority &#x2B06;</option>
+                    <option aria-label="Decreasing by priority level" value="priorityLevel desc">Priority &#x2B07;</option>
                 </select>
             </div>
             <div id='topTabThird'>
