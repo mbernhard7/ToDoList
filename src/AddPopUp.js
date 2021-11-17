@@ -39,6 +39,7 @@ function AddPopUp(props) {
                     />
                     <div id="prioritySelector">
                         <button
+                            aria-label="Low priority"
                             className="priorityButton"
                             type="button"
                             id="low"
@@ -47,6 +48,7 @@ function AddPopUp(props) {
                         >Low!
                         </button>
                         <button
+                            aria-label="Medium priority"
                             className="priorityButton"
                             type="button"
                             id="medium"
@@ -55,6 +57,7 @@ function AddPopUp(props) {
                         >Medium!!
                         </button>
                         <button
+                            aria-label="High priority"
                             className="priorityButton"
                             type="button"
                             id="high"
