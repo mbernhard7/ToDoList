@@ -2,8 +2,6 @@ import './TopTab.css'
 import {AppModes} from "./App";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faEdit, faPlus, faSave, faUndo} from '@fortawesome/free-solid-svg-icons'
-import 'react-tabs/style/react-tabs.css';
-import ListSelector from "./ListSelector";
 
 function TopTab(props) {
 
