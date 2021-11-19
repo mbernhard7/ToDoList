@@ -36,10 +36,45 @@ We also made sure that the app remained functional and user-friendly when used b
 
 After this, we went ahead and tested the voiceover accessibility of our application by having one of us turn around while the other navigates around the screen. We added aria labels and changed class names as needed until both of us were able to tell exactly where in the application we were, entirely from voiceover.
 
-We also ensured that our application was easily used via the keyboard. Finally, we screen recorded our application being used purely from the keyboard, as well as using the voiceover commands, and uploaded the video to Youtube.
+We also ensured that our application could be easily used via the keyboard. Finally, we screen recorded our application being used purely from the keyboard, as well as using the voiceover commands, and uploaded the video to Youtube.
 
 This video can be accessed here:
+
 https://www.youtube.com/watch?v=fnH-Ian-2Is
+
+*Note, the video and resized screen screenshots were taken prior to our implementation of multiple lists. The updated flow with these changes can be seen below, in the "final flow" section of the design doc.*
+
+After adding our accessibility and screen-resizing editions, we tackled the task of multiple lists of tasks. We began by sketching out some wireframes of how we thought our new UI should look. 
+
+Below is our first-draft of the multiple lists UI, using tabs. 
+
+List First Draft:
+
+![NoTasks](./images/screenshots/OGTabUI.jpg)
+
+We began implementing this approach, but ran into an issue with this UI. The issue being, as the number of lists grows, one of two things must occur: 
+1. The tabs get increasingly smaller and smaller (causing many list names to get cut off).
+
+2. Users are forced to scroll in order to see all their lists.
+
+We found that neither outcome was particularly user-friendly (again, validated by asking our trusty roommates), and decided to go with a slightly different UI.
+
+Final Draft Lists:
+
+![NoTasks](./images/screenshots/FinalTabUI.jpg)
+
+*Another note, when we were adding the finishing touches to our final screen, we noticed that the list manager button was not aligned with the edit and add buttons.
+We fixed this on the final screen, so our final UI looks like this:
+
+![FinalUI](./images/screenshots/FINALUI.jpg)
+
+We swapped tabbing for a drop-down selector, in which users can toggle between lists. 
+We also added a list-manager function, which lets users delete, edit or add new lists.
+It also lets them select which list is their "default" list.
+
+The default list is created when users open their to-do list app, and before any other list is added. 
+After making another list, users can toggle their default list to another list of their choosing.
+
 
 ### User Testing + Design Iteration:
 
@@ -74,6 +109,129 @@ Our overall design for supporting multiple lists, as well as the attention to de
 Overall, we found this to be one of the tougher labs, but are proud of our ability to work through challenges and complete an application we are both very proud of.
 
 ### Final Design Flow:
+
+### Final Design Flow
+
+#### In an empty list, create an item named "Buy new John Grisham book"
+Screen at the beginning of task (user opens up to-do app):
+
+User clicking on plus icon leads to next screen.
+
+![Screenshot](./images/screenshots/screen1.jpg)
+
+Screen during task:
+
+User typing in "Buy new John Grisham book" and tapping "Add Task" leads to next screen.
+
+![Screenshot](./images/screenshots/screen2.jpg)
+
+Screen after task:
+
+User is able to view task that was added on home screen of to-do app.
+
+![Screenshot](./images/screenshots/screen3.jpg)
+
+#### In a non-empty list, create an item named "Eat Lunch"
+Screen at the beginning of task (user opens up to-do app):
+
+User clicking on plus icon leads to next screen.
+
+![Screenshot](./images/screenshots/screen4.jpg)
+
+Screen during task:
+
+User typing in "Eat Lunch" and tapping "Add Task" leads to next screen.
+
+![Screenshot](./images/screenshots/screen5.jpg)
+
+Screen after task:
+
+User is able to view task that was added on home screen of to-do app.
+
+![Screenshot](./images/screenshots/screen6.jpg)
+
+#### Mark the item named "Call Mom" completed (assumes there exists an item named "Call Mom").
+Screen at the beginning of task (user opens up to-do app):
+
+User clicking on either the checkbox or the words "Call Mom" leads to next screen.
+
+![Screenshot](./images/screenshots/screen7.jpg)
+
+Screen after task:
+
+User is able to view that the "Call Mom" task was completed.
+
+![Screenshot](./images/screenshots/screen8.jpg)
+
+#### Rename the item "Text John" to "Text John about bank statements" (assumes there exists an item named "Text John").
+Screen at the beginning of task (user opens up to-do app):
+
+User clicks on the edit button to move to next screen.
+
+![Screenshot](./images/screenshots/screen9.jpg)
+
+Screen before renaming:
+
+User sees "Text John" task has become a text box that is editable, and clicks on the box to begin editing on next screen.
+
+![Screenshot](./images/screenshots/screen10.jpg)
+
+Screen after renaming:
+
+User has changed "Text John" to "Text John about bank statements", and clicks done to move to next screen.
+
+![Screenshot](./images/screenshots/screen11.jpg)
+
+Screen after task:
+
+User's task has saved to "Text John about bank statements"
+
+![Screenshot](./images/screenshots/screen12.jpg)
+
+#### Show only uncompleted items.
+Screen at the beginning of task (user opens up to-do app):
+
+User clicks on "Uncompleted" widget at the bottom of the app to get to the next screen.
+
+![Screenshot](./images/screenshots/screen13.jpg)
+
+Screen after task:
+
+User sees only uncompleted tasks.
+
+![Screenshot](./images/screenshots/screen14.jpg)
+
+#### Delete all completed items.
+Screen at the beginning of task (user opens up to-do app):
+
+User clicks edit to move to next screen.
+
+![Screenshot](./images/screenshots/screen15.jpg)
+
+Screen during task:
+
+User presses on "delete all completed" button to move to next screen.
+
+![Screenshot](./images/screenshots/screen16.jpg)
+
+Screen during task:
+
+User is then prompted to confirm their selection (to delete all tasks) to move to the next screen:
+
+![Screenshot](./images/screenshots/screen16.5.jpg)
+
+Screen during task:
+
+Completed tasks have been deleted, user presses "done" button to move to the next screen:
+
+![Screenshot](./images/screenshots/screen17.jpg)
+
+Screen after task:
+
+User's to-do list has been updated by deleting all completed tasks.
+
+![Screenshot](./images/screenshots/screen18.jpg)
+
 
 
 ## Design Overview (Lab 3)
