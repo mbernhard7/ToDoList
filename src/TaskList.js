@@ -7,6 +7,11 @@ function TaskList(props) {
         props.tasksShowing === TasksShowing.ALL ||
         (props.tasksShowing === TasksShowing.UNCOMPLETED && !task.isChecked)
     );
+
+    function addToTaskChangeList(id, changes) {
+        props.setDataChanges({...props.dataChanges, [id]: changes})
+    }
+
     return <ul id="itemList">
         {props.appMode === AppModes.LOADING_MODE ?
             /* Loader information https://www.w3schools.com/howto/howto_css_loader.asp*/
@@ -18,8 +23,8 @@ function TaskList(props) {
                             key={task.id}
                             task={task}
                             appMode={props.appMode}
-                            onTaskChanged={props.onTaskChanged}
-                            onTasksDeleted={props.onTasksDeleted}
+                            addToTaskChangeList={addToTaskChangeList}
+                            taskChangeList={task.id in props.dataChanges ? props.dataChanges[task.id] : {}}
                         />
                     })
                     : <li key='1' id="noItems">

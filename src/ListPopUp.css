@@ -1,0 +1,82 @@
+#listPopUpBackground {
+    background-color: rgba(211, 211, 211, .9);
+    height: 100%;
+    width: 100%;
+    z-index: 9;
+    position: fixed;
+    display: flex;
+    align-items: center;
+}
+
+#listPopUp {
+    margin: auto;
+    width: 75%;
+    max-width: 550px;
+    min-width: 270px;
+    min-height: 200px;
+    background: white;
+    opacity: 1;
+    border: solid thin black;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+#listHeader {
+    display: flex;
+    width: 100%;
+    border-bottom: thin solid black;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#listHeader > h2 {
+    margin: 0 auto;
+}
+
+/* Set visibility of all buttons in createHeader to hidden, then override in the closeCreate button.
+This is because we created a dummy button that is the same size as the close button in order to allow us
+to center the title and put the close button on the left */
+
+#listHeader > button {
+    border-radius: 50px;
+    height: 40px;
+    width: 40px;
+    background: black;
+    color: white;
+    margin: 5px;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+#closeList {
+    visibility: visible !important;
+    pointer-events: auto !important;
+    font-size: 20px;
+}
+
+#closeList:disabled {
+    background-color: lightgrey !important;
+}
+
+#lists {
+    flex: 2;
+    width: 100%;
+    table-layout: fixed;
+}
+
+.default {
+    width: 20px;
+}
+
+#createListRow {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    border-top: thin solid black;
+}
+
+.deleteButton:disabled {
+    background-color: lightgrey;
+}

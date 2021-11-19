@@ -1,13 +1,13 @@
-import './AddPopUp.css'
+import './AddTaskPopUp.css'
 import {AppModes} from "./App";
 import {useState} from "react";
 
-function AddPopUp(props) {
+function AddTaskPopUp(props) {
     const [taskName, setTaskName] = useState('');
     const [priorityLevel, setPriorityLevel] = useState(1);
 
     return <>
-        {props.appMode === AppModes.ADD_MODE &&
+        {props.appMode === AppModes.ADD_TASK_MODE &&
         <div id="createPopUpBackground">
             <div id="createPopUp">
                 <div id="createHeader">
@@ -78,4 +78,4 @@ function AddPopUp(props) {
     </>
 }
 
-export default AddPopUp;
+export default AddTaskPopUp;
