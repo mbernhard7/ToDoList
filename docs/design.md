@@ -334,7 +334,7 @@ Our first iteration (pictured below) included having edit/default mode be the pa
 
 ![React Design](images/diagrams/FirstDraft.jpeg)
 
-We then redesigned with an App parent component with a state to hold edit mode vs default mode, with children:  AddPopUp, TopTab, TaskList, and Bottom Tab. From there, TopTab would take in whether there are any tasks and the app mode, and TaskList with have children Tasks (who also will take in edit vs default mode). Additionally, the BottomTab would take in edit mode vs default mode.
+We then redesigned with an App parent component with a state to hold edit mode vs default mode, with children:  AddTaskPopUp, TopTab, TaskList, and Bottom Tab. From there, TopTab would take in whether there are any tasks and the app mode, and TaskList with have children Tasks (who also will take in edit vs default mode). Additionally, the BottomTab would take in edit mode vs default mode.
 
 The component hierarchy we created is displayed below:
 

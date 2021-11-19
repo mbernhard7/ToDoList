@@ -1,17 +1,16 @@
 #topTab {
     display: flex;
+    flex-direction: row;
     align-items: center;
     border-bottom: solid thin black;
-    height: 80px;
+    height: 60px;
     width: 100%;
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-#topTabThird > h1 {
-    font-size: 30px;
-}
-
-#topTabThird {
+.topTabThird {
     display: flex;
     width: 33%;
     height: 100%;
@@ -19,8 +18,12 @@
     justify-content: space-around;
 }
 
-#topTabThird > button {
-    height: 50%;
+.topTabThird > h1 {
+    font-size: 30px;
+}
+
+.topTabThird > button {
+    height: 40px;
     width: 40%;
     max-width: 100px;
     font-size: 20px;
@@ -30,9 +33,13 @@
 }
 
 #sortParameterSelector {
-    height: 50%;
+    height: 40px;
     width: 85%;
     font-size: 16px;
+}
+
+#editButton {
+    background-color: cornflowerblue;
 }
 
 #saveEdits {
@@ -43,6 +50,6 @@
     background: #aaf683;
 }
 
-#addItem:disabled {
+.topTabThird > button:disabled {
     background: lightgray !important;
 }
