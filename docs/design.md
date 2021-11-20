@@ -64,9 +64,9 @@ Final Draft Lists:
 ![NoTasks](./images/screenshots/FinalTabUI.jpg)
 
 *Another note, when we were adding the finishing touches to our final screen, we noticed that the list manager button was not aligned with the edit and add buttons.
-We fixed this on the final screen, so our final UI looks like this:
+We fixed this on the final screen, so our final UI looks like this:*
 
-![FinalUI](./images/screenshots/FINALUI.jpg)
+![FinalUI](./images/screenshots/FinalUI.jpg)
 
 We swapped tabbing for a drop-down selector, in which users can toggle between lists. 
 We also added a list-manager function, which lets users delete, edit or add new lists.
