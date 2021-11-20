@@ -96,11 +96,11 @@ Desktop
 
 
 ### Challenges We Faced:
-One of the main challenges we faced was deciding how to work through our tab implementation. 
+One of the main challenges we faced was deciding how to format our UI for multiple lists of tasks.
 
-At first, it sounded like the simplest thing to do would be to use the react tab-components package, but as it turns out, creating new indices was not always the easiest.
+We really liked the idea of using tabbing to denote multiple lists, especially since that approach was likely intuitive to many users. However, we found that this strategy did not scale well for users who created many lists.
 
-As a result we ended up writing our own tabbing implementation, which leads us to...
+
 
 ### What We're Proud Of:
 
@@ -110,7 +110,6 @@ Overall, we found this to be one of the tougher labs, but are proud of our abili
 
 ### Final Design Flow:
 
-### Final Design Flow
 
 #### In an empty list, create an item named "Buy new John Grisham book"
 Screen at the beginning of task (user opens up to-do app):
