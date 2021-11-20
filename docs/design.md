@@ -106,7 +106,7 @@ We really liked the idea of using tabbing to denote multiple lists, especially s
 
 Our overall design for supporting multiple lists, as well as the attention to detail with accessibility.
 
-Overall, we found this to be one of the tougher labs, but are proud of our ability to work through challenges and complete an application we are both very proud of.
+We found this to be one of the tougher labs, but are proud of our ability to work through challenges and complete an application we are both very proud of.
 
 ### Final Design Flow:
 
