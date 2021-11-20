@@ -44,7 +44,7 @@ https://www.youtube.com/watch?v=fnH-Ian-2Is
 
 *Note, the video and resized screen screenshots were taken prior to our implementation of multiple lists. The updated flow with these changes can be seen below, in the "final flow" section of the design doc.*
 
-After adding our accessibility and screen-resizing editions, we tackled the task of multiple lists of tasks. We began by sketching out some wireframes of how we thought our new UI should look. 
+After adding our accessibility and screen-resizing editions, we tackled implementing multiple lists of tasks. We began by sketching out some wireframes of how we thought our new UI should look. 
 
 Below is our first-draft of the multiple lists UI, using tabs. 
 
