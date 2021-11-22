@@ -2,9 +2,13 @@ import {useState} from "react";
 import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
 import firebase from "firebase/compat";
 import App from "./App";
+import {useCollection} from "react-firebase-hooks/firestore";
 
 function List(props) {
     const [sortParameter, setSortParameter] = useState('priorityLevel desc');
+    const query = props.collection.orderBy(sortParameter.split(' ')[0], sortParameter.split(' ')[1]);
+    const [value, loading, error] = useCollection(query);
+    const data = value?.docs.map(doc => doc.data()) || [];
 
     function onTaskAdded(taskName, priorityLevel) {
         const id = generateUniqueID();
@@ -30,9 +34,9 @@ function List(props) {
     }
 
     return <App lists={props.lists}
-                data={[]}
-                loading={props.loading}
-                error={props.error}
+                data={data}
+                loading={loading || props.loading}
+                error={error ? error : props.error}
                 currentListID={props.currentListID}
                 setCurrentListID={props.setCurrentListID}
                 onListAdded={props.onListAdded}

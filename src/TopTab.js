@@ -7,7 +7,7 @@ function TopTab(props) {
 
     return (
         <div id="topTab">
-            <div className='topTabThird'>
+            <div className='topTabThird first'>
                 <select
                     id='sortParameterSelector'
                     value={props.sortParameter}
@@ -18,21 +18,23 @@ function TopTab(props) {
                     <option aria-label="Decreasing by taskname" value="taskName desc">Name &#x2B07;</option>
                     <option aria-label="Increasing by date created" value="created asc">Date &#x2B06;</option>
                     <option aria-label="Decreasing by date created" value="created desc">Date &#x2B07;</option>
-                    <option aria-label="Increasing by priority level" value="priorityLevel asc">Priority &#x2B06;</option>
-                    <option aria-label="Decreasing by priority level" value="priorityLevel desc">Priority &#x2B07;</option>
+                    <option aria-label="Increasing by priority level"
+                            value="priorityLevel asc">Priority &#x2B06;</option>
+                    <option aria-label="Decreasing by priority level"
+                            value="priorityLevel desc">Priority &#x2B07;</option>
                 </select>
             </div>
             <div className='topTabThird'>
                 <h1 id="title">To-Do</h1>
             </div>
-            <div className='topTabThird'>
+            <div className='topTabThird last'>
                 {props.appMode === AppModes.EDIT_MODE ?
                     <>
                         <button
                             aria-label="Cancel Edits"
                             id="cancelEdits"
                             onClick={() => {
-                                props.setChangeList({})
+                                props.setDataChanges({})
                                 props.setAppMode(AppModes.DEFAULT_MODE)
                             }}
                         >
@@ -42,7 +44,7 @@ function TopTab(props) {
                             aria-label="Save Edits"
                             id="saveEdits"
                             onClick={() => {
-                                props.applyChangeList()
+                                props.applyDataChanges()
                                 props.setAppMode(AppModes.DEFAULT_MODE)
                             }}>
                             <FontAwesomeIcon icon={faSave}/>
@@ -61,7 +63,10 @@ function TopTab(props) {
                         <button
                             aria-label="Add Button"
                             id="addItem"
-                            onClick={() => props.setAppMode(AppModes.ADD_TASK_MODE)}
+                            onClick={() => {
+                                props.setAppMode(AppModes.ADD_TASK_MODE);
+                                console.log(props.appMode)
+                            }}
                             disabled={props.appMode !== AppModes.DEFAULT_MODE}
                         >
                             <FontAwesomeIcon icon={faPlus}/>
