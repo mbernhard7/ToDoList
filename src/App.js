@@ -23,6 +23,7 @@ export const TasksShowing = {
 
 function App(props) {
     const [appMode, setAppMode] = useState(AppModes.LOADING_MODE);
+    const [lastAppMode, setLastAppMode] = useState(AppModes.DEFAULT_MODE);
     const [tasksShowing, setTasksShowing] = useState(TasksShowing.ALL);
     const [dataChanges, setDataChanges] = useState({});
 
@@ -43,15 +44,18 @@ function App(props) {
 
     useEffect(() => {
         if (props.loading) {
+            if (appMode !== AppModes.LOADING_MODE) {
+                setLastAppMode(appMode);
+            }
             setAppMode(AppModes.LOADING_MODE);
         } else {
             if (props.lists.length === 0 || appMode === AppModes.EDIT_LISTS_MODE) {
                 setAppMode(AppModes.EDIT_LISTS_MODE)
-            } else {
-                setAppMode(AppModes.DEFAULT_MODE);
+            } else if (appMode === AppModes.LOADING_MODE) {
+                setAppMode(lastAppMode);
             }
         }
-    }, [props.loading, props.lists, appMode])
+    }, [props.loading, props.lists, appMode, lastAppMode])
 
     return (
         <div className="App">
@@ -88,6 +92,7 @@ function App(props) {
             />
             <TaskList
                 data={props.data}
+                onTaskChanged={props.onTaskChanged}
                 appMode={appMode}
                 tasksShowing={tasksShowing}
                 setDataChanges={setDataChanges}

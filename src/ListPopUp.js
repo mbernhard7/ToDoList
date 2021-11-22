@@ -6,7 +6,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 function ListPopUp(props) {
     const [listName, setListName] = useState("");
-    const [toBeDeletedName, setToBeDeletedName] = useState(null);
+    const [toBeDeletedID, setToBeDeletedID] = useState(null);
 
     return <>
         {props.appMode === AppModes.EDIT_LISTS_MODE &&
@@ -18,7 +18,7 @@ function ListPopUp(props) {
                         disabled={props.lists.length === 0}
                         onClick={() => {
                             setListName("");
-                            setToBeDeletedName(null);
+                            setToBeDeletedID(null);
                             props.setAppMode(AppModes.DEFAULT_MODE)
                         }}
                     >X
@@ -26,80 +26,88 @@ function ListPopUp(props) {
                     <h2> Lists </h2>
                     <button>X</button>
                 </div>
-                <table id="lists">
-                    <thead>
-                        <tr>
-                            <th>Default</th>
-                            <th>Name</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {props.lists.map(l => <tr id="list">
-                            {toBeDeletedName === l.listName ?
-                                <td className="confirmationRow">
-                                    <span>Are you sure?</span>
-                                    <button
-                                        className="cancelDelete"
-                                        onClick={() => setToBeDeletedName(null)}
-                                    >No</button>
-                                    <button
-                                        className="delete"
-                                        onClick={() => {
-                                            props.onListDeleted(l.id);
-                                            setToBeDeletedName(null);
-                                            }
-                                        }
-                                    >Yes</button>
-                                </td>
-                                :
-                                <>
-                                    <td className='default'>
-                                        <input
-                                            className="defaultRadio"
-                                            type="radio"
-                                            checked={l.isDefault}
-                                            onChange={() => props.onListChanged(l.id, 'isDefault', true)}
-                                        />
-                                    </td>
-                                    <td>
-                                        <input
-                                            className="listName"
-                                            type="text"
-                                            value={l.listName}
-                                            onChange={(e)=>props.onListChanged(l.id,'listName',e.target.value)}
-                                        />
-                                    </td>
-                                    <td>
+                <div id="listsContainer">
+                    <table id="lists" border="1" frame="void" rules="rows">
+                        <thead>
+                            <tr>
+                                <th className='default'>Default</th>
+                                <th className='name'/>
+                                <th className='deleteCell'/>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {props.lists.map(l => <tr key={l.id} id="list">
+                                {toBeDeletedID === l.id ?
+                                    <td colSpan="3" className='confirmCell'>
+                                        <span>Delete {l.listName}?</span>
                                         <button
-                                            className="deleteButton"
-                                            disabled={l.isDefault}
-                                            onClick={() => setToBeDeletedName(l.listName)}
-                                        >
-                                            <FontAwesomeIcon icon={faTrash} size="xs"/>
-                                        </button>
+                                            className="cancelDelete"
+                                            onClick={() => setToBeDeletedID(null)}
+                                        >No</button>
+                                        <button
+                                            className="deleteConfirm"
+                                            onClick={() => {
+                                                props.onListDeleted(l.id);
+                                                setToBeDeletedID(null);
+                                                }
+                                            }
+                                        >Yes</button>
                                     </td>
-                                </>
+                                    :
+                                    <>
+                                        <td className='default'>
+                                            <input
+                                                className="defaultRadio"
+                                                type="radio"
+                                                checked={l.isDefault}
+                                                onChange={() => props.onListChanged(l.id, 'isDefault', true)}
+                                            />
+                                        </td>
+                                        <td className='name'>
+                                            <input
+                                                className="listName"
+                                                type="text"
+                                                value={l.listName}
+                                                onChange={(e)=>props.onListChanged(l.id,'listName',e.target.value)}
+                                            />
+                                        </td>
+                                        <td className='deleteCell'>
+                                            <button
+                                                className={l.isDefault ? "hidden" : "deleteListButton"}
+                                                disabled={l.isDefault}
+                                                onClick={() => setToBeDeletedID(l.id)}
+                                            >
+                                                <FontAwesomeIcon icon={faTrash} size="xs"/>
+                                            </button>
+                                        </td>
+                                    </>
+                                }
+                            </tr>)
                             }
-                        </tr>)
-                        }
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
                 <div id='createListRow'>
-                    <input
-                        type='text'
-                        value={listName}
-                        placeholder="New list"
-                        onChange={(e) => setListName(e.target.value)}
-                    />
-                    <button id='createNewList'
-                            disabled={listName.length === 0}
-                            onClick={() => {
-                                props.onListAdded(listName, props.lists.length === 0);
-                                setListName("");
-                            }}
-                    >
-                        <FontAwesomeIcon icon={faPlus}/>
-                    </button>
+                    <div id='createInputWrapper'>
+                        <input
+                            id='createListInput'
+                            type='text'
+                            value={listName}
+                            placeholder="New list"
+                            onChange={(e) => setListName(e.target.value)}
+                        />
+                    </div>
+                    <div id='createListWrapper'>
+                        <button id='createNewList'
+                                disabled={listName.length === 0}
+                                onClick={() => {
+                                    props.onListAdded(listName, props.lists.length === 0);
+                                    setListName("");
+                                }}
+                        >
+                            <FontAwesomeIcon icon={faPlus}/>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

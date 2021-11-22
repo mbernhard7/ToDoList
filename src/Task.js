@@ -8,7 +8,7 @@ function Task(props) {
 
 
     function addUpdateToChangeList(field, value) {
-        props.addToTaskChangeList(props.task.id, {...props.taskChangeList, [field]:value})
+        props.addToTaskChangeList(props.task.id, {...props.taskChangeList, [field]: value})
     }
 
     function getPriorityClass(num) {
@@ -57,7 +57,7 @@ function Task(props) {
                                 aria-label="Delete task"
                                 className="deleteButton"
                                 onClick={() => {
-                                    addUpdateToChangeList('delete',true)
+                                    addUpdateToChangeList('delete', true)
                                 }}
                             >
                                 <FontAwesomeIcon icon={faTrash} size="xs"/>

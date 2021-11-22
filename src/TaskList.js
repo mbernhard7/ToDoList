@@ -22,6 +22,7 @@ function TaskList(props) {
                         return <Task
                             key={task.id}
                             task={task}
+                            onTaskChanged={props.onTaskChanged}
                             appMode={props.appMode}
                             addToTaskChangeList={addToTaskChangeList}
                             taskChangeList={task.id in props.dataChanges ? props.dataChanges[task.id] : {}}
