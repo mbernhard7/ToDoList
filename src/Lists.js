@@ -19,10 +19,18 @@ const db = firebase.firestore();
 const listCollectionName = "lists";
 
 function Lists() {
-    const [currentListID, setCurrentListID] = useState("1");
+    const [currentListID, setCurrentListID] = useState(null);
     const query = db.collection(listCollectionName);
     const [value, loading, error] = useCollection(query);
     let lists = value?.docs.map(doc => doc.data()) || [];
+
+    if (lists.length > 0 && !currentListID) {
+        lists.forEach(l => {
+            if (l.isDefault) {
+                setCurrentListID(l.id)
+            }
+        });
+    }
 
     function onListAdded(listName, isDefault) {
         const id = generateUniqueID();
@@ -39,32 +47,35 @@ function Lists() {
         await tasks.docs.forEach(doc => doc.ref.delete());
         await db.collection(listCollectionName).doc(id).delete();
         if (currentListID === id) {
-            setCurrentListID("1")
+            lists.forEach(l => {
+                if (l.isDefault) {
+                    setCurrentListID(l.id)
+                }
+            });
         }
     }
 
     function onListChanged(id, field, newValue) {
         if (field === 'isDefault' && newValue) {
-            lists.filter(l => l.id !== id).forEach(l => onListChanged(l.id, 'isDefault',false))
+            lists.filter(l => l.id !== id).forEach(l => onListChanged(l.id, 'isDefault', false))
         }
         db.collection(listCollectionName).doc(id).update(
             {[field]: newValue}
         );
     }
 
-    return (
-        <List
-            collection={db.collection(listCollectionName).doc(currentListID).collection('tasks')}
-            lists={lists}
-            loading={loading}
-            error={error}
-            currentListID={currentListID}
-            setCurrentListID={setCurrentListID}
-            onListAdded={onListAdded}
-            onListDeleted={onListDeleted}
-            onListChanged={onListChanged}
-        />
-    )
+    return <>{currentListID && <List
+        collection={db.collection(listCollectionName).doc(currentListID).collection('tasks')}
+        lists={lists}
+        loading={loading}
+        error={error}
+        currentListID={currentListID}
+        setCurrentListID={setCurrentListID}
+        onListAdded={onListAdded}
+        onListDeleted={onListDeleted}
+        onListChanged={onListChanged}
+    />
+    }</>
 }
 
 export default Lists
