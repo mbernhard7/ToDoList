@@ -20,18 +20,23 @@ In addition, we made sure that the text boxes would grow length-wise but not hei
 We also made sure that the app remained functional and user-friendly when used by users with low-vision. Here is a series of screenshots of our application, starting at 100% all the way up to 200%.
 
 100% Screen Size:
+
 ![NoTasks](./images/screenshots/100.jpg)
 
 125% Screen Size:
+
 ![NoTasks](./images/screenshots/125.jpg)
 
 150% Screen Size:
+
 ![NoTasks](./images/screenshots/150.jpg)
 
 175% Screen Size:
+
 ![NoTasks](./images/screenshots/175.jpg)
 
 200% Screen Size:
+
 ![NoTasks](./images/screenshots/200.jpg)
 
 After this, we went ahead and tested the voiceover accessibility of our application by having one of us turn around while the other navigates around the screen. We added aria labels and changed class names as needed until both of us were able to tell exactly where in the application we were, entirely from voiceover.
@@ -83,15 +88,19 @@ After showing our initial implementation of the screen re-design to one of our s
 Below are a couple screenshots of our newly designed screen-resizing application:
 
 MotoG4
+
 ![NoTasks](./images/screenshots/MotoG4.jpg)
 
 IphoneX
+
 ![NoTasks](./images/screenshots/IphoneX.jpg)
 
 IPad Pro
+
 ![NoTasks](./images/screenshots/IPadPro.jpg)
 
 Desktop
+
 ![NoTasks](./images/screenshots/Desktop.jpg)
 
 
