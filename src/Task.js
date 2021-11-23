@@ -37,7 +37,8 @@ function Task(props) {
                             <input
                                 className="editInput"
                                 type="text"
-                                value={props.taskChangeList?.taskName || props.task.taskName}
+                                value={props.taskChangeList.taskName !== undefined ?
+                                    props.taskChangeList.taskName : props.task.taskName}
                                 onChange={(e) => {
                                     addUpdateToChangeList('taskName', e.target.value)
                                 }}
