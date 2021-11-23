@@ -101,7 +101,6 @@ One of the main challenges we faced was deciding how to format our UI for multip
 We really liked the idea of using tabbing to denote multiple lists, especially since that approach was likely intuitive to many users. However, we found that this strategy did not scale well for users who created many lists.
 
 
-
 ### What We're Proud Of:
 
 Our overall design for supporting multiple lists, as well as the attention to detail with accessibility.
@@ -116,121 +115,145 @@ Screen at the beginning of task (user opens up to-do app):
 
 User clicking on plus icon leads to next screen.
 
-![Screenshot](./images/screenshots/screen1.jpg)
+![Screenshot](./images/flowlab4/s1.jpg)
 
 Screen during task:
 
 User typing in "Buy new John Grisham book" and tapping "Add Task" leads to next screen.
 
-![Screenshot](./images/screenshots/screen2.jpg)
+![Screenshot](./images/flowlab4/s2.jpg)
 
 Screen after task:
 
 User is able to view task that was added on home screen of to-do app.
 
-![Screenshot](./images/screenshots/screen3.jpg)
+![Screenshot](./images/flowlab4/s3.jpg)
 
 #### In a non-empty list, create an item named "Eat Lunch"
 Screen at the beginning of task (user opens up to-do app):
 
 User clicking on plus icon leads to next screen.
 
-![Screenshot](./images/screenshots/screen4.jpg)
+![Screenshot](./images/flowlab4/s4.jpg)
 
 Screen during task:
 
 User typing in "Eat Lunch" and tapping "Add Task" leads to next screen.
 
-![Screenshot](./images/screenshots/screen5.jpg)
+![Screenshot](./images/flowlab4/s5.jpg)
 
 Screen after task:
 
 User is able to view task that was added on home screen of to-do app.
 
-![Screenshot](./images/screenshots/screen6.jpg)
+![Screenshot](./images/flowlab4/s6.jpg)
 
 #### Mark the item named "Call Mom" completed (assumes there exists an item named "Call Mom").
 Screen at the beginning of task (user opens up to-do app):
 
 User clicking on either the checkbox or the words "Call Mom" leads to next screen.
 
-![Screenshot](./images/screenshots/screen7.jpg)
+![Screenshot](./images/flowlab4/s7.jpg)
 
 Screen after task:
 
 User is able to view that the "Call Mom" task was completed.
 
-![Screenshot](./images/screenshots/screen8.jpg)
+![Screenshot](./images/flowlab4/s8.jpg)
 
 #### Rename the item "Text John" to "Text John about bank statements" (assumes there exists an item named "Text John").
 Screen at the beginning of task (user opens up to-do app):
 
 User clicks on the edit button to move to next screen.
 
-![Screenshot](./images/screenshots/screen9.jpg)
+![Screenshot](./images/flowlab4/s9.jpg)
 
 Screen before renaming:
 
 User sees "Text John" task has become a text box that is editable, and clicks on the box to begin editing on next screen.
 
-![Screenshot](./images/screenshots/screen10.jpg)
+![Screenshot](./images/flowlab4/s10.jpg)
 
 Screen after renaming:
 
 User has changed "Text John" to "Text John about bank statements", and clicks done to move to next screen.
 
-![Screenshot](./images/screenshots/screen11.jpg)
+![Screenshot](./images/flowlab4/s11.jpg)
 
 Screen after task:
 
 User's task has saved to "Text John about bank statements"
 
-![Screenshot](./images/screenshots/screen12.jpg)
+![Screenshot](./images/flowlab4/s12.jpg)
 
 #### Show only uncompleted items.
 Screen at the beginning of task (user opens up to-do app):
 
 User clicks on "Uncompleted" widget at the bottom of the app to get to the next screen.
 
-![Screenshot](./images/screenshots/screen13.jpg)
+![Screenshot](./images/flowlab4/s13.jpg)
 
 Screen after task:
 
 User sees only uncompleted tasks.
 
-![Screenshot](./images/screenshots/screen14.jpg)
+![Screenshot](./images/flowlab4/s14.jpg)
 
 #### Delete all completed items.
 Screen at the beginning of task (user opens up to-do app):
 
 User clicks edit to move to next screen.
 
-![Screenshot](./images/screenshots/screen15.jpg)
+![Screenshot](./images/flowlab4/s15.jpg)
 
 Screen during task:
 
 User presses on "delete all completed" button to move to next screen.
 
-![Screenshot](./images/screenshots/screen16.jpg)
+![Screenshot](./images/flowlab4/s16.jpg)
 
 Screen during task:
 
 User is then prompted to confirm their selection (to delete all tasks) to move to the next screen:
 
-![Screenshot](./images/screenshots/screen16.5.jpg)
+![Screenshot](./images/flowlab4/s17.jpg)
 
 Screen during task:
 
 Completed tasks have been deleted, user presses "done" button to move to the next screen:
 
-![Screenshot](./images/screenshots/screen17.jpg)
+![Screenshot](./images/flowlab4/s18.jpg)
 
 Screen after task:
 
 User's to-do list has been updated by deleting all completed tasks.
 
-![Screenshot](./images/screenshots/screen18.jpg)
+![Screenshot](./images/flowlab4/s19.jpg)
 
+#### Switch current list.
+Screen at the beginning of task (user opens up to-do app):
+
+User clicks on the list drop down to get to next screen.
+
+![Screenshot](./images/flowlab4/s20.jpg)
+
+Screen during task:
+
+User selects "groceries" to move to next screen.
+
+![Screenshot](./images/flowlab4/s21.jpg)
+
+Screen after task:
+
+User is now in the new groceries list:
+
+![Screenshot](./images/flowlab4/s22.jpg)
+
+Other:
+
+User's to-do list task manager (to edit names, delete lists, etc) can be viewed by selected the task manager icon on the right, second from the top.
+
+![Screenshot](./images/flowlab4/s23.jpg)
 
 
 ## Design Overview (Lab 3)
