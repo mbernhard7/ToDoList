@@ -1,3 +1,43 @@
+## Design Overview (Lab 5)
+
+To start working on lab 5, we began by answering the questions posted in the lab instructions.
+
+#### Design decisions (this is not an exhaustive list):
+If user A shares a list with user B, can user B share that list with user C?
+
+* No. We won't allow this behavior to make sure user B doesn't run off and make the list availiable to 300 of his closest friends. However, we do allow owners to designate new owners, who can share the list with others.
+
+If user A shares a list with user B, can user B delete that list?
+* No. Unless B is an owner, as decided by user A.
+
+If user A shares a list with user B, does user B need to accept that sharing, or will a shared list just show up?
+* Shared list just shows up - with the caveat that users have the ability to remove themselves as viewers of a shared list.
+
+
+Should shared lists be distinguishable in the UI from unshared lists?
+* Yes. This is reflected in the list manager
+
+
+If user A shares a list with user B, can user B see that list if they don't have an authenticated email address?
+
+* No. We force everyone to authenticate to see any lists (theirs or shared!)
+
+
+### User Testing + Design Iteration:
+
+TBD
+
+### Challenges We Faced:
+TBD
+
+### What We're Proud Of:
+
+TBD
+
+### Final Design Flow:
+
+Add list-sharing slides
+
 ## Design Overview (Lab 4)
 
 To begin lab 4, we ran the Developer tools "Lighthouse" accessibility checker on our lab 4. 
@@ -20,18 +60,23 @@ In addition, we made sure that the text boxes would grow length-wise but not hei
 We also made sure that the app remained functional and user-friendly when used by users with low-vision. Here is a series of screenshots of our application, starting at 100% all the way up to 200%.
 
 100% Screen Size:
+
 ![NoTasks](./images/screenshots/100.jpg)
 
 125% Screen Size:
+
 ![NoTasks](./images/screenshots/125.jpg)
 
 150% Screen Size:
+
 ![NoTasks](./images/screenshots/150.jpg)
 
 175% Screen Size:
+
 ![NoTasks](./images/screenshots/175.jpg)
 
 200% Screen Size:
+
 ![NoTasks](./images/screenshots/200.jpg)
 
 After this, we went ahead and tested the voiceover accessibility of our application by having one of us turn around while the other navigates around the screen. We added aria labels and changed class names as needed until both of us were able to tell exactly where in the application we were, entirely from voiceover.
@@ -83,15 +128,19 @@ After showing our initial implementation of the screen re-design to one of our s
 Below are a couple screenshots of our newly designed screen-resizing application:
 
 MotoG4
+
 ![NoTasks](./images/screenshots/MotoG4.jpg)
 
 IphoneX
+
 ![NoTasks](./images/screenshots/IphoneX.jpg)
 
 IPad Pro
+
 ![NoTasks](./images/screenshots/IPadPro.jpg)
 
 Desktop
+
 ![NoTasks](./images/screenshots/Desktop.jpg)
 
 
