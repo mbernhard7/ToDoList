@@ -1,3 +1,43 @@
+## Design Overview (Lab 5)
+
+To start working on lab 5, we began by answering the questions posted in the lab instructions.
+
+#### Design decisions (this is not an exhaustive list):
+If user A shares a list with user B, can user B share that list with user C?
+
+* No. We won't allow this behavior to make sure user B doesn't run off and make the list availiable to 300 of his closest friends. However, we do allow owners to designate new owners, who can share the list with others.
+
+If user A shares a list with user B, can user B delete that list?
+* No. Unless B is an owner, as decided by user A.
+
+If user A shares a list with user B, does user B need to accept that sharing, or will a shared list just show up?
+* Shared list just shows up - with the caveat that users have the ability to remove themselves as viewers of a shared list.
+
+
+Should shared lists be distinguishable in the UI from unshared lists?
+* Yes. This is reflected in the list manager
+
+
+If user A shares a list with user B, can user B see that list if they don't have an authenticated email address?
+
+* No. We force everyone to authenticate to see any lists (theirs or shared!)
+
+
+### User Testing + Design Iteration:
+
+TBD
+
+### Challenges We Faced:
+TBD
+
+### What We're Proud Of:
+
+TBD
+
+### Final Design Flow:
+
+Add list-sharing slides
+
 ## Design Overview (Lab 4)
 
 To begin lab 4, we ran the Developer tools "Lighthouse" accessibility checker on our lab 4. 
