@@ -25,14 +25,14 @@ If user A shares a list with user B, can user B see that list if they don't have
 
 ### User Testing + Design Iteration:
 
-TBD
+TBD1
 
 ### Challenges We Faced:
-TBD
+TBD2
 
 ### What We're Proud Of:
 
-TBD
+TBD3
 
 ### Final Design Flow:
 
