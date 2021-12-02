@@ -1,5 +1,5 @@
 import './ListSelector.css'
-import {AppModes} from "./App";
+import {AppModes} from "./SignedInApp";
 import {faListUl} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 

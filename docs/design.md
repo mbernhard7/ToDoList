@@ -328,7 +328,7 @@ Loading / Error mode:
 
 ![NoTasks](./images/screenshots/LoadMode.jpg)
 
-Note that for us to add this loading mode we did add a new mode to our App.js, as well as pass in a few values as props. 
+Note that for us to add this loading mode we did add a new mode to our SignedInApp.js, as well as pass in a few values as props. 
 
 Finally, one small comment is that we realized sorting zero or 1 tasks isn't logical, so we disabled the sorting dropdown when there are less than 2 tasks.
 
@@ -365,7 +365,7 @@ Our first iteration (pictured below) included having edit/default mode be the pa
 
 ![React Design](images/diagrams/FirstDraft.jpeg)
 
-We then redesigned with an App parent component with a state to hold edit mode vs default mode, with children:  AddTaskPopUp, TopTab, TaskList, and Bottom Tab. From there, TopTab would take in whether there are any tasks and the app mode, and TaskList with have children Tasks (who also will take in edit vs default mode). Additionally, the BottomTab would take in edit mode vs default mode.
+We then redesigned with an SignedInApp parent component with a state to hold edit mode vs default mode, with children:  AddTaskPopUp, TopTab, TaskList, and Bottom Tab. From there, TopTab would take in whether there are any tasks and the app mode, and TaskList with have children Tasks (who also will take in edit vs default mode). Additionally, the BottomTab would take in edit mode vs default mode.
 
 The component hierarchy we created is displayed below:
 
@@ -377,7 +377,7 @@ During implementation, we realized we were missing a few details and had overloo
 
 ![React Design](images/diagrams/ReactDesign.jpeg)
 
-Our final application utilizes the hierarchy above. The index component just bolds the initial data and passes that as a prop to the InMemoryApp component. The InMemoryApp component has the state data, initialized from initialData. It passes this data into the main App. The main app then maintains an appMode state (default, addMode, editMode) and a tasksShowing state (all, uncompleted) and has functions to create, modify, and delete tasks. It passes combinations of these functions, states, and the overall app data to each of the child components, as detailed in the diagram.
+Our final application utilizes the hierarchy above. The index component just bolds the initial data and passes that as a prop to the InMemoryApp component. The InMemoryApp component has the state data, initialized from initialData. It passes this data into the main SignedInApp. The main app then maintains an appMode state (default, addMode, editMode) and a tasksShowing state (all, uncompleted) and has functions to create, modify, and delete tasks. It passes combinations of these functions, states, and the overall app data to each of the child components, as detailed in the diagram.
 
 ### User Testing + Design Iteration:
 Once again, we shamelessly utilized our roommates for user testing. First, after implementing our static implementation, we showed consecutive screens to the sample users. Then, after implementing the entire application, we did a final user test. Here was the feedback we received from our users (roommates):
@@ -409,7 +409,7 @@ Here is what the screen looks like for users who have yet to add text for the ta
 
 The add task button is disabled and greyed out, so users are unable to add blank tasks anymore.
 
-One final note: After a suggestion from Prof. Rhodes, we moved the add, change, and delete functions from App.js (where they were previously stored) to the inMemoryApp.js component. 
+One final note: After a suggestion from Prof. Rhodes, we moved the add, change, and delete functions from SignedInApp.js (where they were previously stored) to the inMemoryApp.js component. 
 
 ### Challenges We Faced:
 

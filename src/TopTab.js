@@ -1,5 +1,5 @@
 import './TopTab.css'
-import {AppModes} from "./App";
+import {AppModes} from "./SignedInApp";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faEdit, faPlus, faSave, faUndo} from '@fortawesome/free-solid-svg-icons'
 

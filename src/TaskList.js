@@ -1,6 +1,6 @@
 import './TaskList.css'
 import Task from "./Task";
-import {AppModes, TasksShowing} from "./App";
+import {AppModes, TasksShowing} from "./SignedInApp";
 
 function TaskList(props) {
     let tasks = props.data?.filter(task =>
