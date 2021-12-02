@@ -1,6 +1,6 @@
 #signUpSignIn {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -9,26 +9,28 @@
 
 #title {
     font-size: 60px;
-
+    margin: 2px;
 }
 
 #buttonOptions {
     position: absolute;
-    margin-top: 65%;
-    justify-self: center;
-    height: 30%;
+    margin-top: 0;
+    height: 100%;
     width: 100%;
     display:flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 
-button {
-    width: 30%;
-    height: 20%;
+#logInButton, #signUpButton {
+    width: 50%;
+    height: 10%;
     font-size: 20px;
     font-weight: bold;
+    max-height: 100px;
+    max-width: 600px;
+    margin: 20px;
 }
 
 #logInButton {
@@ -38,3 +40,49 @@ button {
 #signUpButton {
     background-color: cornflowerblue;
 }
+
+hr {
+    border: 1px dashed black;
+    width: 45%;
+}
+
+#divider {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+#signIn, #signUp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    max-width: 600px;
+    margin-top: 10px;
+}
+
+.signUpSignInInput {
+    width: 100%;
+    margin: 5px;
+    height: 20px;
+}
+#signInSubmit, #signUpSubmit {
+    width: 100%;
+    margin: 15px;
+    height: 25px;
+    background-color: #aaf683;
+}
+#signInSubmit:disabled, #signUpSubmit:disabled {
+    background-color: lightgrey !important;
+}
+
+.errorMessage {
+    color: red;
+    font-size: 15px;
+    width: 100%;
+    margin: 0;
+}
+
+
