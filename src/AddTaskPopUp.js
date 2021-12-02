@@ -1,5 +1,5 @@
 import './AddTaskPopUp.css'
-import {AppModes} from "./App";
+import {AppModes} from "./SignedInApp";
 import {useState} from "react";
 
 function AddTaskPopUp(props) {

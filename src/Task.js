@@ -1,5 +1,5 @@
 import './Task.css'
-import {AppModes} from "./App";
+import {AppModes} from "./SignedInApp";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faTrash} from '@fortawesome/free-solid-svg-icons'
 

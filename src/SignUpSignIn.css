@@ -1,0 +1,40 @@
+#signUpSignIn {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#title {
+    font-size: 60px;
+
+}
+
+#buttonOptions {
+    position: absolute;
+    margin-top: 65%;
+    justify-self: center;
+    height: 30%;
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+button {
+    width: 30%;
+    height: 20%;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#logInButton {
+    background-color: lightskyblue;
+}
+
+#signUpButton {
+    background-color: cornflowerblue;
+}

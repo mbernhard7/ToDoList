@@ -1,7 +1,7 @@
 import {useState} from "react";
 import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
 import firebase from "firebase/compat";
-import App from "./App";
+import SignedInApp from "./SignedInApp";
 import {useCollection} from "react-firebase-hooks/firestore";
 
 function List(props) {
@@ -33,20 +33,20 @@ function List(props) {
         }
     }
 
-    return <App lists={props.lists}
-                data={data}
-                loading={loading || props.loading}
-                error={error ? error : props.error}
-                currentListID={props.currentListID}
-                setCurrentListID={props.setCurrentListID}
-                onListAdded={props.onListAdded}
-                onListDeleted={props.onListDeleted}
-                onListChanged={props.onListChanged}
-                sortParameter={sortParameter}
-                setSortParameter={setSortParameter}
-                onTaskAdded={onTaskAdded}
-                onTaskChanged={onTaskChanged}
-                onTasksDeleted={onTasksDeleted}/>
+    return <SignedInApp lists={props.lists}
+                        data={data}
+                        loading={loading || props.loading}
+                        error={error ? error : props.error}
+                        currentListID={props.currentListID}
+                        setCurrentListID={props.setCurrentListID}
+                        onListAdded={props.onListAdded}
+                        onListDeleted={props.onListDeleted}
+                        onListChanged={props.onListChanged}
+                        sortParameter={sortParameter}
+                        setSortParameter={setSortParameter}
+                        onTaskAdded={onTaskAdded}
+                        onTaskChanged={onTaskChanged}
+                        onTasksDeleted={onTasksDeleted}/>
 }
 
 export default List;

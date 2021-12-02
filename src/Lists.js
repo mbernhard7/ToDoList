@@ -18,7 +18,7 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 const listCollectionName = "lists";
 
-function Lists() {
+function Lists(props) {
     const [currentListID, setCurrentListID] = useState(null);
     const query = db.collection(listCollectionName);
     const [value, loading, error] = useCollection(query);

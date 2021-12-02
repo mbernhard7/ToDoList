@@ -1,5 +1,5 @@
 import './BottomTab.css'
-import {AppModes, TasksShowing} from "./App";
+import {AppModes, TasksShowing} from "./SignedInApp";
 import {useState} from "react";
 
 function BottomTab(props) {

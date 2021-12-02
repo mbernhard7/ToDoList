@@ -1,5 +1,5 @@
 import './ListPopUp.css'
-import {AppModes} from "./App";
+import {AppModes} from "./SignedInApp";
 import {useState} from "react";
 import {faPlus, faTrash} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
