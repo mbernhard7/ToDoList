@@ -7,13 +7,13 @@ import {useEffect, useState} from "react";
 import ErrorPopUp from "./ErrorPopUp";
 import ListSelector from "./ListSelector";
 import ListPopUp from "./ListPopUp";
+import LoadingPopUp from "./LoadingPopUp";
 
 export const AppModes = {
     ADD_TASK_MODE: "add_task_mode",
     EDIT_LISTS_MODE: "add_list_mode",
     DEFAULT_MODE: "default_mode",
-    EDIT_MODE: "edit_mode",
-    LOADING_MODE: "loading_mode"
+    EDIT_MODE: "edit_mode"
 }
 
 export const TasksShowing = {
@@ -22,8 +22,7 @@ export const TasksShowing = {
 }
 
 function SignedInApp(props) {
-    const [appMode, setAppMode] = useState(AppModes.LOADING_MODE);
-    const [lastAppMode, setLastAppMode] = useState(AppModes.DEFAULT_MODE);
+    const [appMode, setAppMode] = useState(AppModes.DEFAULT_MODE);
     const [tasksShowing, setTasksShowing] = useState(TasksShowing.ALL);
     const [dataChanges, setDataChanges] = useState({});
 
@@ -43,25 +42,18 @@ function SignedInApp(props) {
     }
 
     useEffect(() => {
-        if (props.loading) {
-            if (appMode !== AppModes.LOADING_MODE) {
-                setLastAppMode(appMode);
-            }
-            setAppMode(AppModes.LOADING_MODE);
-        } else {
-            if (props.lists.length === 0 || appMode === AppModes.EDIT_LISTS_MODE) {
-                setAppMode(AppModes.EDIT_LISTS_MODE)
-            } else if (appMode === AppModes.LOADING_MODE) {
-                setAppMode(lastAppMode);
-            }
+        if (props.lists.length === 0 && appMode!==AppModes.EDIT_LISTS_MODE){
+            setAppMode(AppModes.EDIT_LISTS_MODE)
         }
-    }, [props.loading, props.lists, appMode, lastAppMode])
+    }, [props.loading, props.lists, appMode])
 
     return (
         <div className="App">
+            {props.loading && <LoadingPopUp/>}
+            {( props.error && !props.loading) &&
             <ErrorPopUp
                 error={props.error}
-            />
+            />}
             <ListPopUp
                 appMode={appMode}
                 setAppMode={setAppMode}

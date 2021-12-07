@@ -19,12 +19,12 @@ const db = firebase.firestore();
 const listCollectionName = "lists";
 
 function Lists(props) {
-    const [currentListID, setCurrentListID] = useState(null);
-    const query = db.collection(listCollectionName);
+    const [currentListID, setCurrentListID] = useState(" ");
+    const query = db.collection(listCollectionName).where('owner','==',props.user.email);
     const [value, loading, error] = useCollection(query);
     let lists = value?.docs.map(doc => doc.data()) || [];
 
-    if (lists.length > 0 && !currentListID) {
+    if (!currentListID) {
         lists.forEach(l => {
             if (l.isDefault) {
                 setCurrentListID(l.id)
@@ -38,6 +38,7 @@ function Lists(props) {
             id: id,
             listName: listName,
             isDefault: isDefault,
+            owner: props.user.email,
         });
         setCurrentListID(id);
     }
@@ -49,7 +50,7 @@ function Lists(props) {
         if (currentListID === id) {
             lists.forEach(l => {
                 if (l.isDefault) {
-                    setCurrentListID(l.id)
+                    setCurrentListID(l.id);
                 }
             });
         }
@@ -64,18 +65,17 @@ function Lists(props) {
         );
     }
 
-    return <>{currentListID && <List
+    return <List
         collection={db.collection(listCollectionName).doc(currentListID).collection('tasks')}
         lists={lists}
-        loading={loading}
-        error={error}
+        loading={props.loading || loading}
+        error={props.error || error}
         currentListID={currentListID}
         setCurrentListID={setCurrentListID}
         onListAdded={onListAdded}
         onListDeleted={onListDeleted}
         onListChanged={onListChanged}
     />
-    }</>
 }
 
 export default Lists

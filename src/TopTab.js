@@ -11,7 +11,7 @@ function TopTab(props) {
                 <select
                     id='sortParameterSelector'
                     value={props.sortParameter}
-                    disabled={props.dataLength <= 1 || props.appMode === AppModes.LOADING_MODE}
+                    disabled={props.dataLength <= 1}
                     onChange={(e) => props.setSortParameter(e.target.value)}
                 >
                     <option aria-label="Increasing by taskname" value="taskName asc">Name &#x2B06;</option>
