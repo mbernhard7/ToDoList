@@ -9,7 +9,7 @@ function App() {
     const [user, loading, error] = useAuthState(auth);
 
     return <>{user ?
-    <Lists user={user} auth={auth}/>
+    <Lists user={user} loading={loading} error={error} auth={auth}/>
     : <SignUpSignIn auth={auth}/>
     }
     </>

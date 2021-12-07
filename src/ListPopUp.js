@@ -1,4 +1,5 @@
 import './ListPopUp.css'
+import './PopUp.css'
 import {AppModes} from "./SignedInApp";
 import {useState} from "react";
 import {faPlus, faTrash} from "@fortawesome/free-solid-svg-icons";
@@ -10,11 +11,11 @@ function ListPopUp(props) {
 
     return <>
         {props.appMode === AppModes.EDIT_LISTS_MODE &&
-        <div id="listPopUpBackground">
-            <div id="listPopUp">
-                <div id="listHeader">
+        <div id="popUpBackground">
+            <div id="popUp">
+                <div id="popUpHeader">
                     <button
-                        id="closeList"
+                        id="closePopUp"
                         disabled={props.lists.length === 0}
                         onClick={() => {
                             setListName("");
@@ -27,15 +28,16 @@ function ListPopUp(props) {
                     <button>X</button>
                 </div>
                 <div id="listsContainer">
-                    <table id="lists" border="1" frame="void" rules="rows">
-                        <thead>
+                    {props.lists.length > 0 ?
+                        <table id="listsTable" border="1" frame="void" rules="rows">
+                            <thead>
                             <tr>
                                 <th className='default'>Default</th>
                                 <th className='name'/>
                                 <th className='deleteCell'/>
                             </tr>
-                        </thead>
-                        <tbody>
+                            </thead>
+                            <tbody>
                             {props.lists.map(l => <tr key={l.id} id="list">
                                 {toBeDeletedID === l.id ?
                                     <td colSpan="3" className='confirmCell'>
@@ -43,15 +45,17 @@ function ListPopUp(props) {
                                         <button
                                             className="cancelDelete"
                                             onClick={() => setToBeDeletedID(null)}
-                                        >No</button>
+                                        >No
+                                        </button>
                                         <button
                                             className="deleteConfirm"
                                             onClick={() => {
                                                 props.onListDeleted(l.id);
                                                 setToBeDeletedID(null);
-                                                }
                                             }
-                                        >Yes</button>
+                                            }
+                                        >Yes
+                                        </button>
                                     </td>
                                     :
                                     <>
@@ -68,13 +72,13 @@ function ListPopUp(props) {
                                                 className="listName"
                                                 type="text"
                                                 value={l.listName}
-                                                onChange={(e)=>props.onListChanged(l.id,'listName',e.target.value)}
+                                                onChange={(e) => props.onListChanged(l.id, 'listName', e.target.value)}
                                             />
                                         </td>
                                         <td className='deleteCell'>
                                             <button
-                                                className={l.isDefault ? "hidden" : "deleteListButton"}
-                                                disabled={l.isDefault}
+                                                className={(l.isDefault && props.lists.length > 1) ?
+                                                    "hidden" : "deleteListButton"}
                                                 onClick={() => setToBeDeletedID(l.id)}
                                             >
                                                 <FontAwesomeIcon icon={faTrash} size="xs"/>
@@ -84,10 +88,15 @@ function ListPopUp(props) {
                                 }
                             </tr>)
                             }
-                        </tbody>
-                    </table>
+                            </tbody>
+                        </table>
+                        :
+                        <h3 id="emptyListMessage">Create your first list!</h3>
+
+                    }
+
                 </div>
-                <div id='createListRow'>
+                <form id='createListRow'>
                     <div id='createInputWrapper'>
                         <input
                             id='createListInput'
@@ -99,6 +108,7 @@ function ListPopUp(props) {
                     </div>
                     <div id='createListWrapper'>
                         <button id='createNewList'
+                                type="submit"
                                 disabled={listName.length === 0}
                                 onClick={() => {
                                     props.onListAdded(listName, props.lists.length === 0);
@@ -108,7 +118,7 @@ function ListPopUp(props) {
                             <FontAwesomeIcon icon={faPlus}/>
                         </button>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
         }
