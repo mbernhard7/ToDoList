@@ -5,7 +5,7 @@ To start working on lab 5, we began by answering the questions posted in the lab
 #### Design decisions (this is not an exhaustive list):
 If user A shares a list with user B, can user B share that list with user C?
 
-* No. We won't allow this behavior to make sure user B doesn't run off and make the list availiable to 300 of his closest friends. However, we do allow owners to designate new owners, who can share the list with others.
+* No. We won't allow this behavior to make sure user B doesn't run off and make the list available to 300 of his closest friends. However, we do allow owners to designate a new owner, who can share the list with others, should they choose to.
 
 If user A shares a list with user B, can user B delete that list?
 * No. Unless B is an owner, as decided by user A.
@@ -13,10 +13,8 @@ If user A shares a list with user B, can user B delete that list?
 If user A shares a list with user B, does user B need to accept that sharing, or will a shared list just show up?
 * Shared list just shows up - with the caveat that users have the ability to remove themselves as viewers of a shared list.
 
-
 Should shared lists be distinguishable in the UI from unshared lists?
 * Yes. This is reflected in the list manager
-
 
 If user A shares a list with user B, can user B see that list if they don't have an authenticated email address?
 
@@ -25,10 +23,23 @@ If user A shares a list with user B, can user B see that list if they don't have
 
 ### User Testing + Design Iteration:
 
-TBD1
+We began this lab by drafting some mockups for our signup/signin pages. 
+
+At first, we thought it would be best to give users the ability to sign up or sign in on the same page. The mockup of this idea is the following:
+
+![NoTasks](./images/screenshots/signupdraft.jpg)
+
+However, upon asking our trusty suitemates as user testers, we found that the page was a little too packed. In addition, it didn't really make a lot of sense to give users a box to sign-up if all they want to do was sign-in. 
+
+Instead, we found the following flow to work better. First, users will be prompted to choose either "sign in" or "sign up." Then, depending on which they choose, they will either be prompted to create an account, or simply login with their credentials. In the case that a user mistakenly clicks sign-in instead of sign-up (or vice versa), we also allow users to toggle between screens.
+
+The mockup for the flow we decided on is the following: 
+
+![NoTasks](./images/screenshots/signupflow.jpg)
 
 ### Challenges We Faced:
-TBD2
+
+We had a difficult time working through the Firestore rules. At first, we got stuck on a screen telling us we didn't have permission to view any lists, including lists we knew we created.
 
 ### What We're Proud Of:
 
@@ -36,7 +47,19 @@ TBD3
 
 ### Final Design Flow:
 
-Add list-sharing slides
+Authentication:
+
+First screen when you open our app:
+
+![NoTasks](./images/screenshots/FirstPage.jpg)
+
+Screen when you click "Sign In" form first screen:
+
+![NoTasks](./images/screenshots/SignIn.jpg)
+
+Screen when you click "Sign Up" from first screen:
+
+![NoTasks](./images/screenshots/SignUp.jpg)
 
 ## Design Overview (Lab 4)
 
