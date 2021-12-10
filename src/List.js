@@ -26,6 +26,7 @@ function List(props) {
 
     const [value, loading, error] = useCollection(query);
     const data = value?.docs.map(doc => doc.data()) || [];
+
     function onTaskAdded(taskName, priorityLevel) {
         const id = generateUniqueID();
         props.db.doc(props.currentListID).collection('tasks').doc(id).set({

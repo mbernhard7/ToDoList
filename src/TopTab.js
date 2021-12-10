@@ -66,7 +66,7 @@ function TopTab(props) {
                             onClick={() => {
                                 props.setAppMode(AppModes.ADD_TASK_MODE);
                             }}
-                            disabled={props.appMode !== AppModes.DEFAULT_MODE || props.lists.length ===0}
+                            disabled={props.appMode !== AppModes.DEFAULT_MODE || props.lists.length === 0}
                         >
                             <FontAwesomeIcon icon={faPlus}/>
                         </button>
