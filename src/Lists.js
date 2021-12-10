@@ -80,6 +80,7 @@ function Lists(props) {
         <ErrorPopUp
             error={error}
         />
+<<<<<<< HEAD
         {loading && <LoadingPopUp/>}
         <List
             lists={lists}
@@ -92,6 +93,23 @@ function Lists(props) {
             onListDeleted={onListDeleted}
             onListChanged={onListChanged}
         />
+=======
+        {loading ?
+            <LoadingPopUp/>
+            :
+            <List
+                lists={lists}
+                user={props.user}
+                auth={props.auth}
+                db={db.collection(listCollectionName)}
+                currentListID={currentListID}
+                setCurrentListID={setCurrentListID}
+                onListAdded={onListAdded}
+                onListDeleted={onListDeleted}
+                onListChanged={onListChanged}
+            />
+        }
+>>>>>>> 6fa5b392df9e4bd7de8288ba3931bef585624ffa
     </>
 }
 

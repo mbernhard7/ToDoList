@@ -9,7 +9,10 @@ function ListSelector(props) {
         <div className="topTabThird first">
             <select
                 id='listSelector'
+<<<<<<< HEAD
                 disabled={props.lists.length === 0}
+=======
+>>>>>>> 6fa5b392df9e4bd7de8288ba3931bef585624ffa
                 value={props.currentListID || undefined}
                 onChange={(e) => props.setCurrentListID(e.target.value)}
             >
