@@ -1,8 +1,6 @@
-import {useCreateUserWithEmailAndPassword, useSignInWithEmailAndPassword} from 'react-firebase-hooks/auth';
 import {useState} from "react";
 import './SignUpSignIn.css'
 import LoadingPopUp from "./LoadingPopUp";
-import ErrorPopUp from "./ErrorPopUp";
 
 export function validateEmail(email) {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -25,17 +23,12 @@ function SignUpSignIn(props) {
     }
 
     function SignUp() {
-        const [
-            createUserWithEmailAndPassword,
-            userCredential, loading, error
-        ] = useCreateUserWithEmailAndPassword(props.auth);
         const [email, setEmail] = useState("");
         const [password, setPassword] = useState("");
         const [verifyPassword, setVerifyPassword] = useState("");
 
         return <>
-            <ErrorPopUp error={userCredential ? {name: 'Unexpected Error', code: 'User already signed in'} : null}/>
-            {loading ?
+            {props.signUpLoading ?
                 <LoadingPopUp/> :
                 <form id="signUp">
                     <label htmlFor="email">Email:</label>
@@ -65,12 +58,12 @@ function SignUpSignIn(props) {
                     <span className="errorMessage">Passwords don't match!</span>}
                     <button id='signUpSubmit'
                             type='submit'
-                            onClick={() => createUserWithEmailAndPassword(email, password)}
+                            onClick={() => props.createUserWithEmailAndPassword(email, password)}
                             disabled={!validateEmail(email) || password.length < 6 || password !== verifyPassword}
                     >Submit
                     </button>
-                    {error !== null && error !== undefined &&
-                    <span className="errorMessage">{parseError(error.message)}</span>}
+                    {props.signUpError !== null && props.signUpError !== undefined &&
+                    <span className="errorMessage">{parseError(props.signUpError.message)}</span>}
                 </form>
             }
         </>
@@ -79,13 +72,9 @@ function SignUpSignIn(props) {
     function SignIn() {
         const [email, setEmail] = useState("");
         const [password, setPassword] = useState("");
-        const [
-            signInWithEmailAndPassword,
-            userCredential, loading, error
-        ] = useSignInWithEmailAndPassword(props.auth);
+
         return <>
-            <ErrorPopUp error={userCredential ? {name: 'Unexpected Error', code: 'User already signed in'} : null}/>
-            {loading ?
+            {props.signInLoading ?
                 <LoadingPopUp/> :
                 <form id='signIn'>
                     <label htmlFor="email">Email:</label>
@@ -104,12 +93,12 @@ function SignUpSignIn(props) {
                     />
                     <button id='signInSubmit'
                             type='submit'
-                            onClick={() => signInWithEmailAndPassword(email, password)}
+                            onClick={() => props.signInWithEmailAndPassword(email, password)}
                             disabled={email === "" || password === ""}
                     >Submit
                     </button>
-                    {error !== null && error !== undefined &&
-                    <span className="errorMessage">{parseError(error.message)}</span>}
+                    {props.signInError !== null && props.signInError !== undefined &&
+                    <span className="errorMessage">{parseError(props.signInError.message)}</span>}
                 </form>
             }
         </>

@@ -1,4 +1,8 @@
-import {useAuthState} from 'react-firebase-hooks/auth';
+import {
+    useAuthState,
+    useCreateUserWithEmailAndPassword,
+    useSignInWithEmailAndPassword
+} from 'react-firebase-hooks/auth';
 import firebase from "firebase/compat";
 import Lists from "./Lists";
 import SignUpSignIn from "./SignUpSignIn";
@@ -10,7 +14,14 @@ const auth = firebase.auth();
 
 function App() {
     const [user, loading, error] = useAuthState(auth);
-
+    const [
+        signInWithEmailAndPassword,
+        signInUserCredential, signInLoading, signInError
+    ] = useSignInWithEmailAndPassword(auth);
+    const [
+        createUserWithEmailAndPassword,
+        signUpUserCredential, signUpLoading, signUpError
+    ] = useCreateUserWithEmailAndPassword(auth);
     return <>
         <ErrorPopUp
             error={error}
@@ -27,7 +38,16 @@ function App() {
                             <VerifyEmail auth={auth} user={user}/>
                         }
                     </>
-                    : <SignUpSignIn auth={auth}/>
+                    : <SignUpSignIn auth={auth}
+                                    signInWithEmailAndPassword={signInWithEmailAndPassword}
+                                    signInUserCredential={signInUserCredential}
+                                    signInLoading={signInLoading}
+                                    signInError={signInError}
+                                    createUserWithEmailAndPassword={createUserWithEmailAndPassword}
+                                    signUpUserCredential={signUpUserCredential}
+                                    signUpLoading={signUpLoading}
+                                    signUpError={signUpError}
+                    />
                 }
             </>
         }
