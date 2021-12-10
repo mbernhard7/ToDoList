@@ -37,13 +37,23 @@ The mockup for the flow we decided on is the following:
 
 ![NoTasks](./images/screenshots/signupflow.jpg)
 
+We then spent a while implementing how users created and interacted with shared lists. We found via a few final user tests (with roommates) that it made most sense to denote a separate button for sharing and managing lists. That is, each user can keep track of their own lists (create, rename, edit) with one button, and manage sharing preferences with another.
+
+New Homepage:
+![NoTasks](./images/screenshots/newhp.jpg)
+
+We found that it became too packed to try and cram in both sharing and list editing features into one selection, so splitting it into two buttons increased ease of use for both.
+
+
 ### Challenges We Faced:
 
 We had a difficult time working through the Firestore rules. At first, we got stuck on a screen telling us we didn't have permission to view any lists, including lists we knew we created.
 
+We also weren't entirely sure whether security rules were better decided at the firestore level, or if they could be done from the frontend (for instance, not giving users the ability to view lists they didn't own / shared on versus embedding a rule in Firestore). Ultimately, we found it to be more secure to write into the rules, so we decided on that. 
+
 ### What We're Proud Of:
 
-TBD3
+We are proud of our error handling for signing up for accounts / authenticating (figured out a clever trick to just use the built-in firebase errors) as well as our overall application. It was cool to see each lab build on one another, and we feel that our to-do list is generally user-friendly!
 
 ### Final Design Flow:
 
