@@ -54,7 +54,7 @@ We also weren't entirely sure whether security rules were better decided at the 
 
 ### What We're Proud Of:
 
-We are proud of our error handling for signing up for accounts / authenticating (figured out a clever trick to just use the built-in firebase errors) as well as our overall application. It was cool to see each lab build on one another, and we feel that our to-do list is generally user-friendly!
+We are proud of our error handling for signing up for accounts / authenticating (figured out a clever trick to just use the built-in firebase errors) as well as our overall application. It was cool to see each lab build on one another, and we feel that our to-do list is fairly user-friendly as an overall application!
 
 ### Final Design Flow:
 
@@ -91,6 +91,8 @@ Post-sharing screen:
 Options to either remove the person with which the list was shared, or hand over ownership to them.
 
 ![NoTasks](./images/screenshots/ss5.jpg)
+
+
 
 ## Design Overview (Lab 4)
 
