@@ -25,44 +25,53 @@ function Lists(props) {
     const [currentListID, setCurrentListID] = useState(null);
     const query = db.collection(listCollectionName).where('sharedWith', 'array-contains', props.user.email);
     const [value, loading, error] = useCollection(query);
-    const [lists, setLists] = useState([]);
+    const lists = value?.docs.map(doc => doc.data()) || []
 
-    useEffect(() => {
-        setLists(value?.docs.map(doc => doc.data()) || [])
-    }, [value])
+    console.log(error);
 
-    useEffect(() => {
-        if (currentListID === null || !(currentListID in lists.map(l => l.id))) {
+    function defaultToFirstList() {
+        if (lists.length > 0){
+            setCurrentListID(lists[0].id);
+        } else {
             setCurrentListID(null);
-            if (lists.length > 0) {
-                setCurrentListID(lists[0].id);
-            }
         }
-    }, [currentListID, lists])
+    }
 
-    function onListAdded(listName) {
+    async function onListAdded(listName) {
         const id = generateUniqueID();
-        db.collection(listCollectionName).doc(id).set({
+        await db.collection(listCollectionName).doc(id).set({
             id: id,
             listName: listName,
             owner: props.user.email,
             sharedWith: [props.user.email],
-        });
+        })
+        setCurrentListID(id);
     }
 
     async function onListDeleted(id) {
-        if (id === currentListID) {
-            setCurrentListID(null);
-        }
+        let oldCurrent = currentListID;
+        setCurrentListID(null);
         const tasks = await db.collection(listCollectionName).doc(id).collection('tasks').get();
         await tasks.docs.forEach(doc => doc.ref.delete());
         await db.collection(listCollectionName).doc(id).delete();
+        if (id === currentListID) {
+            defaultToFirstList();
+        } else {
+            setCurrentListID(oldCurrent);
+        }
     }
 
-    function onListChanged(id, field, newValue) {
-        db.collection(listCollectionName).doc(id).update(
+    async function onListChanged(id, field, newValue) {
+        let oldCurrent = currentListID;
+        setCurrentListID(null);
+        await db.collection(listCollectionName).doc(id).update(
             {[field]: newValue}
         );
+        if (id === oldCurrent && field === "sharedWith" && newValue.find(e=>e===props.user.email) === undefined) {
+            defaultToFirstList();
+        } else {
+            setCurrentListID(oldCurrent);
+        }
     }
 
     return <>
