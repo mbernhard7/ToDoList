@@ -2,6 +2,7 @@ import {useState} from "react";
 import './SignUpSignIn.css'
 import LoadingPopUp from "./LoadingPopUp";
 
+
 export function validateEmail(email) {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(email);

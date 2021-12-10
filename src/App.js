@@ -14,6 +14,7 @@ const auth = firebase.auth();
 
 function App() {
     const [user, loading, error] = useAuthState(auth);
+
     const [
         signInWithEmailAndPassword,
         signInUserCredential, signInLoading, signInError
@@ -22,6 +23,7 @@ function App() {
         createUserWithEmailAndPassword,
         signUpUserCredential, signUpLoading, signUpError
     ] = useCreateUserWithEmailAndPassword(auth);
+
     return <>
         <ErrorPopUp
             error={error}

@@ -23,9 +23,9 @@ If user A shares a list with user B, can user B see that list if they don't have
 
 ### User Testing + Design Iteration:
 
-We began this lab by drafting some mockups for our signup/signin pages. 
+We then drafted some mockups for our signup/signin pages. 
 
-At first, we thought it would be best to give users the ability to sign up or sign in on the same page. The mockup of this idea is the following:
+At first, we thought it would be best to give users the ability to sign up or sign in on the same page. The mockup of this idea was the following:
 
 ![NoTasks](./images/screenshots/signupdraft.jpg)
 
@@ -54,7 +54,7 @@ We also weren't entirely sure whether security rules were better decided at the 
 
 ### What We're Proud Of:
 
-We are proud of our error handling for signing up for accounts / authenticating (figured out a clever trick to just use the built-in firebase errors) as well as our overall application. It was cool to see each lab build on one another, and we feel that our to-do list is generally user-friendly!
+We are proud of our error handling for signing up for accounts / authenticating (figured out a clever trick to just use the built-in firebase errors) as well as our overall application. It was cool to see each lab build on one another, and we feel that our to-do list is fairly user-friendly as an overall application!
 
 ### Final Design Flow:
 
@@ -71,6 +71,28 @@ Screen when you click "Sign In" form first screen:
 Screen when you click "Sign Up" from first screen:
 
 ![NoTasks](./images/screenshots/SignUp.jpg)
+
+List Sharing Homepage:
+
+![NoTasks](./images/screenshots/ss1.jpg)
+
+Click sharing button:
+
+![NoTasks](./images/screenshots/ss2.jpg)
+
+Add email with which to share:
+
+![NoTasks](./images/screenshots/ss3.jpg)
+
+Post-sharing screen:
+
+![NoTasks](./images/screenshots/ss4.jpg)
+
+Options to either remove the person with which the list was shared, or hand over ownership to them.
+
+![NoTasks](./images/screenshots/ss5.jpg)
+
+
 
 ## Design Overview (Lab 4)
 
