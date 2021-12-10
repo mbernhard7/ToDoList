@@ -40,6 +40,7 @@ The mockup for the flow we decided on is the following:
 We then spent a while implementing how users created and interacted with shared lists. We found via a few final user tests (with roommates) that it made most sense to denote a separate button for sharing and managing lists. That is, each user can keep track of their own lists (create, rename, edit) with one button, and manage sharing preferences with another.
 
 New Homepage:
+
 ![NoTasks](./images/screenshots/newhp.jpg)
 
 We found that it became too packed to try and cram in both sharing and list editing features into one selection, so splitting it into two buttons increased ease of use for both.
