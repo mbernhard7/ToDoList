@@ -72,9 +72,7 @@ Screen when you click "Sign Up" from first screen:
 
 ![NoTasks](./images/screenshots/SignUp.jpg)
 
-List Sharing:
-
-Homepage:
+List Sharing Homepage:
 
 ![NoTasks](./images/screenshots/ss1.jpg)
 
