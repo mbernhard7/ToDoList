@@ -1,16 +1,80 @@
-import './ListPopUp.css'
 import './PopUp.css'
+import './TablePopUp.css'
+import './ListPopUp.css'
 import {AppModes} from "./SignedInApp";
 import {useState} from "react";
-import {faPlus, faTrash} from "@fortawesome/free-solid-svg-icons";
+import {faDoorOpen, faPlus, faTrash, faUsers} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 function ListPopUp(props) {
     const [listName, setListName] = useState("");
     const [toBeDeletedID, setToBeDeletedID] = useState(null);
 
-    return <>
-        {props.appMode === AppModes.EDIT_LISTS_MODE &&
+
+    function getListRow(l) {
+        return <>
+            {l.owner === props.user.email ?
+                <td className='listNameCell'>
+                    <input
+                        className="listNameInput"
+                        type="text"
+                        value={l.listName}
+                        onChange={(e) => props.onListChanged(l.id, 'listName', e.target.value)}
+                    />
+                </td>
+                :
+                <td className='sharedEmailCell'>
+                    <span>{l.listName}</span>
+                </td>
+            }
+            <td className='sharedCell'>
+                {l.sharedWith.length > 1 &&
+                <FontAwesomeIcon icon={faUsers} size="xs"/>
+                }
+            </td>
+            <td className='deleteCell'>
+                <button
+                    className="deleteListButton"
+                    onClick={() => setToBeDeletedID(l.id)}
+                >
+                    {l.owner === props.user.email ?
+                        <FontAwesomeIcon icon={faTrash} size="xs"/>
+                        :
+                        <FontAwesomeIcon icon={faDoorOpen} size="xs"/>
+                    }
+                </button>
+            </td>
+        </>
+    }
+
+    function getListDeleteRow(l) {
+        return <td colSpan="3" className='confirmCell'>
+            <span>{(l.owner === props.user.email ? "Delete " : "Leave ") + l.listName}?</span>
+            <button
+                className="cancelButton"
+                onClick={() => setToBeDeletedID(null)}
+            >No
+            </button>
+            <button
+                className="confirmButton"
+                onClick={() => {
+                    if (l.owner === props.user.email) {
+                        props.onListDeleted(l.id);
+                        setToBeDeletedID(null);
+                    } else {
+                        props.onListChanged(l.id,
+                            'sharedWith',
+                            l.sharedWith.filter(e => e !== props.user.email)
+                        );
+                    }
+                }
+                }
+            >Yes
+            </button>
+        </td>
+    }
+
+    return (
         <div id="popUpBackground">
             <div id="popUp">
                 <div id="popUpHeader">
@@ -24,93 +88,52 @@ function ListPopUp(props) {
                         }}
                     >X
                     </button>
-                    <h2> Lists </h2>
+                    <h2 id="tableTitle"> Lists </h2>
                     <button>X</button>
                 </div>
-                <div id="listsContainer">
-                    {props.lists.length > 0 ?
-                        <table id="listsTable" border="1" frame="void" rules="rows">
+                {props.lists.length > 0 ?
+                    <div id="tableContainer">
+                        <table id="table" border="1" frame="void" rules="rows">
                             <thead>
-                            <tr>
-                                <th className='default'>Default</th>
-                                <th className='name'/>
-                                <th className='deleteCell'/>
+                            <tr className="tableHeaderRow">
+                                <th className='listNameCell'>Name</th>
+                                <th className='sharedCell'>Shared</th>
+                                <th className='deleteCell'>Delete</th>
                             </tr>
                             </thead>
                             <tbody>
-                            {props.lists.map(l => <tr key={l.id} id="list">
+                            {props.lists.map(l => <tr key={l.id} className="tableRow">
                                 {toBeDeletedID === l.id ?
-                                    <td colSpan="3" className='confirmCell'>
-                                        <span>Delete {l.listName}?</span>
-                                        <button
-                                            className="cancelDelete"
-                                            onClick={() => setToBeDeletedID(null)}
-                                        >No
-                                        </button>
-                                        <button
-                                            className="deleteConfirm"
-                                            onClick={() => {
-                                                props.onListDeleted(l.id);
-                                                setToBeDeletedID(null);
-                                            }
-                                            }
-                                        >Yes
-                                        </button>
-                                    </td>
+                                    getListDeleteRow(l)
                                     :
-                                    <>
-                                        <td className='default'>
-                                            <input
-                                                className="defaultRadio"
-                                                type="radio"
-                                                checked={l.isDefault}
-                                                onChange={() => props.onListChanged(l.id, 'isDefault', true)}
-                                            />
-                                        </td>
-                                        <td className='name'>
-                                            <input
-                                                className="listName"
-                                                type="text"
-                                                value={l.listName}
-                                                onChange={(e) => props.onListChanged(l.id, 'listName', e.target.value)}
-                                            />
-                                        </td>
-                                        <td className='deleteCell'>
-                                            <button
-                                                className={(l.isDefault && props.lists.length > 1) ?
-                                                    "hidden" : "deleteListButton"}
-                                                onClick={() => setToBeDeletedID(l.id)}
-                                            >
-                                                <FontAwesomeIcon icon={faTrash} size="xs"/>
-                                            </button>
-                                        </td>
-                                    </>
+                                    getListRow(l)
                                 }
                             </tr>)
                             }
                             </tbody>
                         </table>
-                        :
-                        <h3 id="emptyListMessage">Create your first list!</h3>
-
-                    }
-
-                </div>
-                <form id='createListRow'>
+                    </div>
+                    :
+                    <div id='messageContainer'>
+                        <h3>Create your first list!</h3>
+                    </div>
+                }
+                <form id='createRow'>
                     <div id='createInputWrapper'>
                         <input
-                            id='createListInput'
+                            id='createInput'
                             type='text'
                             value={listName}
                             placeholder="New list"
                             onChange={(e) => setListName(e.target.value)}
                         />
                     </div>
-                    <div id='createListWrapper'>
-                        <button id='createNewList'
+                    <div id='createButtonWrapper'>
+                        <button id='createNewButton'
                                 type="submit"
                                 disabled={listName.length === 0}
-                                onClick={() => {
+                                onClick={(e) => {
+                                    e.preventDefault();
                                     props.onListAdded(listName, props.lists.length === 0);
                                     setListName("");
                                 }}
@@ -121,8 +144,7 @@ function ListPopUp(props) {
                 </form>
             </div>
         </div>
-        }
-    </>
+    )
 }
 
 export default ListPopUp;

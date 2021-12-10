@@ -3,7 +3,7 @@ import './ErrorPopUp.css'
 function ErrorPopUp(props) {
     return <>
         {props.error &&
-        <div id="popUpBackground">
+        <div id="popUpBackground" className="errorPopUp">
             <div id="popUp">
                 <div id="popUpHeader">
                     <button
@@ -14,7 +14,8 @@ function ErrorPopUp(props) {
                     <h2 id="errorTitle">ERROR</h2>
                     <button>X</button>
                 </div>
-                <span id="errorMessage">Type: {JSON.stringify(props.error.name)}<br/>Message: {JSON.stringify(props.error.code)}</span>
+                <span
+                    id="errorMessage">Type: {JSON.stringify(props.error.name)}<br/>Message: {JSON.stringify(props.error.code)}</span>
             </div>
         </div>
         }

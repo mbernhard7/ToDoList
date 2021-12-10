@@ -8,3 +8,7 @@
     font-weight: bold;
     text-align: center;
 }
+
+.errorPopUp {
+    z-index: 11 !important;
+}

@@ -4,14 +4,14 @@ import TaskList from "./TaskList";
 import BottomTab from "./BottomTab";
 import AddTaskPopUp from "./AddTaskPopUp";
 import {useEffect, useState} from "react";
-import ErrorPopUp from "./ErrorPopUp";
 import ListSelector from "./ListSelector";
 import ListPopUp from "./ListPopUp";
-import LoadingPopUp from "./LoadingPopUp";
+import SharePopUp from "./SharePopUp";
 
 export const AppModes = {
     ADD_TASK_MODE: "add_task_mode",
-    EDIT_LISTS_MODE: "add_list_mode",
+    EDIT_LISTS_MODE: "edit_lists_mode",
+    SHARE_LISTS_MODE: "share_lists_mode",
     DEFAULT_MODE: "default_mode",
     EDIT_MODE: "edit_mode"
 }
@@ -26,13 +26,13 @@ function SignedInApp(props) {
     const [tasksShowing, setTasksShowing] = useState(TasksShowing.ALL);
     const [dataChanges, setDataChanges] = useState({});
 
-    function applyDataChanges(){
+    function applyDataChanges() {
         let toDelete = [];
         Object.keys(dataChanges).forEach(function (id) {
             if ('delete' in dataChanges[id]) {
                 toDelete.push(id)
             }
-            Object.keys(dataChanges[id]).filter(k => k!=='delete').forEach(function (field) {
+            Object.keys(dataChanges[id]).filter(k => k !== 'delete').forEach(function (field) {
                 props.onTaskChanged(id, field, dataChanges[id][field])
             })
         });
@@ -42,31 +42,41 @@ function SignedInApp(props) {
     }
 
     useEffect(() => {
-        if (props.lists.length === 0 && appMode!==AppModes.EDIT_LISTS_MODE){
+        if (props.lists.length === 0 && appMode !== AppModes.EDIT_LISTS_MODE && !props.loading) {
             setAppMode(AppModes.EDIT_LISTS_MODE)
         }
     }, [props.loading, props.lists, appMode])
 
     return (
         <div className="App">
-            {props.loading && <LoadingPopUp/>}
-            {( props.error && !props.loading) &&
-            <ErrorPopUp
-                error={props.error}
-            />}
+            {appMode === AppModes.SHARE_LISTS_MODE &&
+            <SharePopUp
+                appMode={appMode}
+                setAppMode={setAppMode}
+                user={props.user}
+                lists={props.lists}
+                onListChanged={props.onListChanged}
+                currentListID={props.currentListID}
+            />
+            }
+            {appMode === AppModes.EDIT_LISTS_MODE &&
             <ListPopUp
                 appMode={appMode}
                 setAppMode={setAppMode}
                 lists={props.lists}
+                user={props.user}
                 onListAdded={props.onListAdded}
                 onListChanged={props.onListChanged}
                 onListDeleted={props.onListDeleted}
             />
+            }
+            {appMode === AppModes.ADD_TASK_MODE &&
             <AddTaskPopUp
                 appMode={appMode}
                 setAppMode={setAppMode}
                 onItemAdded={props.onTaskAdded}
             />
+            }
             <TopTab
                 dataLength={props.data.length}
                 appMode={appMode}
@@ -81,6 +91,7 @@ function SignedInApp(props) {
                 setCurrentListID={props.setCurrentListID}
                 lists={props.lists}
                 setAppMode={setAppMode}
+                user={props.user}
             />
             <TaskList
                 data={props.data}
@@ -96,6 +107,8 @@ function SignedInApp(props) {
                 tasksShowing={tasksShowing}
                 setTasksShowing={setTasksShowing}
                 onTasksDeleted={props.onTasksDeleted}
+                user={props.user}
+                auth={props.auth}
             />
         </div>
     );
