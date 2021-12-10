@@ -41,6 +41,15 @@ function SignedInApp(props) {
         }
     }
 
+<<<<<<< HEAD
+=======
+    useEffect(() => {
+        if (props.lists.length === 0 && appMode !== AppModes.EDIT_LISTS_MODE && !props.loading) {
+            setAppMode(AppModes.EDIT_LISTS_MODE)
+        }
+    }, [props.loading, props.lists, appMode])
+
+>>>>>>> 6fa5b392df9e4bd7de8288ba3931bef585624ffa
     return (
         <div className="App">
             {appMode === AppModes.SHARE_LISTS_MODE &&
@@ -73,7 +82,10 @@ function SignedInApp(props) {
             }
             <TopTab
                 dataLength={props.data.length}
+<<<<<<< HEAD
                 lists={props.lists}
+=======
+>>>>>>> 6fa5b392df9e4bd7de8288ba3931bef585624ffa
                 appMode={appMode}
                 setAppMode={setAppMode}
                 applyDataChanges={applyDataChanges}
@@ -90,7 +102,10 @@ function SignedInApp(props) {
             />
             <TaskList
                 data={props.data}
+<<<<<<< HEAD
                 lists={props.lists}
+=======
+>>>>>>> 6fa5b392df9e4bd7de8288ba3931bef585624ffa
                 onTaskChanged={props.onTaskChanged}
                 appMode={appMode}
                 tasksShowing={tasksShowing}
