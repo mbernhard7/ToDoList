@@ -7,8 +7,7 @@ function AddTaskPopUp(props) {
     const [taskName, setTaskName] = useState('');
     const [priorityLevel, setPriorityLevel] = useState(1);
 
-    return <>
-        {props.appMode === AppModes.ADD_TASK_MODE &&
+    return (
         <div id="popUpBackground">
             <div id="popUp">
                 <div id="popUpHeader">
@@ -75,8 +74,7 @@ function AddTaskPopUp(props) {
                 </form>
             </div>
         </div>
-        }
-    </>
+    )
 }
 
 export default AddTaskPopUp;

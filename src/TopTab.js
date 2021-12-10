@@ -25,7 +25,7 @@ function TopTab(props) {
                 </select>
             </div>
             <div className='topTabThird'>
-                <h1 id="title">To-Do</h1>
+                <h1>To-Do</h1>
             </div>
             <div className='topTabThird last'>
                 {props.appMode === AppModes.EDIT_MODE ?
@@ -65,7 +65,6 @@ function TopTab(props) {
                             id="addItem"
                             onClick={() => {
                                 props.setAppMode(AppModes.ADD_TASK_MODE);
-                                console.log(props.appMode)
                             }}
                             disabled={props.appMode !== AppModes.DEFAULT_MODE}
                         >

@@ -17,7 +17,7 @@
     margin-top: 0;
     height: 100%;
     width: 100%;
-    display:flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -68,12 +68,14 @@ hr {
     margin: 5px;
     height: 20px;
 }
+
 #signInSubmit, #signUpSubmit {
     width: 100%;
     margin: 15px;
     height: 25px;
     background-color: #aaf683;
 }
+
 #signInSubmit:disabled, #signUpSubmit:disabled {
     background-color: lightgrey !important;
 }
