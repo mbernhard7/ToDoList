@@ -27,10 +27,10 @@ function TaskList(props) {
             : <li key='1' id="noItems">
                 <h3>{props.appMode === AppModes.EDIT_MODE ?
                     'No tasks to edit.' :
-                    props.lists.length===0 ?
+                    props.lists.length === 0 ?
                         'You have no lists. Create your first one by clicking the lists icon above!'
                         : 'You have completed all your tasks, woohoo!'
-                    }
+                }
                 </h3>
             </li>
         }

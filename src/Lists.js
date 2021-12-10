@@ -28,17 +28,17 @@ function Lists(props) {
     const [lists, setLists] = useState([]);
     const [makingChanges, setMakingChanges] = useState(false);
 
-    useEffect(()=>{
+    useEffect(() => {
         setLists(value?.docs.map(doc => doc.data()) || []);
-    },[value])
+    }, [value])
 
-    useEffect(()=> {
+    useEffect(() => {
         if (currentListID === null && !makingChanges) {
-            if (lists.length > 0){
+            if (lists.length > 0) {
                 setCurrentListID(lists[0].id);
             }
         }
-    },[currentListID, lists, makingChanges])
+    }, [currentListID, lists, makingChanges])
 
     async function onListAdded(listName) {
         setMakingChanges(true);
@@ -67,7 +67,7 @@ function Lists(props) {
 
     async function onListChanged(id, field, newValue) {
         setMakingChanges(true);
-        if (id === currentListID && field === "sharedWith" && newValue.find(e=>e===props.user.email) === undefined) {
+        if (id === currentListID && field === "sharedWith" && newValue.find(e => e === props.user.email) === undefined) {
             setCurrentListID(null);
         }
         await db.collection(listCollectionName).doc(id).update(
