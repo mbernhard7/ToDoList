@@ -23,7 +23,7 @@ If user A shares a list with user B, can user B see that list if they don't have
 
 ### User Testing + Design Iteration:
 
-We began this lab by drafting some mockups for our signup/signin pages. 
+We then drafted some mockups for our signup/signin pages. 
 
 At first, we thought it would be best to give users the ability to sign up or sign in on the same page. The mockup of this idea is the following:
 
