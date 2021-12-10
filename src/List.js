@@ -19,13 +19,13 @@ function List(props) {
                     setQuery(null);
                 }
             }).catch((e) => e);
+        } else {
+            setQuery(null);
         }
     }, [props.currentListID, props.db, sortParameter])
 
     const [value, loading, error] = useCollection(query);
     const data = value?.docs.map(doc => doc.data()) || [];
-    console.log(error);
-
     function onTaskAdded(taskName, priorityLevel) {
         const id = generateUniqueID();
         props.db.doc(props.currentListID).collection('tasks').doc(id).set({
