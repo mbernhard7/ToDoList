@@ -41,12 +41,6 @@ function SignedInApp(props) {
         }
     }
 
-    useEffect(() => {
-        if (props.lists.length === 0 && appMode !== AppModes.EDIT_LISTS_MODE && !props.loading) {
-            setAppMode(AppModes.EDIT_LISTS_MODE)
-        }
-    }, [props.loading, props.lists, appMode])
-
     return (
         <div className="App">
             {appMode === AppModes.SHARE_LISTS_MODE &&
@@ -79,6 +73,7 @@ function SignedInApp(props) {
             }
             <TopTab
                 dataLength={props.data.length}
+                lists={props.lists}
                 appMode={appMode}
                 setAppMode={setAppMode}
                 applyDataChanges={applyDataChanges}
@@ -95,6 +90,7 @@ function SignedInApp(props) {
             />
             <TaskList
                 data={props.data}
+                lists={props.lists}
                 onTaskChanged={props.onTaskChanged}
                 appMode={appMode}
                 tasksShowing={tasksShowing}

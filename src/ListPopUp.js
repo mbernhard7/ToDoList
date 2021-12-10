@@ -80,7 +80,6 @@ function ListPopUp(props) {
                 <div id="popUpHeader">
                     <button
                         id="closePopUp"
-                        disabled={props.lists.length === 0}
                         onClick={() => {
                             setListName("");
                             setToBeDeletedID(null);

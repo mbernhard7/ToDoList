@@ -53,26 +53,23 @@ function List(props) {
         <ErrorPopUp
             error={error}
         />
-        {loading ?
-            <LoadingPopUp/>
-            :
-            <SignedInApp
-                lists={props.lists}
-                data={data}
-                user={props.user}
-                auth={props.auth}
-                currentListID={props.currentListID}
-                setCurrentListID={props.setCurrentListID}
-                onListAdded={props.onListAdded}
-                onListDeleted={props.onListDeleted}
-                onListChanged={props.onListChanged}
-                sortParameter={sortParameter}
-                setSortParameter={setSortParameter}
-                onTaskAdded={onTaskAdded}
-                onTaskChanged={onTaskChanged}
-                onTasksDeleted={onTasksDeleted}
-            />
-        }
+        {loading && <LoadingPopUp/>}
+        <SignedInApp
+            lists={props.lists}
+            data={data}
+            user={props.user}
+            auth={props.auth}
+            currentListID={props.currentListID}
+            setCurrentListID={props.setCurrentListID}
+            onListAdded={props.onListAdded}
+            onListDeleted={props.onListDeleted}
+            onListChanged={props.onListChanged}
+            sortParameter={sortParameter}
+            setSortParameter={setSortParameter}
+            onTaskAdded={onTaskAdded}
+            onTaskChanged={onTaskChanged}
+            onTasksDeleted={onTasksDeleted}
+        />
     </>
 }
 
