@@ -72,6 +72,28 @@ Screen when you click "Sign Up" from first screen:
 
 ![NoTasks](./images/screenshots/SignUp.jpg)
 
+List Sharing:
+
+Homepage:
+
+![NoTasks](./images/screenshots/ss1.jpg)
+
+Click sharing button:
+
+![NoTasks](./images/screenshots/ss2.jpg)
+
+Add email with which to share:
+
+![NoTasks](./images/screenshots/ss3.jpg)
+
+Post-sharing screen:
+
+![NoTasks](./images/screenshots/ss4.jpg)
+
+Options to either remove the person with which the list was shared, or hand over ownership to them.
+
+![NoTasks](./images/screenshots/ss5.jpg)
+
 ## Design Overview (Lab 4)
 
 To begin lab 4, we ran the Developer tools "Lighthouse" accessibility checker on our lab 4. 
