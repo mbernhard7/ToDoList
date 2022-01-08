@@ -1,3 +1,99 @@
+## Design Overview (Lab 5)
+
+To start working on lab 5, we began by answering the questions posted in the lab instructions.
+
+#### Design decisions (this is not an exhaustive list):
+If user A shares a list with user B, can user B share that list with user C?
+
+* No. We won't allow this behavior to make sure user B doesn't run off and make the list available to 300 of his closest friends. However, we do allow owners to designate a new owner, who can share the list with others, should they choose to.
+
+If user A shares a list with user B, can user B delete that list?
+* No. Unless B is an owner, as decided by user A.
+
+If user A shares a list with user B, does user B need to accept that sharing, or will a shared list just show up?
+* Shared list just shows up - with the caveat that users have the ability to remove themselves as viewers of a shared list.
+
+Should shared lists be distinguishable in the UI from unshared lists?
+* Yes. This is reflected in the list manager
+
+If user A shares a list with user B, can user B see that list if they don't have an authenticated email address?
+
+* No. We force everyone to authenticate to see any lists (theirs or shared!)
+
+
+### User Testing + Design Iteration:
+
+We then drafted some mockups for our signup/signin pages. 
+
+At first, we thought it would be best to give users the ability to sign up or sign in on the same page. The mockup of this idea was the following:
+
+![NoTasks](./images/screenshots/signupdraft.jpg)
+
+However, upon asking our trusty suitemates as user testers, we found that the page was a little too packed. In addition, it didn't really make a lot of sense to give users a box to sign-up if all they want to do was sign-in. 
+
+Instead, we found the following flow to work better. First, users will be prompted to choose either "sign in" or "sign up." Then, depending on which they choose, they will either be prompted to create an account, or simply login with their credentials. In the case that a user mistakenly clicks sign-in instead of sign-up (or vice versa), we also allow users to toggle between screens.
+
+The mockup for the flow we decided on is the following: 
+
+![NoTasks](./images/screenshots/signupflow.jpg)
+
+We then spent a while implementing how users created and interacted with shared lists. We found via a few final user tests (with roommates) that it made most sense to denote a separate button for sharing and managing lists. That is, each user can keep track of their own lists (create, rename, edit) with one button, and manage sharing preferences with another.
+
+New Homepage:
+
+![NoTasks](./images/screenshots/newhp.jpg)
+
+We found that it became too packed to try and cram in both sharing and list editing features into one selection, so splitting it into two buttons increased ease of use for both.
+
+
+### Challenges We Faced:
+
+We had a difficult time working through the Firestore rules. At first, we got stuck on a screen telling us we didn't have permission to view any lists, including lists we knew we created.
+
+We also weren't entirely sure whether security rules were better decided at the firestore level, or if they could be done from the frontend (for instance, not giving users the ability to view lists they didn't own / shared on versus embedding a rule in Firestore). Ultimately, we found it to be more secure to write into the rules, so we decided on that. 
+
+### What We're Proud Of:
+
+We are proud of our error handling for signing up for accounts / authenticating (figured out a clever trick to just use the built-in firebase errors) as well as our overall application. It was cool to see each lab build on one another, and we feel that our to-do list is fairly user-friendly as an overall application!
+
+### Final Design Flow:
+
+Authentication:
+
+First screen when you open our app:
+
+![NoTasks](./images/screenshots/FirstPage.jpg)
+
+Screen when you click "Sign In" form first screen:
+
+![NoTasks](./images/screenshots/SignIn.jpg)
+
+Screen when you click "Sign Up" from first screen:
+
+![NoTasks](./images/screenshots/SignUp.jpg)
+
+List Sharing Homepage:
+
+![NoTasks](./images/screenshots/ss1.jpg)
+
+Click sharing button:
+
+![NoTasks](./images/screenshots/ss2.jpg)
+
+Add email with which to share:
+
+![NoTasks](./images/screenshots/ss3.jpg)
+
+Post-sharing screen:
+
+![NoTasks](./images/screenshots/ss4.jpg)
+
+Options to either remove the person with which the list was shared, or hand over ownership to them.
+
+![NoTasks](./images/screenshots/ss5.jpg)
+
+
+
 ## Design Overview (Lab 4)
 
 To begin lab 4, we ran the Developer tools "Lighthouse" accessibility checker on our lab 4. 
@@ -328,7 +424,7 @@ Loading / Error mode:
 
 ![NoTasks](./images/screenshots/LoadMode.jpg)
 
-Note that for us to add this loading mode we did add a new mode to our App.js, as well as pass in a few values as props. 
+Note that for us to add this loading mode we did add a new mode to our SignedInApp.js, as well as pass in a few values as props. 
 
 Finally, one small comment is that we realized sorting zero or 1 tasks isn't logical, so we disabled the sorting dropdown when there are less than 2 tasks.
 
@@ -365,7 +461,7 @@ Our first iteration (pictured below) included having edit/default mode be the pa
 
 ![React Design](images/diagrams/FirstDraft.jpeg)
 
-We then redesigned with an App parent component with a state to hold edit mode vs default mode, with children:  AddTaskPopUp, TopTab, TaskList, and Bottom Tab. From there, TopTab would take in whether there are any tasks and the app mode, and TaskList with have children Tasks (who also will take in edit vs default mode). Additionally, the BottomTab would take in edit mode vs default mode.
+We then redesigned with an SignedInApp parent component with a state to hold edit mode vs default mode, with children:  AddTaskPopUp, TopTab, TaskList, and Bottom Tab. From there, TopTab would take in whether there are any tasks and the app mode, and TaskList with have children Tasks (who also will take in edit vs default mode). Additionally, the BottomTab would take in edit mode vs default mode.
 
 The component hierarchy we created is displayed below:
 
@@ -377,7 +473,7 @@ During implementation, we realized we were missing a few details and had overloo
 
 ![React Design](images/diagrams/ReactDesign.jpeg)
 
-Our final application utilizes the hierarchy above. The index component just bolds the initial data and passes that as a prop to the InMemoryApp component. The InMemoryApp component has the state data, initialized from initialData. It passes this data into the main App. The main app then maintains an appMode state (default, addMode, editMode) and a tasksShowing state (all, uncompleted) and has functions to create, modify, and delete tasks. It passes combinations of these functions, states, and the overall app data to each of the child components, as detailed in the diagram.
+Our final application utilizes the hierarchy above. The index component just bolds the initial data and passes that as a prop to the InMemoryApp component. The InMemoryApp component has the state data, initialized from initialData. It passes this data into the main SignedInApp. The main app then maintains an appMode state (default, addMode, editMode) and a tasksShowing state (all, uncompleted) and has functions to create, modify, and delete tasks. It passes combinations of these functions, states, and the overall app data to each of the child components, as detailed in the diagram.
 
 ### User Testing + Design Iteration:
 Once again, we shamelessly utilized our roommates for user testing. First, after implementing our static implementation, we showed consecutive screens to the sample users. Then, after implementing the entire application, we did a final user test. Here was the feedback we received from our users (roommates):
@@ -409,7 +505,7 @@ Here is what the screen looks like for users who have yet to add text for the ta
 
 The add task button is disabled and greyed out, so users are unable to add blank tasks anymore.
 
-One final note: After a suggestion from Prof. Rhodes, we moved the add, change, and delete functions from App.js (where they were previously stored) to the inMemoryApp.js component. 
+One final note: After a suggestion from Prof. Rhodes, we moved the add, change, and delete functions from SignedInApp.js (where they were previously stored) to the inMemoryApp.js component. 
 
 ### Challenges We Faced:
 
