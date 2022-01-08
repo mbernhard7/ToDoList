@@ -1,26 +1,41 @@
 #topTab {
     display: flex;
+    flex-direction: row;
     align-items: center;
     border-bottom: solid thin black;
     height: 60px;
+    width: 100%;
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background: darkgrey;
 }
 
-#topTab > h1 {
-    font-size: 50px;
-}
-
-#topTabThird {
+.topTabThird {
     display: flex;
-    width: 120px;
-    height: 60px;
+    width: 33%;
+    height: 100%;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
 }
 
-#topTabThird > button {
+.topTabThird.first {
+    justify-content: flex-start !important;
+}
+
+.topTabThird.last {
+    justify-content: flex-end !important;
+}
+
+.topTabThird > h1 {
+    font-size: 30px;
+}
+
+.topTabThird > button {
     height: 40px;
-    width: 50px;
+    width: 40%;
+    margin: 5px;
+    max-width: 100px;
     font-size: 20px;
     display: flex;
     justify-content: center;
@@ -28,8 +43,14 @@
 }
 
 #sortParameterSelector {
-    height: 30px;
-    font-size: 15px;
+    height: 40px;
+    width: 85%;
+    font-size: 16px;
+    margin: 10px;
+}
+
+#editButton {
+    background-color: cornflowerblue;
 }
 
 #saveEdits {
@@ -40,6 +61,6 @@
     background: #aaf683;
 }
 
-#addItem:disabled {
+.topTabThird > button:disabled {
     background: lightgray !important;
 }

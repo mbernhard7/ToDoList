@@ -1,18 +1,15 @@
 #errorPopUpBackground {
     background-color: rgba(211, 211, 211, .9);
-    height: 640px;
-    width: 360px;
+    height: 100%;
+    width: 100%;
     z-index: 9;
     position: fixed;
-    top: 6px;
-    left: 6px;
     display: flex;
     align-items: center;
 }
 
 #errorPopUp {
     margin: auto;
-    width: 75%;
     background: white;
     opacity: 1;
     border: solid thin black;
@@ -27,6 +24,7 @@
     border-bottom: thin solid black;
     align-items: center;
     justify-content: space-between;
+    text-align: center;
 }
 
 #errorHeader > h2 {

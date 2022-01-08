@@ -1,0 +1,27 @@
+#listSelectorRow {
+    display: flex;
+    background: lightgrey;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: solid thin gray;
+    height: 50px;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+}
+
+#listSelector {
+    margin: 10px;
+    height: 30px;
+    width: 85%;
+}
+
+#editLists {
+    height: 30px;
+    width: 40%;
+    max-width: 100px;
+    margin-left: 50%;
+    background-color: cornflowerblue;
+}

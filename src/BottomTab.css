@@ -1,10 +1,11 @@
 #footer {
     display: flex;
-    height: 75px;
+    height: 80px;
     box-sizing: border-box;
     align-items: center;
     border-top: solid thin black;
     justify-content: space-evenly;
+    background: darkgrey;
 }
 
 #deleteButtonContainer {
@@ -31,7 +32,7 @@
 }
 
 #cancel {
-    background: darkgrey;
+    background: lightgrey;
 }
 
 #confirm {

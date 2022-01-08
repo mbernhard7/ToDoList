@@ -1,7 +1,273 @@
+## Design Overview (Lab 4)
+
+To begin lab 4, we ran the Developer tools "Lighthouse" accessibility checker on our lab 4. 
+
+We found that many of our elements needed aria labels, as well as an error with aria attributes not matching. Our original score report is shown here. 
+
+Our accessibility score originally:
+
+![NoTasks](./images/screenshots/OriginalAccessibilityScore.jpg)
+
+We then went through and fixed any of the Lighthouse-noticed accessibility issues, namely many buttons named "button" rather than more descriptive names.
+
+![NoTasks](./images/screenshots/Accessibility100.jpg)
+
+After fixing our accessibility score, we began manipulating the screen sizes. 
+
+First, we went through and ensured that the title and bottom-bar elements remained centered as the screen grew. 
+In addition, we made sure that the text boxes would grow length-wise but not height-wise when using larger screens, to accommodate the desired outcome of being able to display more tasks on a larger screen.
+
+We also made sure that the app remained functional and user-friendly when used by users with low-vision. Here is a series of screenshots of our application, starting at 100% all the way up to 200%.
+
+100% Screen Size:
+
+![NoTasks](./images/screenshots/100.jpg)
+
+125% Screen Size:
+
+![NoTasks](./images/screenshots/125.jpg)
+
+150% Screen Size:
+
+![NoTasks](./images/screenshots/150.jpg)
+
+175% Screen Size:
+
+![NoTasks](./images/screenshots/175.jpg)
+
+200% Screen Size:
+
+![NoTasks](./images/screenshots/200.jpg)
+
+After this, we went ahead and tested the voiceover accessibility of our application by having one of us turn around while the other navigates around the screen. We added aria labels and changed class names as needed until both of us were able to tell exactly where in the application we were, entirely from voiceover.
+
+We also ensured that our application could be easily used via the keyboard. Finally, we screen recorded our application being used purely from the keyboard, as well as using the voiceover commands, and uploaded the video to Youtube.
+
+This video can be accessed here:
+
+https://www.youtube.com/watch?v=fnH-Ian-2Is
+
+*Note, the video and resized screen screenshots were taken prior to our implementation of multiple lists. The updated flow with these changes can be seen below, in the "final flow" section of the design doc.*
+
+After adding our accessibility and screen-resizing editions, we tackled implementing multiple lists of tasks. We began by sketching out some wireframes of how we thought our new UI should look. 
+
+Below is our first-draft of the multiple lists UI, using tabs. 
+
+List First Draft:
+
+![NoTasks](./images/screenshots/OGTabUI.jpg)
+
+We began implementing this approach, but ran into an issue with this UI. The issue being, as the number of lists grows, one of two things must occur: 
+1. The tabs get increasingly smaller and smaller (causing many list names to get cut off).
+
+2. Users are forced to scroll in order to see all their lists.
+
+We found that neither outcome was particularly user-friendly (again, validated by asking our trusty roommates), and decided to go with a slightly different UI.
+
+Final Draft Lists:
+
+![NoTasks](./images/screenshots/FinalTabUI.jpg)
+
+*Another note, when we were adding the finishing touches to our final screen, we noticed that the list manager button was not aligned with the edit and add buttons.
+We fixed this on the final screen, so our final UI looks like this:*
+
+![FinalUI](./images/screenshots/FinalUI.jpg)
+
+We swapped tabbing for a drop-down selector, in which users can toggle between lists. 
+We also added a list-manager function, which lets users delete, edit or add new lists.
+It also lets them select which list is their "default" list.
+
+The default list is created when users open their to-do list app, and before any other list is added. 
+After making another list, users can toggle their default list to another list of their choosing.
+
+
+### User Testing + Design Iteration:
+
+After showing our initial implementation of the screen re-design to one of our suitemates, we realized that we could also make the sorting filter grow in size, similarly to how the tasks grow in length (only horizontally).
+
+Below are a couple screenshots of our newly designed screen-resizing application:
+
+MotoG4
+
+![NoTasks](./images/screenshots/MotoG4.jpg)
+
+IphoneX
+
+![NoTasks](./images/screenshots/IphoneX.jpg)
+
+IPad Pro
+
+![NoTasks](./images/screenshots/IPadPro.jpg)
+
+Desktop
+
+![NoTasks](./images/screenshots/Desktop.jpg)
+
+
+### Challenges We Faced:
+One of the main challenges we faced was deciding how to format our UI for multiple lists of tasks.
+
+We really liked the idea of using tabbing to denote multiple lists, especially since that approach was likely intuitive to many users. However, we found that this strategy did not scale well for users who created many lists.
+
+
+### What We're Proud Of:
+
+Our overall design for supporting multiple lists, as well as the attention to detail with accessibility.
+
+We found this to be one of the tougher labs, but are proud of our ability to work through challenges and complete an application we are both very proud of.
+
+### Final Design Flow:
+
+
+#### In an empty list, create an item named "Buy new John Grisham book"
+Screen at the beginning of task (user opens up to-do app):
+
+User clicking on plus icon leads to next screen.
+
+![Screenshot](./images/flowlab4/s1.jpg)
+
+Screen during task:
+
+User typing in "Buy new John Grisham book" and tapping "Add Task" leads to next screen.
+
+![Screenshot](./images/flowlab4/s2.jpg)
+
+Screen after task:
+
+User is able to view task that was added on home screen of to-do app.
+
+![Screenshot](./images/flowlab4/s3.jpg)
+
+#### In a non-empty list, create an item named "Eat Lunch"
+Screen at the beginning of task (user opens up to-do app):
+
+User clicking on plus icon leads to next screen.
+
+![Screenshot](./images/flowlab4/s4.jpg)
+
+Screen during task:
+
+User typing in "Eat Lunch" and tapping "Add Task" leads to next screen.
+
+![Screenshot](./images/flowlab4/s5.jpg)
+
+Screen after task:
+
+User is able to view task that was added on home screen of to-do app.
+
+![Screenshot](./images/flowlab4/s6.jpg)
+
+#### Mark the item named "Call Mom" completed (assumes there exists an item named "Call Mom").
+Screen at the beginning of task (user opens up to-do app):
+
+User clicking on either the checkbox or the words "Call Mom" leads to next screen.
+
+![Screenshot](./images/flowlab4/s7.jpg)
+
+Screen after task:
+
+User is able to view that the "Call Mom" task was completed.
+
+![Screenshot](./images/flowlab4/s8.jpg)
+
+#### Rename the item "Text John" to "Text John about bank statements" (assumes there exists an item named "Text John").
+Screen at the beginning of task (user opens up to-do app):
+
+User clicks on the edit button to move to next screen.
+
+![Screenshot](./images/flowlab4/s9.jpg)
+
+Screen before renaming:
+
+User sees "Text John" task has become a text box that is editable, and clicks on the box to begin editing on next screen.
+
+![Screenshot](./images/flowlab4/s10.jpg)
+
+Screen after renaming:
+
+User has changed "Text John" to "Text John about bank statements", and clicks done to move to next screen.
+
+![Screenshot](./images/flowlab4/s11.jpg)
+
+Screen after task:
+
+User's task has saved to "Text John about bank statements"
+
+![Screenshot](./images/flowlab4/s12.jpg)
+
+#### Show only uncompleted items.
+Screen at the beginning of task (user opens up to-do app):
+
+User clicks on "Uncompleted" widget at the bottom of the app to get to the next screen.
+
+![Screenshot](./images/flowlab4/s13.jpg)
+
+Screen after task:
+
+User sees only uncompleted tasks.
+
+![Screenshot](./images/flowlab4/s14.jpg)
+
+#### Delete all completed items.
+Screen at the beginning of task (user opens up to-do app):
+
+User clicks edit to move to next screen.
+
+![Screenshot](./images/flowlab4/s15.jpg)
+
+Screen during task:
+
+User presses on "delete all completed" button to move to next screen.
+
+![Screenshot](./images/flowlab4/s16.jpg)
+
+Screen during task:
+
+User is then prompted to confirm their selection (to delete all tasks) to move to the next screen:
+
+![Screenshot](./images/flowlab4/s17.jpg)
+
+Screen during task:
+
+Completed tasks have been deleted, user presses "done" button to move to the next screen:
+
+![Screenshot](./images/flowlab4/s18.jpg)
+
+Screen after task:
+
+User's to-do list has been updated by deleting all completed tasks.
+
+![Screenshot](./images/flowlab4/s19.jpg)
+
+#### Switch current list.
+Screen at the beginning of task (user opens up to-do app):
+
+User clicks on the list drop down to get to next screen.
+
+![Screenshot](./images/flowlab4/s20.jpg)
+
+Screen during task:
+
+User selects "groceries" to move to next screen.
+
+![Screenshot](./images/flowlab4/s21.jpg)
+
+Screen after task:
+
+User is now in the new groceries list:
+
+![Screenshot](./images/flowlab4/s22.jpg)
+
+Other:
+
+User's to-do list task manager (to edit names, delete lists, etc) can be viewed by selected the task manager icon on the right, second from the top.
+
+![Screenshot](./images/flowlab4/s23.jpg)
+
+
 ## Design Overview (Lab 3)
 
 To begin lab 3, we began by drafting some wireframes for our new UI with sorting functionality added. We wanted to maintain the simple design our previous iterations had, but also make the new functionality of sorting clear to use. We decided to do this by adding a sort button to the homepage next to the edit icon, as well as a priority level prompt when a user goes to add a task. Our wireframes for these two additions are below:
-
 
 UI for Sorting
 
@@ -99,7 +365,7 @@ Our first iteration (pictured below) included having edit/default mode be the pa
 
 ![React Design](images/diagrams/FirstDraft.jpeg)
 
-We then redesigned with an App parent component with a state to hold edit mode vs default mode, with children:  AddPopUp, TopTab, TaskList, and Bottom Tab. From there, TopTab would take in whether there are any tasks and the app mode, and TaskList with have children Tasks (who also will take in edit vs default mode). Additionally, the BottomTab would take in edit mode vs default mode.
+We then redesigned with an App parent component with a state to hold edit mode vs default mode, with children:  AddTaskPopUp, TopTab, TaskList, and Bottom Tab. From there, TopTab would take in whether there are any tasks and the app mode, and TaskList with have children Tasks (who also will take in edit vs default mode). Additionally, the BottomTab would take in edit mode vs default mode.
 
 The component hierarchy we created is displayed below:
 
