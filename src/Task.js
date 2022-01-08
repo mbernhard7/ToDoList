@@ -1,15 +1,9 @@
 import './Task.css'
-import {AppModes} from "./SignedInApp";
+import {AppModes} from "./App";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faTrash} from '@fortawesome/free-solid-svg-icons'
 
-
 function Task(props) {
-
-
-    function addUpdateToChangeList(field, value) {
-        props.addToTaskChangeList(props.task.id, {...props.taskChangeList, [field]: value})
-    }
 
     function getPriorityClass(num) {
         if (num === 1) {
@@ -21,8 +15,8 @@ function Task(props) {
         }
     }
 
-    return <>
-        {!('delete' in props.taskChangeList) && <li className="listItem">
+    return (
+        <li className="listItem">
             <label className="taskLabel">
                 <input
                     className="checkbox"
@@ -37,29 +31,21 @@ function Task(props) {
                             <input
                                 className="editInput"
                                 type="text"
-                                value={props.taskChangeList.taskName !== undefined ?
-                                    props.taskChangeList.taskName : props.task.taskName}
-                                onChange={(e) => {
-                                    addUpdateToChangeList('taskName', e.target.value)
-                                }}
+                                value={props.task.taskName}
+                                onChange={(e) => props.onTaskChanged(props.task.id, 'taskName', e.target.value)}
                             />
                             <select
                                 className='prioritySelector'
-                                value={props.taskChangeList?.priorityLevel || props.task.priorityLevel}
-                                onChange={(e) =>
-                                    addUpdateToChangeList('priorityLevel', parseInt(e.target.value))
-                                }
+                                value={props.task.priorityLevel}
+                                onChange={(e) => props.onTaskChanged(props.task.id, 'priorityLevel', parseInt(e.target.value))}
                             >
-                                <option aria-label="Low priority" value='1'>!</option>
-                                <option aria-label="Medium priority" value='2'>!!</option>
-                                <option aria-label="High priority" value='3'>!!!</option>
+                                <option value='1'>!</option>
+                                <option value='2'>!!</option>
+                                <option value='3'>!!!</option>
                             </select>
                             <button
-                                aria-label="Delete task"
                                 className="deleteButton"
-                                onClick={() => {
-                                    addUpdateToChangeList('delete', true)
-                                }}
+                                onClick={() => props.onTasksDeleted([props.task.id])}
                             >
                                 <FontAwesomeIcon icon={faTrash} size="xs"/>
                             </button>
@@ -74,8 +60,8 @@ function Task(props) {
                     }
                 </div>
             </label>
-        </li>}
-    </>
+        </li>
+    )
 }
 
 export default Task;

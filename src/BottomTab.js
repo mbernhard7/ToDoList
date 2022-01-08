@@ -1,5 +1,5 @@
 import './BottomTab.css'
-import {AppModes, TasksShowing} from "./SignedInApp";
+import {AppModes, TasksShowing} from "./App";
 import {useState} from "react";
 
 function BottomTab(props) {
@@ -60,9 +60,8 @@ function BottomTab(props) {
     )
 
     const switcherContainer = (
-        <div aria-label="Select Shown Tasks" id="switcherContainer">
+        <div id="switcherContainer">
             <button
-                aria-label="Show All Tasks"
                 type="button"
                 id="showAll"
                 disabled={props.tasksShowing === TasksShowing.ALL}
@@ -70,7 +69,6 @@ function BottomTab(props) {
             > All
             </button>
             <button
-                aria-label="Show Uncompleted Tasks"
                 type="button"
                 id="showUncompleted"
                 disabled={props.tasksShowing === TasksShowing.UNCOMPLETED}
@@ -82,10 +80,6 @@ function BottomTab(props) {
     return (
         <div id="footer">
             {props.appMode === AppModes.EDIT_MODE ? deleteContainer : switcherContainer}
-            <div id="signOutRow">
-                <span>{props.user.email}</span>
-                <button id='signOutButton' onClick={() => props.auth.signOut()}>Sign Out</button>
-            </div>
         </div>
     )
 }
