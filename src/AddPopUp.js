@@ -1,18 +1,18 @@
-import './AddTaskPopUp.css'
-import './PopUp.css'
-import {AppModes} from "./SignedInApp";
+import './AddPopUp.css'
+import {AppModes} from "./App";
 import {useState} from "react";
 
-function AddTaskPopUp(props) {
+function AddPopUp(props) {
     const [taskName, setTaskName] = useState('');
     const [priorityLevel, setPriorityLevel] = useState(1);
 
-    return (
-        <div id="popUpBackground">
-            <div id="popUp">
-                <div id="popUpHeader">
+    return <>
+        {props.appMode === AppModes.ADD_MODE &&
+        <div id="createPopUpBackground">
+            <div id="createPopUp">
+                <div id="createHeader">
                     <button
-                        id="closePopUp"
+                        id="closeCreate"
                         onClick={() => {
                             setTaskName('');
                             setPriorityLevel(1);
@@ -39,7 +39,6 @@ function AddTaskPopUp(props) {
                     />
                     <div id="prioritySelector">
                         <button
-                            aria-label="Low priority"
                             className="priorityButton"
                             type="button"
                             id="low"
@@ -48,7 +47,6 @@ function AddTaskPopUp(props) {
                         >Low!
                         </button>
                         <button
-                            aria-label="Medium priority"
                             className="priorityButton"
                             type="button"
                             id="medium"
@@ -57,7 +55,6 @@ function AddTaskPopUp(props) {
                         >Medium!!
                         </button>
                         <button
-                            aria-label="High priority"
                             className="priorityButton"
                             type="button"
                             id="high"
@@ -74,7 +71,8 @@ function AddTaskPopUp(props) {
                 </form>
             </div>
         </div>
-    )
+        }
+    </>
 }
 
-export default AddTaskPopUp;
+export default AddPopUp;

@@ -1,59 +1,69 @@
-import {
-    useAuthState,
-    useCreateUserWithEmailAndPassword,
-    useSignInWithEmailAndPassword
-} from 'react-firebase-hooks/auth';
-import firebase from "firebase/compat";
-import Lists from "./Lists";
-import SignUpSignIn from "./SignUpSignIn";
-import VerifyEmail from "./VerifyEmail";
+import './App.css';
+import TopTab from "./TopTab";
+import TaskList from "./TaskList";
+import BottomTab from "./BottomTab";
+import AddPopUp from "./AddPopUp";
+import {useEffect, useState} from "react";
 import ErrorPopUp from "./ErrorPopUp";
-import LoadingPopUp from "./LoadingPopUp";
 
-const auth = firebase.auth();
+export const AppModes = {
+    ADD_MODE: "add_mode",
+    DEFAULT_MODE: "default_mode",
+    EDIT_MODE: "edit_mode",
+    LOADING_MODE: "loading_mode"
+}
 
-function App() {
-    const [user, loading, error] = useAuthState(auth);
+export const TasksShowing = {
+    ALL: "all",
+    UNCOMPLETED: "uncompleted",
+}
 
-    const [
-        signInWithEmailAndPassword,
-        signInUserCredential, signInLoading, signInError
-    ] = useSignInWithEmailAndPassword(auth);
-    const [
-        createUserWithEmailAndPassword,
-        signUpUserCredential, signUpLoading, signUpError
-    ] = useCreateUserWithEmailAndPassword(auth);
+function App(props) {
+    const [appMode, setAppMode] = useState(AppModes.LOADING_MODE);
+    const [tasksShowing, setTasksShowing] = useState(TasksShowing.ALL);
 
-    return <>
-        <ErrorPopUp
-            error={error}
-        />
-        {loading ?
-            <LoadingPopUp/>
-            :
-            <>
-                {user ?
-                    <>
-                        {user.emailVerified ?
-                            <Lists user={user} auth={auth}/>
-                            :
-                            <VerifyEmail auth={auth} user={user}/>
-                        }
-                    </>
-                    : <SignUpSignIn auth={auth}
-                                    signInWithEmailAndPassword={signInWithEmailAndPassword}
-                                    signInUserCredential={signInUserCredential}
-                                    signInLoading={signInLoading}
-                                    signInError={signInError}
-                                    createUserWithEmailAndPassword={createUserWithEmailAndPassword}
-                                    signUpUserCredential={signUpUserCredential}
-                                    signUpLoading={signUpLoading}
-                                    signUpError={signUpError}
-                    />
-                }
-            </>
+    useEffect(() => {
+        if (props.loading) {
+            setAppMode(AppModes.LOADING_MODE);
+        } else {
+            setAppMode(AppModes.DEFAULT_MODE);
         }
-    </>
+    }, [props.loading])
+
+    return (
+        <div className="App">
+            <ErrorPopUp
+                error={props.error}
+            />
+            <AddPopUp
+                appMode={appMode}
+                setAppMode={setAppMode}
+                onItemAdded={props.onTaskAdded}
+            />
+            <TopTab
+                appMode={appMode}
+                setAppMode={setAppMode}
+                data={props.data}
+                onCancelEdits={props.onCancelEdits}
+                sortParameter={props.sortParameter}
+                setSortParameter={props.setSortParameter}
+            />
+            <TaskList
+                data={props.data}
+                appMode={appMode}
+                tasksShowing={tasksShowing}
+                onTaskChanged={props.onTaskChanged}
+                onTasksDeleted={props.onTasksDeleted}
+            />
+            <BottomTab
+                data={props.data}
+                appMode={appMode}
+                tasksShowing={tasksShowing}
+                setTasksShowing={setTasksShowing}
+                onTasksDeleted={props.onTasksDeleted}
+            />
+        </div>
+    );
 }
 
 export default App;
