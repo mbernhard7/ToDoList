@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="../stylesheet.css">
+</head>
+<body>
+    <div id="header">
+        <button id="saveEdits">Done</button>
+        <h1 id = "title">To-Do</h1>
+        <button id="addItem" disabled>+</button>
+    </div>
+    <ul id="itemList">
+        <li class="listItem editInProgress">
+            <label>
+                <input class = "checkbox" type="checkbox">
+            </label>
+            <label>
+                <input class="editInput" type="text" value="Text John">
+            </label>
+            <button class="deleteButton">Delete</button>
+        </li>
+        <li class="listItem editInProgress">
+            <label>
+                <input class = "checkbox" type="checkbox" checked>
+            </label>
+            <label>
+                <input class="editInput" type="text" value="Call Mom">
+            </label>
+            <button class="deleteButton">Delete</button>
+        </li>
+    </ul>
+    <div id = "footer">
+        <button type = "button" id="deleteCompleted"> Delete All Completed </button>
+        <button type = "button" id="deleteAll"> Delete All </button>
+    </div>
+</body>
+</html>
