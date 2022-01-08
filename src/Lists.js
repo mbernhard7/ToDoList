@@ -1,8 +1,10 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
 import firebase from "firebase/compat";
 import {useCollection} from "react-firebase-hooks/firestore";
 import List from "./List";
+import ErrorPopUp from "./ErrorPopUp";
+import LoadingPopUp from "./LoadingPopUp";
 
 const firebaseConfig = {
     apiKey: "AIzaSyDbDnRMAuOjcmsEB2iwcbt2_w6SPX-EAQo",
@@ -14,68 +16,83 @@ const firebaseConfig = {
     measurementId: "G-B8CQHTFNQE"
 };
 
+
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 const listCollectionName = "lists";
 
-function Lists() {
+function Lists(props) {
     const [currentListID, setCurrentListID] = useState(null);
-    const query = db.collection(listCollectionName);
+    const query = db.collection(listCollectionName).where('sharedWith', 'array-contains', props.user.email);
     const [value, loading, error] = useCollection(query);
-    let lists = value?.docs.map(doc => doc.data()) || [];
+    const [lists, setLists] = useState([]);
+    const [makingChanges, setMakingChanges] = useState(false);
 
-    if (lists.length > 0 && !currentListID) {
-        lists.forEach(l => {
-            if (l.isDefault) {
-                setCurrentListID(l.id)
+    useEffect(() => {
+        setLists(value?.docs.map(doc => doc.data()) || []);
+    }, [value])
+
+    useEffect(() => {
+        if (currentListID === null && !makingChanges) {
+            if (lists.length > 0) {
+                setCurrentListID(lists[0].id);
             }
-        });
-    }
+        }
+    }, [currentListID, lists, makingChanges])
 
-    function onListAdded(listName, isDefault) {
+    async function onListAdded(listName) {
+        setMakingChanges(true);
         const id = generateUniqueID();
-        db.collection(listCollectionName).doc(id).set({
+        await db.collection(listCollectionName).doc(id).set({
             id: id,
             listName: listName,
-            isDefault: isDefault,
-        });
-        setCurrentListID(id);
+            owner: props.user.email,
+            sharedWith: [props.user.email],
+        })
+        setMakingChanges(false);
     }
 
     async function onListDeleted(id) {
+        setMakingChanges(true);
+        let oldCurrent = currentListID;
+        setCurrentListID(null);
         const tasks = await db.collection(listCollectionName).doc(id).collection('tasks').get();
         await tasks.docs.forEach(doc => doc.ref.delete());
         await db.collection(listCollectionName).doc(id).delete();
-        if (currentListID === id) {
-            lists.forEach(l => {
-                if (l.isDefault) {
-                    setCurrentListID(l.id)
-                }
-            });
+        if (id !== oldCurrent) {
+            setCurrentListID(oldCurrent);
         }
+        setMakingChanges(false);
     }
 
-    function onListChanged(id, field, newValue) {
-        if (field === 'isDefault' && newValue) {
-            lists.filter(l => l.id !== id).forEach(l => onListChanged(l.id, 'isDefault', false))
+    async function onListChanged(id, field, newValue) {
+        setMakingChanges(true);
+        if (id === currentListID && field === "sharedWith" && newValue.find(e => e === props.user.email) === undefined) {
+            setCurrentListID(null);
         }
-        db.collection(listCollectionName).doc(id).update(
+        await db.collection(listCollectionName).doc(id).update(
             {[field]: newValue}
         );
+        setMakingChanges(false);
     }
 
-    return <>{currentListID && <List
-        collection={db.collection(listCollectionName).doc(currentListID).collection('tasks')}
-        lists={lists}
-        loading={loading}
-        error={error}
-        currentListID={currentListID}
-        setCurrentListID={setCurrentListID}
-        onListAdded={onListAdded}
-        onListDeleted={onListDeleted}
-        onListChanged={onListChanged}
-    />
-    }</>
+    return <>
+        <ErrorPopUp
+            error={error}
+        />
+        {loading && <LoadingPopUp/>}
+        <List
+            lists={lists}
+            user={props.user}
+            auth={props.auth}
+            db={db.collection(listCollectionName)}
+            currentListID={currentListID}
+            setCurrentListID={setCurrentListID}
+            onListAdded={onListAdded}
+            onListDeleted={onListDeleted}
+            onListChanged={onListChanged}
+        />
+    </>
 }
 
 export default Lists

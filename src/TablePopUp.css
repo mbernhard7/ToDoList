@@ -1,0 +1,112 @@
+#tableTitle {
+    text-align: center;
+}
+
+#tableContainer {
+    overflow: scroll;
+    min-height: 95px;
+    height: 100%;
+    max-height: 50vh;
+}
+
+#table {
+    display: table;
+    width: 100%;
+    height: 100%;
+    table-layout: fixed;
+}
+
+#messageContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 95px;
+}
+
+.tableHeaderRow, .tableRow {
+    width: 100%;
+    vertical-align: middle;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.tableHeaderRow {
+    height: 30px;
+}
+
+.tableHeaderRow > th {
+    font-size: 14px !important;
+    font-weight: bold;
+}
+
+.tableRow {
+    height: 65px;
+}
+
+.tableRow > td > button {
+    height: 40px;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+}
+
+#createRow {
+    background: darkgrey;
+    width: 100%;
+    height: 65px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-top: thin solid black;
+    border-radius: 0 0 15px 15px;
+}
+
+#createInputWrapper {
+    padding-left: 15px;
+    flex: 2;
+}
+
+#createInput {
+    width: 100%;
+    font-size: 18px;
+    height: 35px;
+}
+
+#createButtonWrapper {
+    width: 80px;
+    text-align: center;
+}
+
+#createNewButton {
+    height: 40px;
+    width: 40px;
+    background: #aaf683;
+}
+
+#createNewButton:disabled {
+    background: lightgrey !important;
+}
+
+.confirmCell {
+    overflow: hidden;
+    text-align: center;
+    text-overflow: ellipsis;
+    padding: 0 5px;
+}
+
+.confirmCell > button {
+    height: 25px !important;
+    width: 40px;
+    margin: 0 5px;
+}
+
+.cancelButton {
+    background: darkgrey;
+}
+
+.confirmButton {
+    background-color: #aaf683;
+}
