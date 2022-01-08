@@ -1,0 +1,14 @@
+#errorTitle {
+    color: red;
+}
+
+#errorMessage {
+    margin: 20px;
+    color: red;
+    font-weight: bold;
+    text-align: center;
+}
+
+.errorPopUp {
+    z-index: 11 !important;
+}

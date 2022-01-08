@@ -1,0 +1,28 @@
+.listNameCell {
+    width: 100%;
+    padding-left: 15px;
+    overflow: hidden;
+}
+
+.listNameInput {
+    width: 90%;
+    font-size: 18px;
+    height: 30px;
+}
+
+.sharedCell {
+    width: 50px;
+    text-align: center;
+    font-size: 24px;
+}
+
+.deleteCell {
+    width: 50px;
+    text-align: center;
+}
+
+.deleteListButton {
+    width: 40px;
+    background: #ee6055;
+    font-size: 24px;
+}

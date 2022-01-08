@@ -1,5 +1,5 @@
 .listItem {
-    height: 10%;
+    height: 64px;
     padding: 10px;
     list-style-type: none;
     border-bottom: dashed thin gray;
@@ -8,36 +8,69 @@
     font-size: 20px;
 }
 
+.taskLabel {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+
 input.checkbox {
     transform: scale(2);
-    margin: 10px 10px 10px 15px;
 }
 
-.listItem input {
-    vertical-align: middle;
-}
-
-.listItem label span {
-    vertical-align: middle;
-}
-
-.listItem.editInProgress {
+.taskContent {
+    width: 100%;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 }
 
-/* Text input area for renaming item */
+.taskName {
+    margin-left: 1px;
+}
+
+.priorityLevel {
+    font-weight: bold;
+    display: inline-flex;
+    background: black;
+    height: 30px;
+    width: 40px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+}
+
+.priorityLevel.low {
+    color: yellow;
+}
+
+.priorityLevel.medium {
+    color: orange;
+}
+
+.priorityLevel.high {
+    color: red;
+}
+
 .editInput {
-    width: 90%;
+    width: 65%;
     height: 70%;
-    margin: 0;
     padding: 0;
     font-size: 100%;
 }
 
+.prioritySelector {
+    height: 30px;
+}
+
 .deleteButton {
     height: 30px;
-    width: 20%;
-    background: #ff9b85;
+    width: 40px;
+    background: #ee6055;
+    font-size: 20px;
     margin: 0;
     padding: 0;
 }

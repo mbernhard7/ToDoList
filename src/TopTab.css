@@ -1,19 +1,56 @@
 #topTab {
     display: flex;
-    height: 12.5%;
-    justify-content: space-around;
+    flex-direction: row;
     align-items: center;
     border-bottom: solid thin black;
+    height: 60px;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background: darkgrey;
 }
 
-#topTab > h1 {
-    font-size: 50px;
+.topTabThird {
+    display: flex;
+    width: 33%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
 }
 
-#topTab > button {
-    height: 55%;
-    width: 20%;
-    font-size: 25px;
+.topTabThird.first {
+    justify-content: flex-start !important;
+}
+
+.topTabThird.last {
+    justify-content: flex-end !important;
+}
+
+.topTabThird > h1 {
+    font-size: 30px;
+}
+
+.topTabThird > button {
+    height: 40px;
+    width: 40%;
+    margin: 5px;
+    max-width: 100px;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#sortParameterSelector {
+    height: 40px;
+    width: 85%;
+    font-size: 16px;
+    margin: 10px;
+}
+
+#editButton {
+    background-color: cornflowerblue;
 }
 
 #saveEdits {
@@ -22,9 +59,8 @@
 
 #addItem {
     background: #aaf683;
-    font-size: 30px !important;
 }
 
-#addItem:disabled {
+.topTabThird > button:disabled {
     background: lightgray !important;
 }

@@ -1,3 +1,458 @@
+## Design Overview (Lab 5)
+
+To start working on lab 5, we began by answering the questions posted in the lab instructions.
+
+#### Design decisions (this is not an exhaustive list):
+If user A shares a list with user B, can user B share that list with user C?
+
+* No. We won't allow this behavior to make sure user B doesn't run off and make the list available to 300 of his closest friends. However, we do allow owners to designate a new owner, who can share the list with others, should they choose to.
+
+If user A shares a list with user B, can user B delete that list?
+* No. Unless B is an owner, as decided by user A.
+
+If user A shares a list with user B, does user B need to accept that sharing, or will a shared list just show up?
+* Shared list just shows up - with the caveat that users have the ability to remove themselves as viewers of a shared list.
+
+Should shared lists be distinguishable in the UI from unshared lists?
+* Yes. This is reflected in the list manager
+
+If user A shares a list with user B, can user B see that list if they don't have an authenticated email address?
+
+* No. We force everyone to authenticate to see any lists (theirs or shared!)
+
+
+### User Testing + Design Iteration:
+
+We then drafted some mockups for our signup/signin pages. 
+
+At first, we thought it would be best to give users the ability to sign up or sign in on the same page. The mockup of this idea was the following:
+
+![NoTasks](./images/screenshots/signupdraft.jpg)
+
+However, upon asking our trusty suitemates as user testers, we found that the page was a little too packed. In addition, it didn't really make a lot of sense to give users a box to sign-up if all they want to do was sign-in. 
+
+Instead, we found the following flow to work better. First, users will be prompted to choose either "sign in" or "sign up." Then, depending on which they choose, they will either be prompted to create an account, or simply login with their credentials. In the case that a user mistakenly clicks sign-in instead of sign-up (or vice versa), we also allow users to toggle between screens.
+
+The mockup for the flow we decided on is the following: 
+
+![NoTasks](./images/screenshots/signupflow.jpg)
+
+We then spent a while implementing how users created and interacted with shared lists. We found via a few final user tests (with roommates) that it made most sense to denote a separate button for sharing and managing lists. That is, each user can keep track of their own lists (create, rename, edit) with one button, and manage sharing preferences with another.
+
+New Homepage:
+
+![NoTasks](./images/screenshots/newhp.jpg)
+
+We found that it became too packed to try and cram in both sharing and list editing features into one selection, so splitting it into two buttons increased ease of use for both.
+
+
+### Challenges We Faced:
+
+We had a difficult time working through the Firestore rules. At first, we got stuck on a screen telling us we didn't have permission to view any lists, including lists we knew we created.
+
+We also weren't entirely sure whether security rules were better decided at the firestore level, or if they could be done from the frontend (for instance, not giving users the ability to view lists they didn't own / shared on versus embedding a rule in Firestore). Ultimately, we found it to be more secure to write into the rules, so we decided on that. 
+
+### What We're Proud Of:
+
+We are proud of our error handling for signing up for accounts / authenticating (figured out a clever trick to just use the built-in firebase errors) as well as our overall application. It was cool to see each lab build on one another, and we feel that our to-do list is fairly user-friendly as an overall application!
+
+### Final Design Flow:
+
+Authentication:
+
+First screen when you open our app:
+
+![NoTasks](./images/screenshots/FirstPage.jpg)
+
+Screen when you click "Sign In" form first screen:
+
+![NoTasks](./images/screenshots/SignIn.jpg)
+
+Screen when you click "Sign Up" from first screen:
+
+![NoTasks](./images/screenshots/SignUp.jpg)
+
+List Sharing Homepage:
+
+![NoTasks](./images/screenshots/ss1.jpg)
+
+Click sharing button:
+
+![NoTasks](./images/screenshots/ss2.jpg)
+
+Add email with which to share:
+
+![NoTasks](./images/screenshots/ss3.jpg)
+
+Post-sharing screen:
+
+![NoTasks](./images/screenshots/ss4.jpg)
+
+Options to either remove the person with which the list was shared, or hand over ownership to them.
+
+![NoTasks](./images/screenshots/ss5.jpg)
+
+
+
+## Design Overview (Lab 4)
+
+To begin lab 4, we ran the Developer tools "Lighthouse" accessibility checker on our lab 4. 
+
+We found that many of our elements needed aria labels, as well as an error with aria attributes not matching. Our original score report is shown here. 
+
+Our accessibility score originally:
+
+![NoTasks](./images/screenshots/OriginalAccessibilityScore.jpg)
+
+We then went through and fixed any of the Lighthouse-noticed accessibility issues, namely many buttons named "button" rather than more descriptive names.
+
+![NoTasks](./images/screenshots/Accessibility100.jpg)
+
+After fixing our accessibility score, we began manipulating the screen sizes. 
+
+First, we went through and ensured that the title and bottom-bar elements remained centered as the screen grew. 
+In addition, we made sure that the text boxes would grow length-wise but not height-wise when using larger screens, to accommodate the desired outcome of being able to display more tasks on a larger screen.
+
+We also made sure that the app remained functional and user-friendly when used by users with low-vision. Here is a series of screenshots of our application, starting at 100% all the way up to 200%.
+
+100% Screen Size:
+
+![NoTasks](./images/screenshots/100.jpg)
+
+125% Screen Size:
+
+![NoTasks](./images/screenshots/125.jpg)
+
+150% Screen Size:
+
+![NoTasks](./images/screenshots/150.jpg)
+
+175% Screen Size:
+
+![NoTasks](./images/screenshots/175.jpg)
+
+200% Screen Size:
+
+![NoTasks](./images/screenshots/200.jpg)
+
+After this, we went ahead and tested the voiceover accessibility of our application by having one of us turn around while the other navigates around the screen. We added aria labels and changed class names as needed until both of us were able to tell exactly where in the application we were, entirely from voiceover.
+
+We also ensured that our application could be easily used via the keyboard. Finally, we screen recorded our application being used purely from the keyboard, as well as using the voiceover commands, and uploaded the video to Youtube.
+
+This video can be accessed here:
+
+https://www.youtube.com/watch?v=fnH-Ian-2Is
+
+*Note, the video and resized screen screenshots were taken prior to our implementation of multiple lists. The updated flow with these changes can be seen below, in the "final flow" section of the design doc.*
+
+After adding our accessibility and screen-resizing editions, we tackled implementing multiple lists of tasks. We began by sketching out some wireframes of how we thought our new UI should look. 
+
+Below is our first-draft of the multiple lists UI, using tabs. 
+
+List First Draft:
+
+![NoTasks](./images/screenshots/OGTabUI.jpg)
+
+We began implementing this approach, but ran into an issue with this UI. The issue being, as the number of lists grows, one of two things must occur: 
+1. The tabs get increasingly smaller and smaller (causing many list names to get cut off).
+
+2. Users are forced to scroll in order to see all their lists.
+
+We found that neither outcome was particularly user-friendly (again, validated by asking our trusty roommates), and decided to go with a slightly different UI.
+
+Final Draft Lists:
+
+![NoTasks](./images/screenshots/FinalTabUI.jpg)
+
+*Another note, when we were adding the finishing touches to our final screen, we noticed that the list manager button was not aligned with the edit and add buttons.
+We fixed this on the final screen, so our final UI looks like this:*
+
+![FinalUI](./images/screenshots/FinalUI.jpg)
+
+We swapped tabbing for a drop-down selector, in which users can toggle between lists. 
+We also added a list-manager function, which lets users delete, edit or add new lists.
+It also lets them select which list is their "default" list.
+
+The default list is created when users open their to-do list app, and before any other list is added. 
+After making another list, users can toggle their default list to another list of their choosing.
+
+
+### User Testing + Design Iteration:
+
+After showing our initial implementation of the screen re-design to one of our suitemates, we realized that we could also make the sorting filter grow in size, similarly to how the tasks grow in length (only horizontally).
+
+Below are a couple screenshots of our newly designed screen-resizing application:
+
+MotoG4
+
+![NoTasks](./images/screenshots/MotoG4.jpg)
+
+IphoneX
+
+![NoTasks](./images/screenshots/IphoneX.jpg)
+
+IPad Pro
+
+![NoTasks](./images/screenshots/IPadPro.jpg)
+
+Desktop
+
+![NoTasks](./images/screenshots/Desktop.jpg)
+
+
+### Challenges We Faced:
+One of the main challenges we faced was deciding how to format our UI for multiple lists of tasks.
+
+We really liked the idea of using tabbing to denote multiple lists, especially since that approach was likely intuitive to many users. However, we found that this strategy did not scale well for users who created many lists.
+
+
+### What We're Proud Of:
+
+Our overall design for supporting multiple lists, as well as the attention to detail with accessibility.
+
+We found this to be one of the tougher labs, but are proud of our ability to work through challenges and complete an application we are both very proud of.
+
+### Final Design Flow:
+
+
+#### In an empty list, create an item named "Buy new John Grisham book"
+Screen at the beginning of task (user opens up to-do app):
+
+User clicking on plus icon leads to next screen.
+
+![Screenshot](./images/flowlab4/s1.jpg)
+
+Screen during task:
+
+User typing in "Buy new John Grisham book" and tapping "Add Task" leads to next screen.
+
+![Screenshot](./images/flowlab4/s2.jpg)
+
+Screen after task:
+
+User is able to view task that was added on home screen of to-do app.
+
+![Screenshot](./images/flowlab4/s3.jpg)
+
+#### In a non-empty list, create an item named "Eat Lunch"
+Screen at the beginning of task (user opens up to-do app):
+
+User clicking on plus icon leads to next screen.
+
+![Screenshot](./images/flowlab4/s4.jpg)
+
+Screen during task:
+
+User typing in "Eat Lunch" and tapping "Add Task" leads to next screen.
+
+![Screenshot](./images/flowlab4/s5.jpg)
+
+Screen after task:
+
+User is able to view task that was added on home screen of to-do app.
+
+![Screenshot](./images/flowlab4/s6.jpg)
+
+#### Mark the item named "Call Mom" completed (assumes there exists an item named "Call Mom").
+Screen at the beginning of task (user opens up to-do app):
+
+User clicking on either the checkbox or the words "Call Mom" leads to next screen.
+
+![Screenshot](./images/flowlab4/s7.jpg)
+
+Screen after task:
+
+User is able to view that the "Call Mom" task was completed.
+
+![Screenshot](./images/flowlab4/s8.jpg)
+
+#### Rename the item "Text John" to "Text John about bank statements" (assumes there exists an item named "Text John").
+Screen at the beginning of task (user opens up to-do app):
+
+User clicks on the edit button to move to next screen.
+
+![Screenshot](./images/flowlab4/s9.jpg)
+
+Screen before renaming:
+
+User sees "Text John" task has become a text box that is editable, and clicks on the box to begin editing on next screen.
+
+![Screenshot](./images/flowlab4/s10.jpg)
+
+Screen after renaming:
+
+User has changed "Text John" to "Text John about bank statements", and clicks done to move to next screen.
+
+![Screenshot](./images/flowlab4/s11.jpg)
+
+Screen after task:
+
+User's task has saved to "Text John about bank statements"
+
+![Screenshot](./images/flowlab4/s12.jpg)
+
+#### Show only uncompleted items.
+Screen at the beginning of task (user opens up to-do app):
+
+User clicks on "Uncompleted" widget at the bottom of the app to get to the next screen.
+
+![Screenshot](./images/flowlab4/s13.jpg)
+
+Screen after task:
+
+User sees only uncompleted tasks.
+
+![Screenshot](./images/flowlab4/s14.jpg)
+
+#### Delete all completed items.
+Screen at the beginning of task (user opens up to-do app):
+
+User clicks edit to move to next screen.
+
+![Screenshot](./images/flowlab4/s15.jpg)
+
+Screen during task:
+
+User presses on "delete all completed" button to move to next screen.
+
+![Screenshot](./images/flowlab4/s16.jpg)
+
+Screen during task:
+
+User is then prompted to confirm their selection (to delete all tasks) to move to the next screen:
+
+![Screenshot](./images/flowlab4/s17.jpg)
+
+Screen during task:
+
+Completed tasks have been deleted, user presses "done" button to move to the next screen:
+
+![Screenshot](./images/flowlab4/s18.jpg)
+
+Screen after task:
+
+User's to-do list has been updated by deleting all completed tasks.
+
+![Screenshot](./images/flowlab4/s19.jpg)
+
+#### Switch current list.
+Screen at the beginning of task (user opens up to-do app):
+
+User clicks on the list drop down to get to next screen.
+
+![Screenshot](./images/flowlab4/s20.jpg)
+
+Screen during task:
+
+User selects "groceries" to move to next screen.
+
+![Screenshot](./images/flowlab4/s21.jpg)
+
+Screen after task:
+
+User is now in the new groceries list:
+
+![Screenshot](./images/flowlab4/s22.jpg)
+
+Other:
+
+User's to-do list task manager (to edit names, delete lists, etc) can be viewed by selected the task manager icon on the right, second from the top.
+
+![Screenshot](./images/flowlab4/s23.jpg)
+
+
+## Design Overview (Lab 3)
+
+To begin lab 3, we began by drafting some wireframes for our new UI with sorting functionality added. We wanted to maintain the simple design our previous iterations had, but also make the new functionality of sorting clear to use. We decided to do this by adding a sort button to the homepage next to the edit icon, as well as a priority level prompt when a user goes to add a task. Our wireframes for these two additions are below:
+
+UI for Sorting
+
+![NoTasks](./images/diagrams/SortUI.jpg)
+
+UI for Adding
+
+![NoTasksEdit](./images/diagrams/AddUI.jpg)
+
+We then decided to make our own Firebase project and Firestore application. We called it CS124Lab3, and began by verifying that after adding the import statements and parsing our code to use cloud storage, we saw the changes on the server on Firestore. 
+
+### User Testing + Design Iteration:
+For our design iteration, one of the first things we did after implementing our new sort button was try it out on a couple friends. One suggested changing the "edit" button to an icon, since both the sort and add buttons had icons but the edit button was text. 
+
+Another thing we noticed is that the priority indicators (for us, the exclamation points) didn't stand out enough, which resulted in some confusion during user testing. In the following iteration we changed the font of the exclamation points to red, which helped them stand out from the actual task name. 
+
+Now, our homepage changed to the following layout: 
+
+![NoTasksEdit](./images/screenshots/NewestHP.jpg)
+
+Another thing we noticed in user testing is that users still had trouble connecting the priority levels (low, medium, high) to the exclamation points they see on the home screen next. To make this clearer, we added exclamation points to the button themselves, so that users made the connection easier. 
+
+After re-showing the changes to our friends/user test subjects, we verified that this helped clear up the confusion. 
+
+Below is this small change:
+
+Pre-Addition of Exclamations            |  Post-addition of Exclamations
+:-------------------------:|:-------------------------:
+![NoTasks](./images/screenshots/AddTaskNewUI.jpg) |  ![NoTasksEdit](./images/screenshots/HomeScreenEx.jpg)
+
+For changing the priority, we wanted to make the UI as easy as possible to use, so we decided on a drop-down that appears in edit mode (over where the priority would go in regular mode) which can be toggled only in edit mode. 
+
+This way, users wouldn't accidentally be able to change their priority level in the default list mode, but could do so with ease as soon as they enter the edit mode. 
+
+Below is a walk-through of how this looks, changing the priority of CS124 Lab 3 to the highest priority, and dropping the other two to second-level priority. 
+
+Pre-changing priority           |  During Changing Priority |  During Changing Priority  | Done changing priority
+:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
+![NoTasks](./images/screenshots/sc1.jpg) |  ![NoTasksEdit](./images/screenshots/sc2.jpg) |  ![NoTasksEdit](./images/screenshots/sc3.jpg) |  ![NoTasksEdit](./images/screenshots/sc4.jpg)
+
+Finally, after one final pass of user testing, we found that users couldn't currently view what their tasks were being sorted by, so we rearranged the top tab to make the sorting button a drop-down. We also hid the edit and add buttons in edit mode. In addition, we added a rewind / go-back button, which allowed users to leave edit mode and revert any changes they made. 
+
+Here are those changes:
+
+New Homepage UI:
+
+![NoTasks](./images/screenshots/NewestHP.jpg)
+
+Priority Level Dropdown:
+
+![NoTasks](./images/screenshots/PriorityDD.jpg)
+
+New edit mode:
+
+![NoTasks](./images/screenshots/NewestEditMode.jpg)
+
+Loading / Error mode:
+
+![NoTasks](./images/screenshots/LoadMode.jpg)
+
+Note that for us to add this loading mode we did add a new mode to our SignedInApp.js, as well as pass in a few values as props. 
+
+Finally, one small comment is that we realized sorting zero or 1 tasks isn't logical, so we disabled the sorting dropdown when there are less than 2 tasks.
+
+![NoTasks](./images/screenshots/SortDisabled.jpg)
+
+### Challenges We Faced:
+
+We had a lot of trouble deciding how we wanted to implement the sort functionality without cluttering up the minimalist feel of our lab2 UI. We considered another switcher type button similar to what we used for the all/uncompleted tasks, but felt that including all three sorting options would look to cluttered. We also thought about shifting down the row of buttons (edit, sort, and add) below "To-do", but decided against this because we felt it took up too much screen real-estate. 
+
+We also had a couple small issues with formatting when adding the new sort button, since adding in a new component influenced the other two buttons and our title in the TopTab.js file. 
+
+### What We're Proud Of:
+
+We are most proud of our iterative process, which involved numerous redesigns of our previous lab. For instance, we found that adding a drop-down for priority levels made it so that the edit button had no room, so we rearranged our top toolbar so that the edit and add buttons are on the top right, while the priority level dropdown now lives in the top left. 
+
+We also went through user testing for our new additions, which was useful for a couple of reasons. One, one of our friends pointed out that it was pointless to have the edit and add buttons greyed out but not able to be used, so they suggested removing them entirely. This allowed us to keep the priority level drop-down in-place, while moving the save button to the top right, and adding the rewind button. 
+
+In addition, we have a loading and error mode. In the loading mode, and loading gif appears to indicate the page loading. If the page is unable to be loaded, users receive an error pop-up.
+
+We also went back and implemented all of the "would be nice's" from the lab 2 rubric, barring strikethrough for completed tasks. 
+
+Overall, we tried our best to design the application to be as simple as possible while implementing many options for users.
+
+### Final Design Flow
+Very similar to lab 2, except we now rearranged the ordering of a few of the buttons (moving the priority level drop-down to the left, and the edit and add on the top-right, as well as the save button in edit mode). These changes have been documented above, but the overall functionality for adding / deleting tasks remains the same. We also made a small change to the delete button in edit mode to the right of each task, which now uses a unicode trash can.
+
+Any changes that we made are documented under the "User Testing + Design Iteration."
+
 ## Design Overview (Lab 2)
 
 To begin lab 2, we started by deciding on our component hierarchy.
@@ -6,7 +461,7 @@ Our first iteration (pictured below) included having edit/default mode be the pa
 
 ![React Design](images/diagrams/FirstDraft.jpeg)
 
-We then redesigned with an App parent component with a state to hold edit mode vs default mode, with children:  AddPopUp, TopTab, TaskList, and Bottom Tab. From there, TopTab would take in whether there are any tasks and the app mode, and TaskList with have children Tasks (who also will take in edit vs default mode). Additionally, the BottomTab would take in edit mode vs default mode.
+We then redesigned with an SignedInApp parent component with a state to hold edit mode vs default mode, with children:  AddTaskPopUp, TopTab, TaskList, and Bottom Tab. From there, TopTab would take in whether there are any tasks and the app mode, and TaskList with have children Tasks (who also will take in edit vs default mode). Additionally, the BottomTab would take in edit mode vs default mode.
 
 The component hierarchy we created is displayed below:
 
@@ -18,7 +473,7 @@ During implementation, we realized we were missing a few details and had overloo
 
 ![React Design](images/diagrams/ReactDesign.jpeg)
 
-Our final application utilizes the hierarchy above. The index component just bolds the initial data and passes that as a prop to the InMemoryApp component. The InMemoryApp component has the state data, initialized from initialData. It passes this data into the main App. The main app then maintains an appMode state (default, addMode, editMode) and a tasksShowing state (all, uncompleted) and has functions to create, modify, and delete tasks. It passes combinations of these functions, states, and the overall app data to each of the child components, as detailed in the diagram.
+Our final application utilizes the hierarchy above. The index component just bolds the initial data and passes that as a prop to the InMemoryApp component. The InMemoryApp component has the state data, initialized from initialData. It passes this data into the main SignedInApp. The main app then maintains an appMode state (default, addMode, editMode) and a tasksShowing state (all, uncompleted) and has functions to create, modify, and delete tasks. It passes combinations of these functions, states, and the overall app data to each of the child components, as detailed in the diagram.
 
 ### User Testing + Design Iteration:
 Once again, we shamelessly utilized our roommates for user testing. First, after implementing our static implementation, we showed consecutive screens to the sample users. Then, after implementing the entire application, we did a final user test. Here was the feedback we received from our users (roommates):
@@ -50,7 +505,7 @@ Here is what the screen looks like for users who have yet to add text for the ta
 
 The add task button is disabled and greyed out, so users are unable to add blank tasks anymore.
 
-One final note: After a suggestion from Prof. Rhodes, we moved the add, change, and delete functions from App.js (where they were previously stored) to the inMemoryApp.js component. 
+One final note: After a suggestion from Prof. Rhodes, we moved the add, change, and delete functions from SignedInApp.js (where they were previously stored) to the inMemoryApp.js component. 
 
 ### Challenges We Faced:
 
