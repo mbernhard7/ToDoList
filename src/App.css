@@ -1,0 +1,10 @@
+.App {
+    height: 640px;
+    width: 360px;
+    border: solid black;
+    margin: 0;
+}
+
+button {
+    border-radius: 15px;
+}
