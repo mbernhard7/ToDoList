@@ -1,5 +1,5 @@
 import './TopTab.css'
-import {AppModes} from "./SignedInApp";
+import {AppModes} from "./App";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faEdit, faPlus, faSave, faUndo} from '@fortawesome/free-solid-svg-icons'
 
@@ -11,7 +11,7 @@ function TopTab(props) {
                 <select
                     id='sortParameterSelector'
                     value={props.sortParameter}
-                    disabled={props.dataLength <= 1}
+                    disabled={props.dataLength <= 1 || props.appMode === AppModes.LOADING_MODE}
                     onChange={(e) => props.setSortParameter(e.target.value)}
                 >
                     <option aria-label="Increasing by taskname" value="taskName asc">Name &#x2B06;</option>
@@ -25,7 +25,7 @@ function TopTab(props) {
                 </select>
             </div>
             <div className='topTabThird'>
-                <h1>To-Do</h1>
+                <h1 id="title">To-Do</h1>
             </div>
             <div className='topTabThird last'>
                 {props.appMode === AppModes.EDIT_MODE ?
@@ -65,8 +65,9 @@ function TopTab(props) {
                             id="addItem"
                             onClick={() => {
                                 props.setAppMode(AppModes.ADD_TASK_MODE);
+                                console.log(props.appMode)
                             }}
-                            disabled={props.appMode !== AppModes.DEFAULT_MODE || props.lists.length === 0}
+                            disabled={props.appMode !== AppModes.DEFAULT_MODE}
                         >
                             <FontAwesomeIcon icon={faPlus}/>
                         </button>

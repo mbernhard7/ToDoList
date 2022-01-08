@@ -1,5 +1,5 @@
 import './BottomTab.css'
-import {AppModes, TasksShowing} from "./SignedInApp";
+import {AppModes, TasksShowing} from "./App";
 import {useState} from "react";
 
 function BottomTab(props) {
@@ -82,10 +82,6 @@ function BottomTab(props) {
     return (
         <div id="footer">
             {props.appMode === AppModes.EDIT_MODE ? deleteContainer : switcherContainer}
-            <div id="signOutRow">
-                <span>{props.user.email}</span>
-                <button id='signOutButton' onClick={() => props.auth.signOut()}>Sign Out</button>
-            </div>
         </div>
     )
 }
