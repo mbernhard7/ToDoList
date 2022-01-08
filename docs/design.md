@@ -1,3 +1,96 @@
+## Design Overview (Lab 3)
+
+To begin lab 3, we began by drafting some wireframes for our new UI with sorting functionality added. We wanted to maintain the simple design our previous iterations had, but also make the new functionality of sorting clear to use. We decided to do this by adding a sort button to the homepage next to the edit icon, as well as a priority level prompt when a user goes to add a task. Our wireframes for these two additions are below:
+
+
+UI for Sorting
+
+![NoTasks](./images/diagrams/SortUI.jpg)
+
+UI for Adding
+
+![NoTasksEdit](./images/diagrams/AddUI.jpg)
+
+We then decided to make our own Firebase project and Firestore application. We called it CS124Lab3, and began by verifying that after adding the import statements and parsing our code to use cloud storage, we saw the changes on the server on Firestore. 
+
+### User Testing + Design Iteration:
+For our design iteration, one of the first things we did after implementing our new sort button was try it out on a couple friends. One suggested changing the "edit" button to an icon, since both the sort and add buttons had icons but the edit button was text. 
+
+Another thing we noticed is that the priority indicators (for us, the exclamation points) didn't stand out enough, which resulted in some confusion during user testing. In the following iteration we changed the font of the exclamation points to red, which helped them stand out from the actual task name. 
+
+Now, our homepage changed to the following layout: 
+
+![NoTasksEdit](./images/screenshots/NewestHP.jpg)
+
+Another thing we noticed in user testing is that users still had trouble connecting the priority levels (low, medium, high) to the exclamation points they see on the home screen next. To make this clearer, we added exclamation points to the button themselves, so that users made the connection easier. 
+
+After re-showing the changes to our friends/user test subjects, we verified that this helped clear up the confusion. 
+
+Below is this small change:
+
+Pre-Addition of Exclamations            |  Post-addition of Exclamations
+:-------------------------:|:-------------------------:
+![NoTasks](./images/screenshots/AddTaskNewUI.jpg) |  ![NoTasksEdit](./images/screenshots/HomeScreenEx.jpg)
+
+For changing the priority, we wanted to make the UI as easy as possible to use, so we decided on a drop-down that appears in edit mode (over where the priority would go in regular mode) which can be toggled only in edit mode. 
+
+This way, users wouldn't accidentally be able to change their priority level in the default list mode, but could do so with ease as soon as they enter the edit mode. 
+
+Below is a walk-through of how this looks, changing the priority of CS124 Lab 3 to the highest priority, and dropping the other two to second-level priority. 
+
+Pre-changing priority           |  During Changing Priority |  During Changing Priority  | Done changing priority
+:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
+![NoTasks](./images/screenshots/sc1.jpg) |  ![NoTasksEdit](./images/screenshots/sc2.jpg) |  ![NoTasksEdit](./images/screenshots/sc3.jpg) |  ![NoTasksEdit](./images/screenshots/sc4.jpg)
+
+Finally, after one final pass of user testing, we found that users couldn't currently view what their tasks were being sorted by, so we rearranged the top tab to make the sorting button a drop-down. We also hid the edit and add buttons in edit mode. In addition, we added a rewind / go-back button, which allowed users to leave edit mode and revert any changes they made. 
+
+Here are those changes:
+
+New Homepage UI:
+
+![NoTasks](./images/screenshots/NewestHP.jpg)
+
+Priority Level Dropdown:
+
+![NoTasks](./images/screenshots/PriorityDD.jpg)
+
+New edit mode:
+
+![NoTasks](./images/screenshots/NewestEditMode.jpg)
+
+Loading / Error mode:
+
+![NoTasks](./images/screenshots/LoadMode.jpg)
+
+Note that for us to add this loading mode we did add a new mode to our App.js, as well as pass in a few values as props. 
+
+Finally, one small comment is that we realized sorting zero or 1 tasks isn't logical, so we disabled the sorting dropdown when there are less than 2 tasks.
+
+![NoTasks](./images/screenshots/SortDisabled.jpg)
+
+### Challenges We Faced:
+
+We had a lot of trouble deciding how we wanted to implement the sort functionality without cluttering up the minimalist feel of our lab2 UI. We considered another switcher type button similar to what we used for the all/uncompleted tasks, but felt that including all three sorting options would look to cluttered. We also thought about shifting down the row of buttons (edit, sort, and add) below "To-do", but decided against this because we felt it took up too much screen real-estate. 
+
+We also had a couple small issues with formatting when adding the new sort button, since adding in a new component influenced the other two buttons and our title in the TopTab.js file. 
+
+### What We're Proud Of:
+
+We are most proud of our iterative process, which involved numerous redesigns of our previous lab. For instance, we found that adding a drop-down for priority levels made it so that the edit button had no room, so we rearranged our top toolbar so that the edit and add buttons are on the top right, while the priority level dropdown now lives in the top left. 
+
+We also went through user testing for our new additions, which was useful for a couple of reasons. One, one of our friends pointed out that it was pointless to have the edit and add buttons greyed out but not able to be used, so they suggested removing them entirely. This allowed us to keep the priority level drop-down in-place, while moving the save button to the top right, and adding the rewind button. 
+
+In addition, we have a loading and error mode. In the loading mode, and loading gif appears to indicate the page loading. If the page is unable to be loaded, users receive an error pop-up.
+
+We also went back and implemented all of the "would be nice's" from the lab 2 rubric, barring strikethrough for completed tasks. 
+
+Overall, we tried our best to design the application to be as simple as possible while implementing many options for users.
+
+### Final Design Flow
+Very similar to lab 2, except we now rearranged the ordering of a few of the buttons (moving the priority level drop-down to the left, and the edit and add on the top-right, as well as the save button in edit mode). These changes have been documented above, but the overall functionality for adding / deleting tasks remains the same. We also made a small change to the delete button in edit mode to the right of each task, which now uses a unicode trash can.
+
+Any changes that we made are documented under the "User Testing + Design Iteration."
+
 ## Design Overview (Lab 2)
 
 To begin lab 2, we started by deciding on our component hierarchy.

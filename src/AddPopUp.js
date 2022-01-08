@@ -4,15 +4,18 @@ import {useState} from "react";
 
 function AddPopUp(props) {
     const [taskName, setTaskName] = useState('');
+    const [priorityLevel, setPriorityLevel] = useState(1);
 
-    return (
-        <div id="createPopupBackground" className={props.appMode === AppModes.ADD_MODE ? "" : "hidden"}>
-            <div id="createPopup">
+    return <>
+        {props.appMode === AppModes.ADD_MODE &&
+        <div id="createPopUpBackground">
+            <div id="createPopUp">
                 <div id="createHeader">
                     <button
                         id="closeCreate"
                         onClick={() => {
                             setTaskName('');
+                            setPriorityLevel(1);
                             props.setAppMode(AppModes.DEFAULT_MODE)
                         }}
                     >X
@@ -20,26 +23,56 @@ function AddPopUp(props) {
                     <h2> New Task </h2>
                     <button>X</button>
                 </div>
-                <form id="createForm">
+                <form id="createForm" onSubmit={(e) => {
+                    e.preventDefault();
+                    props.onItemAdded(taskName, priorityLevel);
+                    setTaskName('');
+                    setPriorityLevel(1);
+                    props.setAppMode(AppModes.DEFAULT_MODE);
+                }}>
                     <input
                         id="taskName"
                         type="text"
                         value={taskName}
-                        onChange={(e) => setTaskName(e.target.value)}/>
-                    <button id="addTask"
+                        onChange={(e) => setTaskName(e.target.value)}
+                        autoFocus
+                    />
+                    <div id="prioritySelector">
+                        <button
+                            className="priorityButton"
                             type="button"
+                            id="low"
+                            disabled={priorityLevel === 1}
+                            onClick={() => setPriorityLevel(1)}
+                        >Low!
+                        </button>
+                        <button
+                            className="priorityButton"
+                            type="button"
+                            id="medium"
+                            disabled={priorityLevel === 2}
+                            onClick={() => setPriorityLevel(2)}
+                        >Medium!!
+                        </button>
+                        <button
+                            className="priorityButton"
+                            type="button"
+                            id="high"
+                            disabled={priorityLevel === 3}
+                            onClick={() => setPriorityLevel(3)}
+                        >High!!!
+                        </button>
+                    </div>
+                    <button id="addTask"
+                            type="submit"
                             disabled={taskName.length === 0}
-                            onClick={() => {
-                                props.onItemAdded(taskName);
-                                setTaskName('');
-                                props.setAppMode(AppModes.DEFAULT_MODE);
-                            }}
                     >Add Task
                     </button>
                 </form>
             </div>
         </div>
-    )
+        }
+    </>
 }
 
 export default AddPopUp;

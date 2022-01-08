@@ -1,14 +1,15 @@
 #footer {
     display: flex;
-
-    height: 12.5%;
-    border-top: solid thin black;
+    height: 75px;
+    box-sizing: border-box;
     align-items: center;
+    border-top: solid thin black;
     justify-content: space-evenly;
 }
 
 #deleteButtonContainer {
     width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -16,8 +17,9 @@
 
 #footer > div > button {
     width: 140px;
-    height: 50px;
-    font-size: 18px;
+    height: 40px;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 #deleteCompleted {
@@ -45,13 +47,13 @@
 }
 
 #switcherContainer {
-    width: 75%;
-    height: 60%;
-    border: solid thin black;
-    border-radius: 15px;
-    background: white;
+    width: 270px;
+    height: 40px;
     padding: 0;
     display: flex;
+    background: white;
+    border-radius: 15px;
+    border: solid thin black;
     justify-content: space-between;
 }
 
