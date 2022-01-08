@@ -3,18 +3,19 @@ import './ErrorPopUp.css'
 function ErrorPopUp(props) {
     return <>
         {props.error &&
-        <div id="errorPopUpBackground">
-            <div id="errorPopUp">
-                <div id="errorHeader">
+        <div id="popUpBackground" className="errorPopUp">
+            <div id="popUp">
+                <div id="popUpHeader">
                     <button
-                        id="closeError"
+                        id="closePopUp"
                         onClick={() => window.location.reload(true)}
                     >X
                     </button>
-                    <h2> Error </h2>
+                    <h2 id="errorTitle">ERROR</h2>
                     <button>X</button>
                 </div>
-                <span id="errorMessage">{JSON.stringify(props.error)}</span>
+                <span
+                    id="errorMessage">Type: {JSON.stringify(props.error.name)}<br/>Message: {JSON.stringify(props.error.code)}</span>
             </div>
         </div>
         }

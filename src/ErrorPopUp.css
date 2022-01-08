@@ -1,54 +1,5 @@
-#errorPopUpBackground {
-    background-color: rgba(211, 211, 211, .9);
-    height: 640px;
-    width: 360px;
-    z-index: 9;
-    position: fixed;
-    top: 6px;
-    left: 6px;
-    display: flex;
-    align-items: center;
-}
-
-#errorPopUp {
-    margin: auto;
-    width: 75%;
-    background: white;
-    opacity: 1;
-    border: solid thin black;
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-}
-
-#errorHeader {
-    display: flex;
-    width: 100%;
-    border-bottom: thin solid black;
-    align-items: center;
-    justify-content: space-between;
-}
-
-#errorHeader > h2 {
-    margin: 0 auto;
+#errorTitle {
     color: red;
-}
-
-#errorHeader > button {
-    border-radius: 50px;
-    height: 40px;
-    width: 40px;
-    background: black;
-    color: white;
-    margin: 5px;
-    visibility: hidden;
-    pointer-events: none;
-}
-
-#closeError {
-    visibility: visible !important;
-    pointer-events: auto !important;
-    font-size: 20px;
 }
 
 #errorMessage {
@@ -56,4 +7,8 @@
     color: red;
     font-weight: bold;
     text-align: center;
+}
+
+.errorPopUp {
+    z-index: 11 !important;
 }
