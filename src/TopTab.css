@@ -1,0 +1,30 @@
+#topTab {
+    display: flex;
+    height: 12.5%;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: solid thin black;
+}
+
+#topTab > h1 {
+    font-size: 50px;
+}
+
+#topTab > button {
+    height: 55%;
+    width: 20%;
+    font-size: 25px;
+}
+
+#saveEdits {
+    background: #aaf683;
+}
+
+#addItem {
+    background: #aaf683;
+    font-size: 30px !important;
+}
+
+#addItem:disabled {
+    background: lightgray !important;
+}

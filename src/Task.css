@@ -1,0 +1,43 @@
+.listItem {
+    height: 10%;
+    padding: 10px;
+    list-style-type: none;
+    border-bottom: dashed thin gray;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+}
+
+input.checkbox {
+    transform: scale(2);
+    margin: 10px 10px 10px 15px;
+}
+
+.listItem input {
+    vertical-align: middle;
+}
+
+.listItem label span {
+    vertical-align: middle;
+}
+
+.listItem.editInProgress {
+    justify-content: space-between;
+}
+
+/* Text input area for renaming item */
+.editInput {
+    width: 90%;
+    height: 70%;
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+}
+
+.deleteButton {
+    height: 30px;
+    width: 20%;
+    background: #ff9b85;
+    margin: 0;
+    padding: 0;
+}
