@@ -1,18 +1,18 @@
 import './AddTaskPopUp.css'
-import {AppModes} from "./App";
+import './PopUp.css'
+import {AppModes} from "./SignedInApp";
 import {useState} from "react";
 
 function AddTaskPopUp(props) {
     const [taskName, setTaskName] = useState('');
     const [priorityLevel, setPriorityLevel] = useState(1);
 
-    return <>
-        {props.appMode === AppModes.ADD_TASK_MODE &&
-        <div id="createPopUpBackground">
-            <div id="createPopUp">
-                <div id="createHeader">
+    return (
+        <div id="popUpBackground">
+            <div id="popUp">
+                <div id="popUpHeader">
                     <button
-                        id="closeCreate"
+                        id="closePopUp"
                         onClick={() => {
                             setTaskName('');
                             setPriorityLevel(1);
@@ -74,8 +74,7 @@ function AddTaskPopUp(props) {
                 </form>
             </div>
         </div>
-        }
-    </>
+    )
 }
 
 export default AddTaskPopUp;

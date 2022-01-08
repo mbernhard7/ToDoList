@@ -18,10 +18,10 @@
     width: 85%;
 }
 
-#editLists {
-    height: 30px;
-    width: 40%;
-    max-width: 100px;
-    margin-left: 50%;
+#shareLists {
     background-color: cornflowerblue;
+}
+
+#editLists {
+    background-color: #aaf683;
 }

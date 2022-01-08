@@ -1,168 +1,19 @@
-#listPopUpBackground {
-    background-color: rgba(211, 211, 211, .9);
-    height: 100%;
+.listNameCell {
     width: 100%;
-    z-index: 9;
-    position: fixed;
-    display: flex;
-    align-items: center;
+    padding-left: 15px;
+    overflow: hidden;
 }
 
-#listPopUp {
-    margin: auto;
-    width: 75%;
-    max-width: 550px;
-    min-width: 270px;
-    min-height: 200px;
-    background: white;
-    opacity: 1;
-    border: solid thin black;
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-
-}
-
-#listHeader {
-    border-radius: 15px 15px 0 0;
-    background: darkgrey;
-    display: flex;
-    width: 100%;
-    border-bottom: solid black;
-    align-items: center;
-    justify-content: space-between;
-}
-
-#listHeader > h2 {
-    margin: 0 auto;
-}
-
-/* Set visibility of all buttons in createHeader to hidden, then override in the closeCreate button.
-This is because we created a dummy button that is the same size as the close button in order to allow us
-to center the title and put the close button on the left */
-
-#listHeader > button {
-    border-radius: 50px;
-    height: 30px;
-    width: 30px;
-    background: black;
-    color: white;
-    margin: 5px;
-    visibility: hidden;
-    pointer-events: none;
-}
-
-#closeList {
-    visibility: visible !important;
-    pointer-events: auto !important;
-    font-size: 20px;
-}
-
-#closeList:disabled {
-    background-color: lightgrey !important;
-}
-
-#listsContainer {
-    overflow: scroll;
-    min-height: 125px;
-    height: 100%;
-    max-height: 50vh;
-}
-
-#lists {
-    display: table;
-    width: 100%;
-    height: 100%;
-    table-layout: fixed;
-
-}
-
-thead, tbody {
-    width: 100%;
-}
-
-.default {
-    width: 10%;
-    padding: 0;
-    text-align: center;
-}
-
-input.defaultRadio {
-    transform: scale(1.5);
-}
-
-.name {
-    flex: 2;
-    padding: 0 15px 0 10px;
-}
-
-.listName {
-    width: 100%;
+.listNameInput {
+    width: 90%;
     font-size: 18px;
-    height: 35px;
-    margin: 10px 0;
-}
-
-th {
-    font-size: 14px;
-    font-weight: bold;
-}
-
-tr {
-    width: 100%;
-    vertical-align: middle;
     height: 30px;
-    align-items: center;
-    justify-content: center;
 }
 
-td {
-    align-items: center;
-    justify-content: center;
-    margin: auto;
-}
-
-#createInputWrapper {
-    margin-left: 10%;
-    padding-left: 10px;
-    padding-right: 15px;
-    flex: 2;
-}
-
-#createListInput {
-    width: 100%;
-    font-size: 18px;
-    height: 35px;
-}
-
-#createNewList {
-    height: 40px;
-    width: 40px;
-    background: #aaf683;
-}
-#createNewList:disabled {
-    background: lightgrey !important;
-}
-
-#createListWrapper {
-    width: 52px;
+.sharedCell {
+    width: 50px;
     text-align: center;
-}
-.cancelDelete {
-    background: darkgrey;
-}
-
-.deleteConfirm {
-    background-color: #aaf683;
-}
-
-.confirmCell {
-    text-align: center;
-    height: 62px;
-}
-
-.confirmCell > button {
-    margin: 0 5px;
+    font-size: 24px;
 }
 
 .deleteCell {
@@ -170,32 +21,8 @@ td {
     text-align: center;
 }
 
-.hidden {
-    visibility: hidden;
-}
-
-#createListRow {
-    background: darkgrey;
-    width: 100%;
-    height: 40px;
-    padding: 10px 0;
-    display: flex;
-    flex-direction: row;
-    border-top: solid black;
-    border-radius: 0 0 15px 15px;
-}
-
-.deleteButton:disabled {
-    background-color: lightgrey;
-}
-
 .deleteListButton {
-    height: 40px;
     width: 40px;
     background: #ee6055;
     font-size: 24px;
-    margin: 0;
-    padding: 0;
-    justify-content: center;
-    align-items: center;
 }

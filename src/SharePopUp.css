@@ -1,0 +1,33 @@
+.sharedEmailCell {
+    width: 100%;
+    padding-left: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 18px;
+}
+
+.manageCell {
+    width: 80px;
+    text-align: center;
+}
+
+.manageButton, .cancelManageButton {
+    width: 40px;
+    font-size: 24px;
+}
+
+.makeOwnerButton, .removeUserButton {
+    width: 40%;
+    margin: auto 5%;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.removeUserButton {
+    background: #ee6055;
+}
+
+.makeOwnerButton {
+    background: cornflowerblue;
+}
+
