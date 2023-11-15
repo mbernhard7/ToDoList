@@ -3,7 +3,7 @@ import {
     useCreateUserWithEmailAndPassword,
     useSignInWithEmailAndPassword
 } from 'react-firebase-hooks/auth';
-import firebase from "firebase/compat";
+import firebase from "firebase/compat/app";
 import Lists from "./Lists";
 import SignUpSignIn from "./SignUpSignIn";
 import VerifyEmail from "./VerifyEmail";
