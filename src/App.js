@@ -4,6 +4,7 @@ import {
     useSignInWithEmailAndPassword
 } from 'react-firebase-hooks/auth';
 import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
 import Lists from "./Lists";
 import SignUpSignIn from "./SignUpSignIn";
 import VerifyEmail from "./VerifyEmail";

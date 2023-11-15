@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
 import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
 import firebase from "firebase/compat/app";
+import "firebase/compat/firestore";
 import SignedInApp from "./SignedInApp";
 import {useCollection} from "react-firebase-hooks/firestore";
 import ErrorPopUp from "./ErrorPopUp";
